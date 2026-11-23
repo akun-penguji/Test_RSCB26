@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptCatatanPerkembanganKeperawatan" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="550e8400-e29b-41d4-a716-446655440000">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="lokal"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kabupatenrs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select cpk.*, r.no_rkm_medis, p.nm_pasien, pt1.nama as nm_pj_katim, pt2.nama as nm_pj_serah_terima from catatan_perkembangan_keperawatan cpk inner join reg_periksa r on cpk.no_rawat=r.no_rawat inner join pasien p on r.no_rkm_medis=p.no_rkm_medis left join petugas pt1 on cpk.nip_pj=pt1.nip left join petugas pt2 on cpk.nip_pj_serah=pt2.nip where cpk.no_rawat=? and cpk.tanggal=? order by cpk.shift]]>
+	</queryString>
+	<field name="no_rawat" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_rawat"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_rawat"/>
+	</field>
+	<field name="no_rkm_medis" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="no_rkm_medis"/>
+		<property name="com.jaspersoft.studio.field.label" value="no_rkm_medis"/>
+	</field>
+	<field name="nm_pasien" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_pasien"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_pasien"/>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="tanggal"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggal"/>
+	</field>
+	<field name="shift" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="shift"/>
+		<property name="com.jaspersoft.studio.field.label" value="shift"/>
+	</field>
+	<field name="subjektif" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="subjektif"/>
+		<property name="com.jaspersoft.studio.field.label" value="subjektif"/>
+	</field>
+	<field name="sesak" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sesak"/>
+		<property name="com.jaspersoft.studio.field.label" value="sesak"/>
+	</field>
+	<field name="rr" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="rr"/>
+		<property name="com.jaspersoft.studio.field.label" value="rr"/>
+	</field>
+	<field name="o2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="o2"/>
+		<property name="com.jaspersoft.studio.field.label" value="o2"/>
+	</field>
+	<field name="spo2" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="spo2"/>
+		<property name="com.jaspersoft.studio.field.label" value="spo2"/>
+	</field>
+	<field name="suara_napas" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="suara_napas"/>
+		<property name="com.jaspersoft.studio.field.label" value="suara_napas"/>
+	</field>
+	<field name="sekret" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sekret"/>
+		<property name="com.jaspersoft.studio.field.label" value="sekret"/>
+	</field>
+	<field name="perfusi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="perfusi"/>
+		<property name="com.jaspersoft.studio.field.label" value="perfusi"/>
+	</field>
+	<field name="nadi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nadi"/>
+		<property name="com.jaspersoft.studio.field.label" value="nadi"/>
+	</field>
+	<field name="td" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="td"/>
+		<property name="com.jaspersoft.studio.field.label" value="td"/>
+	</field>
+	<field name="suhu" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="suhu"/>
+		<property name="com.jaspersoft.studio.field.label" value="suhu"/>
+	</field>
+	<field name="hemiparase" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="hemiparase"/>
+		<property name="com.jaspersoft.studio.field.label" value="hemiparase"/>
+	</field>
+	<field name="paraparese" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="paraparese"/>
+		<property name="com.jaspersoft.studio.field.label" value="paraparese"/>
+	</field>
+	<field name="kateter_kondom" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kateter_kondom"/>
+		<property name="com.jaspersoft.studio.field.label" value="kateter_kondom"/>
+	</field>
+	<field name="prod_urine" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="prod_urine"/>
+		<property name="com.jaspersoft.studio.field.label" value="prod_urine"/>
+	</field>
+	<field name="warna_urine" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="warna_urine"/>
+		<property name="com.jaspersoft.studio.field.label" value="warna_urine"/>
+	</field>
+	<field name="makan_porsi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="makan_porsi"/>
+		<property name="com.jaspersoft.studio.field.label" value="makan_porsi"/>
+	</field>
+	<field name="minum" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="minum"/>
+		<property name="com.jaspersoft.studio.field.label" value="minum"/>
+	</field>
+	<field name="sonde" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="sonde"/>
+		<property name="com.jaspersoft.studio.field.label" value="sonde"/>
+	</field>
+	<field name="muntah" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="muntah"/>
+		<property name="com.jaspersoft.studio.field.label" value="muntah"/>
+	</field>
+	<field name="cms" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cms"/>
+		<property name="com.jaspersoft.studio.field.label" value="cms"/>
+	</field>
+	<field name="perdarahan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="perdarahan"/>
+		<property name="com.jaspersoft.studio.field.label" value="perdarahan"/>
+	</field>
+	<field name="volume_perdarahan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="volume_perdarahan"/>
+		<property name="com.jaspersoft.studio.field.label" value="volume_perdarahan"/>
+	</field>
+	<field name="infus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="infus"/>
+		<property name="com.jaspersoft.studio.field.label" value="infus"/>
+	</field>
+	<field name="gcs" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="gcs"/>
+		<property name="com.jaspersoft.studio.field.label" value="gcs"/>
+	</field>
+	<field name="pupil" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pupil"/>
+		<property name="com.jaspersoft.studio.field.label" value="pupil"/>
+	</field>
+	<field name="kesadaran_obj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kesadaran_obj"/>
+		<property name="com.jaspersoft.studio.field.label" value="kesadaran_obj"/>
+	</field>
+	<field name="skala_nyeri" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="skala_nyeri"/>
+		<property name="com.jaspersoft.studio.field.label" value="skala_nyeri"/>
+	</field>
+	<field name="mobilisasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="mobilisasi"/>
+		<property name="com.jaspersoft.studio.field.label" value="mobilisasi"/>
+	</field>
+	<field name="morse_fall_scale" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="morse_fall_scale"/>
+		<property name="com.jaspersoft.studio.field.label" value="morse_fall_scale"/>
+	</field>
+	<field name="kembung" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kembung"/>
+		<property name="com.jaspersoft.studio.field.label" value="kembung"/>
+	</field>
+	<field name="bising_usus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bising_usus"/>
+		<property name="com.jaspersoft.studio.field.label" value="bising_usus"/>
+	</field>
+	<field name="flatus" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="flatus"/>
+		<property name="com.jaspersoft.studio.field.label" value="flatus"/>
+	</field>
+	<field name="diare" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="diare"/>
+		<property name="com.jaspersoft.studio.field.label" value="diare"/>
+	</field>
+	<field name="luka" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="luka"/>
+		<property name="com.jaspersoft.studio.field.label" value="luka"/>
+	</field>
+	<field name="cairan_masuk" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cairan_masuk"/>
+		<property name="com.jaspersoft.studio.field.label" value="cairan_masuk"/>
+	</field>
+	<field name="cairan_keluar" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cairan_keluar"/>
+		<property name="com.jaspersoft.studio.field.label" value="cairan_keluar"/>
+	</field>
+	<field name="balance_cairan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="balance_cairan"/>
+		<property name="com.jaspersoft.studio.field.label" value="balance_cairan"/>
+	</field>
+	<field name="lain_lain" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="lain_lain"/>
+		<property name="com.jaspersoft.studio.field.label" value="lain_lain"/>
+	</field>
+	<field name="pemeriksa_penunjang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="pemeriksa_penunjang"/>
+		<property name="com.jaspersoft.studio.field.label" value="pemeriksa_penunjang"/>
+	</field>
+	<field name="masalah_keperawatan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="masalah_keperawatan"/>
+		<property name="com.jaspersoft.studio.field.label" value="masalah_keperawatan"/>
+	</field>
+	<field name="status_masalah" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status_masalah"/>
+		<property name="com.jaspersoft.studio.field.label" value="status_masalah"/>
+	</field>
+	<field name="masalah_baru" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="masalah_baru"/>
+		<property name="com.jaspersoft.studio.field.label" value="masalah_baru"/>
+	</field>
+	<field name="obs_tanda_vital" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="obs_tanda_vital"/>
+		<property name="com.jaspersoft.studio.field.label" value="obs_tanda_vital"/>
+	</field>
+	<field name="obs_tanda_infeksi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="obs_tanda_infeksi"/>
+		<property name="com.jaspersoft.studio.field.label" value="obs_tanda_infeksi"/>
+	</field>
+	<field name="kaji_kesadaran" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kaji_kesadaran"/>
+		<property name="com.jaspersoft.studio.field.label" value="kaji_kesadaran"/>
+	</field>
+	<field name="kaji_nyeri" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kaji_nyeri"/>
+		<property name="com.jaspersoft.studio.field.label" value="kaji_nyeri"/>
+	</field>
+	<field name="persiapan_tindakan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="persiapan_tindakan"/>
+		<property name="com.jaspersoft.studio.field.label" value="persiapan_tindakan"/>
+	</field>
+	<field name="obs_cairan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="obs_cairan"/>
+		<property name="com.jaspersoft.studio.field.label" value="obs_cairan"/>
+	</field>
+	<field name="ukur_balans" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ukur_balans"/>
+		<property name="com.jaspersoft.studio.field.label" value="ukur_balans"/>
+	</field>
+	<field name="obs_keluhan" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="obs_keluhan"/>
+		<property name="com.jaspersoft.studio.field.label" value="obs_keluhan"/>
+	</field>
+	<field name="kaji_resiko_jatuh" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kaji_resiko_jatuh"/>
+		<property name="com.jaspersoft.studio.field.label" value="kaji_resiko_jatuh"/>
+	</field>
+	<field name="kolaborasi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kolaborasi"/>
+		<property name="com.jaspersoft.studio.field.label" value="kolaborasi"/>
+	</field>
+	<field name="catatan_penting" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="catatan_penting"/>
+		<property name="com.jaspersoft.studio.field.label" value="catatan_penting"/>
+	</field>
+	<field name="nip_pj" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nip_pj"/>
+		<property name="com.jaspersoft.studio.field.label" value="nip_pj"/>
+	</field>
+	<field name="nm_pj_katim" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_pj_katim"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_pj_katim"/>
+	</field>
+	<field name="nip_pj_serah" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nip_pj_serah"/>
+		<property name="com.jaspersoft.studio.field.label" value="nip_pj_serah"/>
+	</field>
+	<field name="nm_pj_serah_terima" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nm_pj_serah_terima"/>
+		<property name="com.jaspersoft.studio.field.label" value="nm_pj_serah_terima"/>
+	</field>
+	<field name="nip" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nip"/>
+		<property name="com.jaspersoft.studio.field.label" value="nip"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="130" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="40" height="40" uuid="a1b2c3d4-e5f6-7890-abcd-ef1234567890"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="45" y="0" width="510" height="15" uuid="b2c3d4e5-f6a7-8901-bcde-f12345678901"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="15" width="510" height="12" uuid="c3d4e5f6-a7b8-9012-cdef-123456789012"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kabupatenrs}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="27" width="510" height="12" uuid="d4e5f6a7-b8c9-0123-defa-234567890123"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kontakrs}+" Email: "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1" uuid="e5f6a7b8-c9d0-1234-efab-345678901234"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="46" width="555" height="16" uuid="f6a7b8c9-d0e1-2345-fabc-456789012345"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CATATAN PERKEMBANGAN KEPERAWATAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="62" width="155" height="12" uuid="a7b8c9d0-e1f2-3456-abcd-567890123456"/>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[RM.KEP.08.XXX.2019]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="63" width="555" height="1" uuid="b8c9d0e1-f2a3-4567-bcde-678901234567"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="78" width="50" height="14" uuid="c9d0e1f2-a3b4-5678-cdef-789012345678"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. RM :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="78" width="130" height="14" uuid="d0e1f2a3-b4c5-6789-defa-890123456789"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="185" y="78" width="40" height="14" uuid="e1f2a3b4-c5d6-7890-efab-901234567890"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="225" y="78" width="180" height="14" uuid="f2a3b4c5-d6e7-8901-fabc-012345678901"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="78" width="50" height="14" uuid="a3b4c5d6-e7f8-9012-abcd-123456789abc"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal :]]></text>
+			</staticText>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="460" y="78" width="95" height="14" uuid="b4c5d6e7-f8a9-0123-bcde-23456789abcd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="94" width="50" height="14" uuid="c5d6e7f8-a9b0-1234-cdef-3456789abcde"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No.Rawat :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="50" y="94" width="130" height="14" uuid="d6e7f8a9-b0c1-2345-defa-456789abcdef"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_rawat}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="112" width="555" height="1" uuid="e7f8a9b0-c1d2-3456-efab-56789abcdef0"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="340" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="14" backcolor="#DEDEDE" uuid="f8a9b0c1-d2e3-4567-fabc-6789abcdef01"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="2" y="0" width="551" height="14" uuid="a9b0c1d2-e3f4-5678-abcd-789abcdef012"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SHIFT : "+$F{shift}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement stretchType="ElementGroupHeight" x="0" y="14" width="555" height="326" backcolor="#FFFFFF" uuid="b0c1d2e3-f4a5-6789-bcde-89abcdef0123"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="16" width="551" height="12" uuid="c1d2e3f4-a5b6-7890-cdef-9abcdef01234"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[S (SUBJEKTIF)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="28" width="545" height="12" uuid="d2e3f4a5-b6c7-8901-defa-abcdef012345"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{subjektif}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="42" width="551" height="12" uuid="e3f4a5b6-c7d8-9012-efab-bcdef0123456"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[O (OBJEKTIF)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="54" width="545" height="12" uuid="f4a5b6c7-d8e9-0123-fabc-cdef01234567"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Respirasi: Sesak="+($F{sesak}!=null?$F{sesak}:"-")+", RR="+($F{rr}!=null?$F{rr}:"-")+", O2="+($F{o2}!=null?$F{o2}:"-")+", SpO2="+($F{spo2}!=null?$F{spo2}:"-")+", Suara Napas="+($F{suara_napas}!=null?$F{suara_napas}:"-")+", Sekret="+($F{sekret}!=null?$F{sekret}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="66" width="545" height="12" uuid="a5b6c7d8-e9f0-1234-abcd-def012345678"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Sirkulasi: Perfusi="+($F{perfusi}!=null?$F{perfusi}:"-")+", Nadi="+($F{nadi}!=null?$F{nadi}:"-")+", TD="+($F{td}!=null?$F{td}:"-")+", Suhu="+($F{suhu}!=null?$F{suhu}:"-")+", Hemiparase="+($F{hemiparase}!=null?$F{hemiparase}:"-")+", Paraparese="+($F{paraparese}!=null?$F{paraparese}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="78" width="545" height="12" uuid="b6c7d8e9-f0a1-2345-bcde-ef0123456789"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Neurologi: GCS="+($F{gcs}!=null?$F{gcs}:"-")+", Pupil="+($F{pupil}!=null?$F{pupil}:"-")+", Kesadaran="+($F{kesadaran_obj}!=null?$F{kesadaran_obj}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="90" width="545" height="12" uuid="c7d8e9f0-a1b2-3456-cdef-f01234567890"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nyeri: Skala="+($F{skala_nyeri}!=null?$F{skala_nyeri}:"-")+", Mobilisasi="+($F{mobilisasi}!=null?$F{mobilisasi}:"-")+", Morse Fall Scale="+($F{morse_fall_scale}!=null?$F{morse_fall_scale}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="102" width="545" height="12" uuid="d8e9f0a1-b2c3-4567-defa-012345678901"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Eliminasi: Kateter="+($F{kateter_kondom}!=null?$F{kateter_kondom}:"-")+", Urine="+($F{prod_urine}!=null?$F{prod_urine}:"-")+"/"+($F{warna_urine}!=null?$F{warna_urine}:"-")+", Kembung="+($F{kembung}!=null?$F{kembung}:"-")+", Bising Usus="+($F{bising_usus}!=null?$F{bising_usus}:"-")+", Flatus="+($F{flatus}!=null?$F{flatus}:"-")+", Diare="+($F{diare}!=null?$F{diare}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="114" width="545" height="12" uuid="e9f0a1b2-c3d4-5678-efab-123456789012"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nutrisi: Makan="+($F{makan_porsi}!=null?$F{makan_porsi}:"-")+", Minum="+($F{minum}!=null?$F{minum}:"-")+", Sonde="+($F{sonde}!=null?$F{sonde}:"-")+", Muntah="+($F{muntah}!=null?$F{muntah}:"-")+", CMS="+($F{cms}!=null?$F{cms}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="126" width="545" height="12" uuid="f0a1b2c3-d4e5-6789-fabc-234567890123"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cairan: Masuk="+($F{cairan_masuk}!=null?$F{cairan_masuk}:"-")+", Keluar="+($F{cairan_keluar}!=null?$F{cairan_keluar}:"-")+", Balance="+($F{balance_cairan}!=null?$F{balance_cairan}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="138" width="545" height="12" uuid="a1b2c3d4-e5f6-789a-abcd-345678901234"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Perdarahan="+($F{perdarahan}!=null?$F{perdarahan}:"-")+", Volume="+($F{volume_perdarahan}!=null?$F{volume_perdarahan}:"-")+", Luka="+($F{luka}!=null?$F{luka}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="150" width="545" height="12" uuid="b2c3d4e5-f6a7-89ab-bcde-456789012345"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Infus="+($F{infus}!=null?$F{infus}:"-")+", Pemeriksa Penunjang="+($F{pemeriksa_penunjang}!=null?$F{pemeriksa_penunjang}:"-")+", Lain-lain="+($F{lain_lain}!=null?$F{lain_lain}:"-")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="166" width="551" height="12" uuid="c3d4e5f6-a7b8-9abc-cdef-567890123456"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A (ASSESSMENT)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="178" width="545" height="12" uuid="d4e5f6a7-b8c9-abcd-defa-678901234567"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Masalah Keperawatan: "+($F{masalah_keperawatan}!=null?$F{masalah_keperawatan}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="190" width="545" height="12" uuid="e5f6a7b8-c9d0-bcde-efab-789012345678"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Status Masalah: "+($F{status_masalah}!=null?$F{status_masalah}:"-")+", Masalah Baru: "+($F{masalah_baru}!=null?$F{masalah_baru}:"-")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="206" width="551" height="12" uuid="f6a7b8c9-d0e1-cdef-fabc-890123456789"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[P (PLANNING)]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="218" width="545" height="12" uuid="a7b8c9d0-e1f2-def0-abcd-901234567890"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Obs TTV: "+($F{obs_tanda_vital}!=null?$F{obs_tanda_vital}:"-")+", Obs Infeksi: "+($F{obs_tanda_infeksi}!=null?$F{obs_tanda_infeksi}:"-")+", Kaji Kesadaran: "+($F{kaji_kesadaran}!=null?$F{kaji_kesadaran}:"-")+", Kaji Nyeri: "+($F{kaji_nyeri}!=null?$F{kaji_nyeri}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="230" width="545" height="12" uuid="b8c9d0e1-f2a3-ef01-bcde-012345678901"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Obs Cairan: "+($F{obs_cairan}!=null?$F{obs_cairan}:"-")+", Ukur Balans: "+($F{ukur_balans}!=null?$F{ukur_balans}:"-")+", Obs Keluhan: "+($F{obs_keluhan}!=null?$F{obs_keluhan}:"-")+", Kaji Risiko Jatuh: "+($F{kaji_resiko_jatuh}!=null?$F{kaji_resiko_jatuh}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="242" width="545" height="12" uuid="c9d0e1f2-a3b4-f012-cdef-123456789012"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Persiapan Tindakan: "+($F{persiapan_tindakan}!=null?$F{persiapan_tindakan}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="254" width="545" height="12" uuid="d0e1f2a3-b4c5-0123-defa-234567890123"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kolaborasi: "+($F{kolaborasi}!=null?$F{kolaborasi}:"-")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="266" width="545" height="12" uuid="e1f2a3b4-c5d6-1234-efab-345678901234"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Catatan Penting: "+($F{catatan_penting}!=null?$F{catatan_penting}:"-")]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="2" y="282" width="551" height="12" uuid="f2a3b4c5-d6e7-2345-fabc-456789012345"/>
+				<textElement>
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PENANGGUNG JAWAB]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="5" y="294" width="545" height="12" uuid="a3b4c5d6-e7f8-3456-abcd-567890123456"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ka.Tim: "+($F{nm_pj_katim}!=null?$F{nm_pj_katim}:"-")+", Serah Terima: "+($F{nm_pj_serah_terima}!=null?$F{nm_pj_serah_terima}:"-")]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="Float" x="0" y="310" width="555" height="1" uuid="b4c5d6e7-f8a9-4567-bcde-678901234567"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="277" height="12" uuid="c5d6e7f8-a9b0-5678-cdef-789012345678"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Dicetak tgl "+new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="4" width="200" height="12" uuid="d6e7f8a9-b0c1-6789-defa-890123456789"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Halaman "+$V{PAGE_NUMBER}+" dari"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="477" y="4" width="78" height="12" uuid="e7f8a9b0-c1d2-7890-efab-901234567890"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

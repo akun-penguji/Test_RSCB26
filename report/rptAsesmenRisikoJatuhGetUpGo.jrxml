@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAsesmenRisikoJatuhGetUpGo" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="75ce36da-d8c1-4d24-a975-8f60ec3aa49a">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kabupatenrs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString><![CDATA[select a.*,r.no_rkm_medis,p.nm_pasien,p.tgl_lahir,p.no_ktp,pt.nama as nm_petugas from asesmen_risiko_jatuh_getupgo a inner join reg_periksa r on a.no_rawat=r.no_rawat inner join pasien p on r.no_rkm_medis=p.no_rkm_medis left join petugas pt on a.nip=pt.nip]]></queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="tanggal" class="java.sql.Timestamp"/>
+	<field name="ruangan" class="java.lang.String"/>
+	<field name="cara_berjalan" class="java.lang.String"/>
+	<field name="menopang" class="java.lang.String"/>
+	<field name="hasil_penilaian" class="java.lang.String"/>
+	<field name="tindakan_ya" class="java.lang.String"/>
+	<field name="nama_keluarga" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="no_ktp" class="java.lang.String"/>
+	<field name="nm_petugas" class="java.lang.String"/>
+	<title>
+		<band height="70">
+			<image><reportElement x="0" y="0" width="55" height="55" uuid="f4a261c0-471a-48dc-8e4f-f1419c8195e5"/><imageExpression><![CDATA[$P{logo}]]></imageExpression></image>
+			<textField><reportElement x="60" y="0" width="495" height="12" uuid="4ce52b64-e420-4048-b02f-680d7eee1b6c"/><textElement textAlignment="Center"><font size="7"/></textElement><textFieldExpression><![CDATA["DINAS KESEHATAN "+$P{kabupatenrs}.toUpperCase()]]></textFieldExpression></textField>
+			<textField><reportElement x="60" y="12" width="495" height="16" uuid="6c864175-3274-49b2-b111-c1d96694e63a"/><textElement textAlignment="Center"><font size="10" isBold="true"/></textElement><textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression></textField>
+			<textField><reportElement x="60" y="28" width="495" height="11" uuid="82111097-8d30-4ebf-b3a2-1650de6211d9"/><textElement textAlignment="Center"><font size="6"/></textElement><textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kabupatenrs}+", "+$P{propinsirs}]]></textFieldExpression></textField>
+			<textField><reportElement x="60" y="39" width="495" height="11" uuid="5f6f8fa5-40d7-4033-97bc-b577f3b67f2e"/><textElement textAlignment="Center"><font size="6"/></textElement><textFieldExpression><![CDATA["Telp. "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="55" width="555" height="1" uuid="ef4e9290-5a82-4bcd-a609-056db51ce27f"/></line>
+		</band>
+	</title>
+	<detail>
+		<band height="645">
+			<staticText><reportElement x="400" y="5" width="155" height="14" uuid="b80176c9-c8bc-4961-aaeb-2188bd5b7c2f"/><textElement textAlignment="Right" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[RM.KEP.08.035.2019]]></text></staticText>
+			<staticText><reportElement x="330" y="23" width="80" height="14" uuid="393b0ed6-36a9-405a-b698-6d1a22bd8544"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[No. RM :]]></text></staticText>
+			<staticText><reportElement x="410" y="23" width="10" height="14" uuid="1d892302-df89-4707-aae4-1ee9c82eea77"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="425" y="23" width="130" height="14" uuid="1284e807-5370-4cb1-8b80-d5e26dc3154f"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="330" y="39" width="80" height="14" uuid="eb847cc0-6d49-408e-ab4a-d4b5d3f5a9a6"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[Nama :]]></text></staticText>
+			<staticText><reportElement x="410" y="39" width="10" height="14" uuid="39f36102-6846-4237-9fc5-645b240aaca3"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="425" y="39" width="130" height="14" uuid="58dfb930-d3c1-472d-a9ba-456abf265678"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression></textField>
+			<staticText><reportElement x="330" y="55" width="80" height="14" uuid="1b7b4f01-fac6-45c3-9a26-61f3dcd29468"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9"/></textElement><text><![CDATA[Tanggal Lahir :]]></text></staticText>
+			<staticText><reportElement x="410" y="55" width="10" height="14" uuid="15c3ee0f-f366-4dbf-8899-510a480cb2a2"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="425" y="55" width="130" height="14" uuid="41bcd86a-9f47-45aa-adb1-f0dd6fdc9235"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression></textField>
+			<staticText><reportElement x="330" y="71" width="80" height="14" uuid="9b5d89b4-1af0-40ff-8cb9-06cb929304af"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9"/></textElement><text><![CDATA[NIK :]]></text></staticText>
+			<staticText><reportElement x="410" y="71" width="10" height="14" uuid="c1afc53c-8466-461f-ad30-1642408f4c2d"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="425" y="71" width="130" height="14" uuid="23e27f62-f43a-405c-ae9a-87ef6e8fd25d"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{no_ktp}]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="25" width="320" height="30" uuid="e924c60a-5553-4a76-828a-7e58e2ef05c0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="11" isBold="true"/></textElement><text><![CDATA[ASESMEN RISIKO JATUH GET UP AND GO]]></text></staticText>
+			<staticText><reportElement x="0" y="93" width="60" height="14" uuid="6ce25eba-58db-45a2-a453-d6aea753af5d"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[Tanggal:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="65" y="93" width="150" height="14" uuid="473d2372-43e5-4a64-81a5-75e5bf16995b"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm").format($F{tanggal})]]></textFieldExpression></textField>
+			<staticText><reportElement x="280" y="93" width="60" height="14" uuid="7de18384-4324-4d93-9c19-dcbde55984f0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[Ruangan:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="345" y="93" width="210" height="14" uuid="2c0f4c2c-13fe-49c0-ba98-0952d2aa6158"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{ruangan}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="115" width="30" height="18" uuid="dc27b197-b9d6-4d97-a0a4-6ef85492679f"/></rectangle>
+			<staticText><reportElement x="2" y="116" width="26" height="16" uuid="7c76f0d9-537f-4ff6-b3f4-391bce0d26b7"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[No]]></text></staticText>
+			<rectangle><reportElement x="30" y="115" width="370" height="18" uuid="95497ed1-94ad-4ee5-b134-03223351c2c1"/></rectangle>
+			<staticText><reportElement x="35" y="116" width="360" height="16" uuid="914c17fd-6316-4d8d-9a5d-2fb50b3c044b"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Penilayan/Pengkajian]]></text></staticText>
+			<rectangle><reportElement x="400" y="115" width="75" height="18" uuid="4777a987-1b0f-4033-8c56-dc6d77f004ec"/></rectangle>
+			<staticText><reportElement x="405" y="116" width="65" height="16" uuid="1eab88c1-7c77-42cb-bc1a-b1cf0038ff4c"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Ya]]></text></staticText>
+			<rectangle><reportElement x="475" y="115" width="80" height="18" uuid="871cd407-2b75-483b-88ea-a4b202dfdaaf"/></rectangle>
+			<staticText><reportElement x="480" y="116" width="70" height="16" uuid="d7665715-56e3-4889-b25b-a1d6d99ac3a3"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Tidak]]></text></staticText>
+			<rectangle><reportElement x="0" y="133" width="30" height="50" uuid="f4e7d1ab-bc36-402c-8e54-f1b89b90932a"/></rectangle>
+			<staticText><reportElement x="2" y="135" width="26" height="50" uuid="bbae8419-bec7-4f58-a4b5-6b5ac566b8da"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[1]]></text></staticText>
+			<rectangle><reportElement x="30" y="133" width="370" height="50" uuid="747b8ab8-fe35-48f5-922b-9d5e412f8f5b"/></rectangle>
+			<staticText><reportElement x="35" y="135" width="360" height="50" uuid="511e4dde-66e3-400f-8c13-45ad5d46f837"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[<html>Cara berjalan pasien (salah satu atau lebih)<br>a. Tidak seimbang / sempoyongan / limbung<br>b. Jalan dengan menggunakan alat bantu (kruk, tripot, kursi roda, orang lain)</html>]]></text></staticText>
+			<rectangle><reportElement x="400" y="133" width="75" height="50" uuid="fb9270f3-78c6-470e-b070-5fe22797b699"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="405" y="143" width="65" height="30" uuid="96b1ab35-2fbb-45e4-9349-083ba1efc0a1"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{cara_berjalan}.equals("Ya")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="475" y="133" width="80" height="50" uuid="cb7a004c-ea96-4ac6-b2b7-9343475735d7"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="480" y="143" width="70" height="30" uuid="bf9ce3d8-eeac-4c2f-99f3-8dbf6e5c8aad"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{cara_berjalan}.equals("Tidak")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="183" width="30" height="36" uuid="d1f0d7c6-ac86-4cd0-a27b-3ce0c6e88466"/></rectangle>
+			<staticText><reportElement x="2" y="185" width="26" height="36" uuid="6b1d9541-1a49-4286-8cc9-ad75032b068a"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[2]]></text></staticText>
+			<rectangle><reportElement x="30" y="183" width="370" height="36" uuid="1a83dcdb-f6ef-4c85-b357-0d81955afd0c"/></rectangle>
+			<staticText><reportElement x="35" y="185" width="360" height="36" uuid="3f7583f4-c9c5-4211-b1ce-d2c2d9d8a2c1"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[<html>Menopang saat akan duduk / tampak memegang pinggiran kursi atau meja/benda lain sebagai penopang saat akan duduk.</html>]]></text></staticText>
+			<rectangle><reportElement x="400" y="183" width="75" height="36" uuid="9051b61e-3118-4cef-ba0a-ac13c8c8e561"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="405" y="188" width="65" height="26" uuid="08f992fb-7de8-4794-8b04-236899ee2b7d"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{menopang}.equals("Ya")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="475" y="183" width="80" height="36" uuid="abe277ff-a2a4-4e68-b4e4-73b2bcd11353"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="480" y="188" width="70" height="26" uuid="20b07693-3007-40ec-aaae-0446fbd2725c"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{menopang}.equals("Tidak")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="234" width="30" height="18" uuid="c6ab0606-b3c3-488d-b36e-5a41ff6c23b6"/></rectangle>
+			<staticText><reportElement x="2" y="235" width="26" height="16" uuid="162c69af-2c7f-4e1d-ad66-710b13ffcce0"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[No]]></text></staticText>
+			<rectangle><reportElement x="30" y="234" width="70" height="18" uuid="33ffabb1-ae90-43c6-8a8e-484b889a6465"/></rectangle>
+			<staticText><reportElement x="35" y="235" width="60" height="16" uuid="a6f17419-ffe3-4651-92d7-9f0b34ecd645"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Hasil]]></text></staticText>
+			<rectangle><reportElement x="100" y="234" width="300" height="18" uuid="d81b8709-9469-4c82-9d69-c2316ad1247e"/></rectangle>
+			<staticText><reportElement x="105" y="235" width="290" height="16" uuid="270c922d-809b-4c8f-9ff4-001ef7e86239"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Penilaian / Pengkajian]]></text></staticText>
+			<rectangle><reportElement x="400" y="234" width="75" height="18" uuid="fc735df7-522e-4188-a354-d2147915f8b4"/></rectangle>
+			<staticText><reportElement x="405" y="235" width="65" height="16" uuid="3d4d0649-a196-4e29-aee3-22ee5fb942c4"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Ya]]></text></staticText>
+			<rectangle><reportElement x="475" y="234" width="80" height="18" uuid="98e2084e-7439-42f6-80cf-b146107cb6ba"/></rectangle>
+			<staticText><reportElement x="480" y="235" width="70" height="16" uuid="b6e0e997-3ae2-4bd6-8a86-569a505f1398"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Tidak]]></text></staticText>
+			<rectangle><reportElement x="0" y="252" width="30" height="30" uuid="f0ce3c2d-6b99-4dd0-b045-c64259b9f65a"/></rectangle>
+			<staticText><reportElement x="2" y="254" width="26" height="30" uuid="528b668a-8c6b-44ff-88ba-b3ed2eb769de"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[1]]></text></staticText>
+			<rectangle><reportElement x="30" y="252" width="70" height="30" uuid="e6eb2757-fdd7-43c0-8011-bec703507443"/></rectangle>
+			<staticText><reportElement x="35" y="254" width="60" height="30" uuid="77517108-f86d-4df5-a3ee-340bba6d3b06"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tidak<br>berisiko]]></text></staticText>
+			<rectangle><reportElement x="100" y="252" width="300" height="30" uuid="d739da32-81bd-4e59-a7d0-697f53413a0c"/></rectangle>
+			<staticText><reportElement x="105" y="257" width="290" height="20" uuid="13e33360-b33c-40ec-9802-15c9ecee55c0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tidak ditemukan 1 dan 2]]></text></staticText>
+			<rectangle><reportElement x="400" y="252" width="75" height="30" uuid="75e70635-09ad-4e62-b8a0-0877addf0b2e"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="405" y="257" width="65" height="20" uuid="d64892c1-de24-4fd4-ab2b-56bffb8a27f9"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{hasil_penilaian}.equals("Tidak berisiko")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="475" y="252" width="80" height="30" uuid="6f778f3b-6cf6-460e-a1f1-d7be81789d8e"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="480" y="257" width="70" height="20" uuid="18987ecb-fad8-428f-b117-01ac717a3f86"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[!$F{hasil_penilaian}.equals("Tidak berisiko")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="282" width="30" height="30" uuid="b0b7fb25-6007-4707-a24e-1458ca993ad6"/></rectangle>
+			<staticText><reportElement x="2" y="284" width="26" height="30" uuid="af20c8ed-1553-48f6-a810-89558a28c722"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[2]]></text></staticText>
+			<rectangle><reportElement x="30" y="282" width="70" height="30" uuid="5e0ee9b0-8a05-48f1-9a40-3196e8df2102"/></rectangle>
+			<staticText><reportElement x="35" y="284" width="60" height="30" uuid="d0967fa0-2bf3-4f44-bf50-bf4b11fe3765"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Risiko<br>rendah]]></text></staticText>
+			<rectangle><reportElement x="100" y="282" width="300" height="30" uuid="a12c69ca-08ac-48aa-8b37-4f6259dab744"/></rectangle>
+			<staticText><reportElement x="105" y="287" width="290" height="20" uuid="c613820e-8d07-4ff6-a7ac-6cc9d32674db"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Ditemukan salah satu dari 1 / 2]]></text></staticText>
+			<rectangle><reportElement x="400" y="282" width="75" height="30" uuid="93df28c2-0bd4-43ae-9e3d-458e8739025a"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="405" y="287" width="65" height="20" uuid="5ded2d44-98d5-400d-898c-bde6f60ad7fc"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{hasil_penilaian}.equals("Risiko rendah")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="475" y="282" width="80" height="30" uuid="52a93479-03b6-4eed-bd70-e2337a3ad6af"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="480" y="287" width="70" height="20" uuid="a4c0fd04-c06f-43aa-8e53-476805a684aa"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[!$F{hasil_penilaian}.equals("Risiko rendah")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="312" width="30" height="30" uuid="613ac23f-d068-4170-b60d-515e0dcf06a4"/></rectangle>
+			<staticText><reportElement x="2" y="314" width="26" height="30" uuid="2802666e-4772-475b-806c-dcf9a6ed681f"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[3]]></text></staticText>
+			<rectangle><reportElement x="30" y="312" width="70" height="30" uuid="ecd2c65a-f53e-4535-85d2-95ff2cc20e2a"/></rectangle>
+			<staticText><reportElement x="35" y="314" width="60" height="30" uuid="ed7d12b6-4d5f-4f5f-9f48-8822d8094edf"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Risiko<br>tinggi]]></text></staticText>
+			<rectangle><reportElement x="100" y="312" width="300" height="30" uuid="c7b2e0dc-8b3d-460e-bf5f-65c4fbeb6906"/></rectangle>
+			<staticText><reportElement x="105" y="317" width="290" height="20" uuid="860ff0da-a2d2-485e-931d-3d069e1b0bd6"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Ditemukan 1 dan 2]]></text></staticText>
+			<rectangle><reportElement x="400" y="312" width="75" height="30" uuid="035820d6-2d74-4ce9-ae0a-bf9f5a8bf2e5"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="405" y="317" width="65" height="20" uuid="014f6337-6689-4c29-aa5c-424205bac969"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{hasil_penilaian}.equals("Risiko tinggi")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="475" y="312" width="80" height="30" uuid="faee04d9-238d-4aad-81c6-34ea639a9d05"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="480" y="317" width="70" height="20" uuid="5f8a3407-86c1-4bc7-ac1d-a7c9388df293"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[!$F{hasil_penilaian}.equals("Risiko tinggi")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="357" width="30" height="28" uuid="ddf62c81-6f7a-4721-9c63-2e684fc4eb58"/></rectangle>
+			<staticText><reportElement x="2" y="359" width="26" height="24" uuid="9286f032-3fd4-4c3a-aa87-517e886c8be4"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[No]]></text></staticText>
+			<rectangle><reportElement x="30" y="357" width="70" height="28" uuid="57f751c0-a852-4313-b635-9ad59b12abd5"/></rectangle>
+			<staticText><reportElement x="35" y="359" width="60" height="24" uuid="6be625d9-d93c-4b23-9539-31dd44ffc42e"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Hasil]]></text></staticText>
+			<rectangle><reportElement x="100" y="357" width="180" height="28" uuid="8bd9d9c5-73d5-479a-aaf2-fda09077d081"/></rectangle>
+			<staticText><reportElement x="105" y="359" width="170" height="24" uuid="4ea8be2a-6d5a-4746-abc1-23c3d23235e0"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Tindakan]]></text></staticText>
+			<rectangle><reportElement x="280" y="357" width="40" height="28" uuid="24a81b86-9ff4-4667-9ee8-1e67d739ca59"/></rectangle>
+			<staticText><reportElement x="282" y="359" width="36" height="24" uuid="215c5a75-2eb6-41af-908d-d933892fd50e"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Ya]]></text></staticText>
+			<rectangle><reportElement x="320" y="357" width="40" height="28" uuid="823f5768-f69d-4249-92fd-55a69f1a1410"/></rectangle>
+			<staticText><reportElement x="322" y="359" width="36" height="24" uuid="04fa2efd-45be-43b4-8a2c-32b4ad289391"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Tidak]]></text></staticText>
+			<rectangle><reportElement x="360" y="357" width="100" height="14" uuid="ac487f13-1131-4ae0-ae97-985a679d6a59"/></rectangle>
+			<staticText><reportElement x="362" y="358" width="96" height="12" uuid="3acbd067-fc1a-4a79-8f9f-e1f848de30d3"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[TTD/Nama Pasien/]]></text></staticText>
+			<rectangle><reportElement x="360" y="371" width="100" height="14" uuid="2c16d82e-5d09-4539-b4b8-fcf1c2a2fde7"/></rectangle>
+			<staticText><reportElement x="362" y="372" width="96" height="12" uuid="fee08724-06af-4447-93e1-076173115ce2"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[Keluarga]]></text></staticText>
+			<rectangle><reportElement x="460" y="357" width="95" height="14" uuid="c6fe3432-01ef-4ceb-9a45-5d71281f1d91"/></rectangle>
+			<staticText><reportElement x="462" y="358" width="91" height="12" uuid="5cb3259e-a9a3-4d51-abd9-990a72954bf4"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[TTD/Nama]]></text></staticText>
+			<rectangle><reportElement x="460" y="371" width="95" height="14" uuid="82389ab9-b5a7-473e-bfda-359ebc782957"/></rectangle>
+			<staticText><reportElement x="462" y="372" width="91" height="12" uuid="e2604d66-2f53-4864-a547-6c29e4885703"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[Petugas]]></text></staticText>
+			<rectangle><reportElement x="0" y="385" width="30" height="30" uuid="e206ceda-63ae-4123-a417-ff2ace3029d1"/></rectangle>
+			<staticText><reportElement x="2" y="387" width="26" height="30" uuid="861bcfbb-9e18-43bd-b06d-2d3d408f8fd6"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[1]]></text></staticText>
+			<rectangle><reportElement x="30" y="385" width="70" height="30" uuid="6810aa6b-7254-4e26-8b8c-67025421de0d"/></rectangle>
+			<staticText><reportElement x="35" y="387" width="60" height="30" uuid="0d8a0ba2-191e-494e-81be-d79664a8c01a"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tidak<br>Berisiko]]></text></staticText>
+			<rectangle><reportElement x="100" y="385" width="180" height="30" uuid="23556017-c72b-4c5e-9cc7-f0372d9bdd26"/></rectangle>
+			<staticText><reportElement x="105" y="387" width="170" height="30" uuid="d765137d-6b23-4f3e-b6ce-f669c313d93c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[<html>Perawatan yang baik</html>]]></text></staticText>
+			<rectangle><reportElement x="280" y="385" width="40" height="30" uuid="68f58179-4da5-40a7-9469-8792dc6677db"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="282" y="387" width="36" height="30" uuid="ec328b35-f8ec-4741-b62c-7846a1fce167"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tindakan_ya}.equals("Ya")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="320" y="385" width="40" height="30" uuid="c860617a-5587-42be-b0f3-a83580d23f9c"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="322" y="387" width="36" height="30" uuid="9568db9f-646d-4227-827a-a68ecfe5b560"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tindakan_ya}.equals("Tidak")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="360" y="385" width="100" height="30" uuid="2f53b57e-d929-49ec-a769-3d9b45aca3b7"/></rectangle>
+			<rectangle><reportElement x="460" y="385" width="95" height="30" uuid="b029bfe8-cbb5-4570-bfc8-b9adecdec696"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="362" y="387" width="96" height="30" uuid="5ae591e4-e932-4847-bee0-01ba447d86e6"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA[$F{nama_keluarga}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="462" y="387" width="91" height="30" uuid="a1d3472e-bcc2-4ba0-abb1-d53d29e83b68"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA[$F{nm_petugas}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="415" width="30" height="75" uuid="8bed4edb-f7d4-4d45-b11d-21fb4d091959"/></rectangle>
+			<staticText><reportElement x="2" y="417" width="26" height="75" uuid="98a65556-7bd8-4183-888b-1121833fdec8"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[2]]></text></staticText>
+			<rectangle><reportElement x="30" y="415" width="70" height="75" uuid="9d7d4686-9950-4f47-99cc-e4953a139847"/></rectangle>
+			<staticText><reportElement x="35" y="417" width="60" height="75" uuid="8968c910-29a3-46eb-a4b7-7b47bb301516"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Risiko<br>Rendah]]></text></staticText>
+			<rectangle><reportElement x="100" y="415" width="180" height="75" uuid="4fe25b98-5846-47b0-9095-84d839075553"/></rectangle>
+			<staticText><reportElement x="105" y="417" width="170" height="75" uuid="ba5cfe14-5a03-4c36-bf88-f28b9f35a338"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[<html>Tindakan bantuan saat ambulasi, pasang pengaman tempat tidur, pastikan lantai dan alas kaki tidak licin, bantu kebutuhan pasien, edukasi pada pasien dan keluarga.</html>]]></text></staticText>
+			<rectangle><reportElement x="280" y="415" width="40" height="75" uuid="85008bed-a9e1-4806-8810-7309060948bf"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="282" y="417" width="36" height="75" uuid="3aab6bfc-57a8-4d35-8ca9-0245dba62853"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tindakan_ya}.equals("Ya")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="320" y="415" width="40" height="75" uuid="212e1f98-d8aa-410d-ab5f-3e3db375fdff"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="322" y="417" width="36" height="75" uuid="6006babe-9afe-43b4-a234-30abddb23793"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tindakan_ya}.equals("Tidak")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="360" y="415" width="100" height="75" uuid="f0ffefbe-b317-4eec-bac4-0f66f0d084bd"/></rectangle>
+			<rectangle><reportElement x="460" y="415" width="95" height="75" uuid="5c737e63-1536-47e7-9428-5eb0dee49feb"/></rectangle>
+			<rectangle><reportElement x="0" y="490" width="30" height="85" uuid="ec233289-08ac-4f35-809a-54f9eae44db1"/></rectangle>
+			<staticText><reportElement x="2" y="492" width="26" height="85" uuid="40751be0-1837-433b-b466-b16ccaad8c12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[3]]></text></staticText>
+			<rectangle><reportElement x="30" y="490" width="70" height="85" uuid="9d63e25d-74ef-4535-83e0-3eeb49059afa"/></rectangle>
+			<staticText><reportElement x="35" y="492" width="60" height="85" uuid="fd5ee7a2-b1ac-48ab-9142-b1609d9e9485"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Risiko<br>Tinggi]]></text></staticText>
+			<rectangle><reportElement x="100" y="490" width="180" height="85" uuid="e9278a1c-a14e-4c3f-9604-0332971ceb3e"/></rectangle>
+			<staticText><reportElement x="105" y="492" width="170" height="85" uuid="360e7218-2d98-4966-a5f1-4292adf515bf"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[<html>Tindakan seperti pasien dengan resiko rendah ditambah dengan jauhkan dari alat-alat yang dapat menimbulkan cidera, gunakan tempat duduk dikamar mandi saat pasien mandi, pasang pita kuning resiko jatuh.</html>]]></text></staticText>
+			<rectangle><reportElement x="280" y="490" width="40" height="85" uuid="37b2ba87-4988-4827-83d9-cb2c2918722a"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="282" y="492" width="36" height="85" uuid="37e66b21-e9a7-4b37-b624-c5cff8a74c2c"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tindakan_ya}.equals("Ya")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="320" y="490" width="40" height="85" uuid="1dc7274f-462d-4cba-a240-9b8c54857094"/></rectangle>
+			<textField isBlankWhenNull="true"><reportElement x="322" y="492" width="36" height="85" uuid="8cd64f8d-3af6-490b-8363-6db8643c32c1"/><textElement verticalAlignment="Middle"><font size="9"/></textElement><textFieldExpression><![CDATA[$F{tindakan_ya}.equals("Tidak")?"X":""]]></textFieldExpression></textField>
+			<rectangle><reportElement x="360" y="490" width="100" height="85" uuid="71698853-a816-4acc-a61c-e870e7aa636d"/></rectangle>
+			<rectangle><reportElement x="460" y="490" width="95" height="85" uuid="e5bf0030-6f46-4f1a-b03b-1fd823886d30"/></rectangle>
+			<componentElement>
+				<reportElement x="462" y="585" width="55" height="55" uuid="37d75c8e-01f7-4dab-9646-982aa06544d3"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$F{nm_petugas}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

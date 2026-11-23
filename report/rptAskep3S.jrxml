@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAskep3S" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="15" bottomMargin="15" uuid="524e8cd3-8fe1-42f0-9b31-4fc69ac09dc0">
+	<parameter name="HEADER_ID" class="java.lang.Integer"/>
+	<parameter name="NM_PASIEN" class="java.lang.String"/>
+	<parameter name="NO_RAWAT" class="java.lang.String"/>
+	<parameter name="NO_RM" class="java.lang.String"/>
+	<parameter name="NM_PERAWAT" class="java.lang.String"/>
+	<parameter name="TGL_ASKEP" class="java.lang.String"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String"/>
+	<parameter name="PETUGAS_QR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT ad.id, ad.kode_sdki, ad.label_sdki, ad.etiologi, ad.tanda_mayor, ad.tanda_minor,
+                        COALESCE(ms.jenis, '') AS jenis
+                 FROM askep_diagnosis ad
+                 LEFT JOIN mst_sdki ms ON ms.id = ad.id_sdki
+                 WHERE ad.id_header = $P{HEADER_ID}
+                 ORDER BY ad.urutan]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="kode_sdki" class="java.lang.String"/>
+	<field name="label_sdki" class="java.lang.String"/>
+	<field name="etiologi" class="java.lang.String"/>
+	<field name="tanda_mayor" class="java.lang.String"/>
+	<field name="tanda_minor" class="java.lang.String"/>
+	<field name="jenis" class="java.lang.String"/>
+	<variable name="NO_DIAG" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{id}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="120" splitType="Stretch">
+			<image scaleImage="RetainShape" isUsingCache="false">
+				<reportElement x="0" y="0" width="60" height="50" uuid="d7529111-0244-4ff1-a55f-1f03fbc8909f">
+					<printWhenExpression><![CDATA[$P{logo} != null]]></printWhenExpression>
+				</reportElement>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="65" y="2" width="490" height="20" uuid="72e57e5f-ed0a-484e-a8c8-ab58a4dda2d3"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars} != null ? $P{namars}.toUpperCase() : "RUMAH SAKIT"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="65" y="22" width="490" height="14" uuid="76d395c7-0d64-41f6-90d1-8505c9567487"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{alamatrs} != null ? $P{alamatrs} : "") + ($P{kotars} != null ? " - " + $P{kotars} : "")]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="52" width="555" height="1" forecolor="#1A5276" uuid="a71cafeb-98ba-4e43-bece-1727ae00f3c6"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="55" width="555" height="18" uuid="db0b6cb0-64da-46a1-9474-c4f0c49c13fc"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASUHAN KEPERAWATAN BERBASIS SDKI / SLKI / SIKI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="73" width="555" height="1" forecolor="#1A5276" uuid="16981e07-b2cd-4983-aa0c-1110e594608f"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="77" width="70" height="12" uuid="0066b1d2-c4c3-4684-ba37-e0a2656b6807"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Rawat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="77" width="8" height="12" uuid="d93f2fd9-c0a3-4e03-8b14-b9e70ac578e9"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="78" y="77" width="190" height="12" uuid="0bd5b5e0-a66d-413e-93e2-0e0a846e4844"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NO_RAWAT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="77" width="70" height="12" uuid="39fbde22-490c-46ef-a45c-299c7601c10e"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. RM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="77" width="8" height="12" uuid="483b2e1b-b4e2-4ef3-940e-fee7c0824852"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="358" y="77" width="197" height="12" uuid="37e51289-9d21-45df-b55c-ffbe0bfe8435"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NO_RM}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="91" width="70" height="12" uuid="7616846a-534f-474f-8b99-07cae70dd2d5"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="91" width="8" height="12" uuid="af7f848e-4daa-44b7-8384-3c8ab1774aa3"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="78" y="91" width="190" height="12" uuid="bfb672f3-5cf4-42bc-af62-f1d5a52233e5"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NM_PASIEN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="91" width="70" height="12" uuid="1d8a4ea5-dd2d-44cb-b4cc-36918f16f1f8"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="350" y="91" width="8" height="12" uuid="0a0a0eb5-e810-43db-ac26-733a8106986b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="358" y="91" width="197" height="12" uuid="caad97a2-7592-4833-bae6-60de00e8922d"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{TGL_ASKEP}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="105" width="70" height="12" uuid="c42c51c2-ebd2-4272-baa6-03a7d3c1a7ab"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Perawat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="105" width="8" height="12" uuid="656f6d93-8032-4efc-b81f-bfea08d03dd1"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="78" y="105" width="380" height="12" uuid="480dce6e-52ce-4c14-a81b-d0f4cfcd4901"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{NM_PERAWAT}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="462" y="67" width="93" height="53" uuid="e3a7f2c1-9b4d-4e8f-a1d6-7c2b3f8e5a9d">
+					<printWhenExpression><![CDATA[$P{PETUGAS_QR} != null && !$P{PETUGAS_QR}.trim().isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="M">
+					<jr:codeExpression><![CDATA[$P{PETUGAS_QR}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<detail>
+		<band height="300" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="2" width="555" height="18" backcolor="#1A5276" uuid="ace32414-aedc-4e0f-a99c-6c81e99a5180"/>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="3" y="3" width="549" height="16" forecolor="#FFFFFF" uuid="62748b1a-68b6-41d9-a8a3-ca5a3572311b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DIAGNOSA " + $V{NO_DIAG} + ":  " + $F{kode_sdki} + " - " + $F{label_sdki} + "  [" + ($F{jenis} != null ? $F{jenis}.toUpperCase() : "") + "]"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="24" width="70" height="12" uuid="79dc8787-683f-4ad0-aa93-11fc09bf2962"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Etiologi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="70" y="24" width="8" height="12" uuid="b6a1b571-e828-40a7-bd6d-6a0dcab1790b"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="78" y="24" width="477" height="12" uuid="8b70ab79-acbc-4ca1-9be0-bff05d68501f"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{etiologi} != null ? $F{etiologi} : "-"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="38" width="70" height="12" uuid="6823e8a7-54df-4311-af05-9c6d885cbefc">
+					<printWhenExpression><![CDATA[$F{tanda_mayor} != null && !$F{tanda_mayor}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Mayor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="70" y="38" width="8" height="12" uuid="629f0982-6b40-4b4a-97b8-fe9e16032f32">
+					<printWhenExpression><![CDATA[$F{tanda_mayor} != null && !$F{tanda_mayor}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="78" y="38" width="477" height="12" uuid="e9ecc2b9-b4ff-48ac-889a-7f443d902350">
+					<printWhenExpression><![CDATA[$F{tanda_mayor} != null && !$F{tanda_mayor}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanda_mayor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="52" width="70" height="12" uuid="f6463d85-bda0-4c99-9445-ada07ff8d27e">
+					<printWhenExpression><![CDATA[$F{tanda_minor} != null && !$F{tanda_minor}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanda Minor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="70" y="52" width="8" height="12" uuid="60bfb6b5-354d-4ac1-b46c-8cc30e9aa75e">
+					<printWhenExpression><![CDATA[$F{tanda_minor} != null && !$F{tanda_minor}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="78" y="52" width="477" height="12" uuid="27ae0268-3fa1-4798-a66c-6a95fa42d548">
+					<printWhenExpression><![CDATA[$F{tanda_minor} != null && !$F{tanda_minor}.isEmpty()]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanda_minor}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="67" width="555" height="14" backcolor="#2980B9" uuid="a4d6cd65-3239-41cf-841e-4140eb49007e"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="68" width="552" height="12" forecolor="#FFFFFF" uuid="6cdebcfa-8f5f-473c-beb8-b6970f1320a6"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  LUARAN KEPERAWATAN (SLKI)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="81" width="555" height="12" backcolor="#D6EAF8" uuid="c4f15461-0505-430b-ad60-1d1185984f72"/>
+				<graphicElement>
+					<pen lineWidth="0.3" lineColor="#2980B9"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="82" width="420" height="10" uuid="41f52f44-0195-4067-9465-0b9335d39485"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Indikator]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="430" y="82" width="55" height="10" uuid="138fa447-1610-45ea-9732-b41939cb2771"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Awal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="485" y="82" width="55" height="10" uuid="ec71f557-599c-4e57-9f53-4d8f237db9b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Target]]></text>
+			</staticText>
+			<subreport isUsingCache="false">
+				<reportElement positionType="Float" x="0" y="93" width="555" height="20" uuid="f709bd52-0ef9-4220-b966-43506dff7f1d"/>
+				<subreportParameter name="DIAG_ID">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "rptAskep3SSLKI.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="115" width="555" height="14" backcolor="#1A8F5A" uuid="8a509c78-e591-48be-917a-a4ab48e76242"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="116" width="552" height="12" forecolor="#FFFFFF" uuid="d7964443-60f7-4132-ab12-194a34cc14f8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  INTERVENSI KEPERAWATAN (SIKI)]]></text>
+			</staticText>
+			<subreport isUsingCache="false">
+				<reportElement positionType="Float" x="0" y="129" width="555" height="20" uuid="bb802ef7-9459-447c-9339-ed09ce5f4511"/>
+				<subreportParameter name="DIAG_ID">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "rptAskep3SSIKI.jasper"]]></subreportExpression>
+			</subreport>
+			<rectangle>
+				<reportElement positionType="Float" x="0" y="151" width="555" height="14" backcolor="#7D3C98" uuid="722a5198-2ba5-4e99-9aea-aabb368acfa9"/>
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="3" y="152" width="552" height="12" forecolor="#FFFFFF" uuid="5434a955-d0d2-44ae-9968-8b6d6caaf835"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  EVALUASI SOAP]]></text>
+			</staticText>
+			<subreport isUsingCache="false">
+				<reportElement positionType="Float" x="0" y="165" width="555" height="20" uuid="a78e44fd-b0df-4123-a71f-cbd2a31bb265"/>
+				<subreportParameter name="DIAG_ID">
+					<subreportParameterExpression><![CDATA[$F{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "rptAskep3SEval.jasper"]]></subreportExpression>
+			</subreport>
+			<line>
+				<reportElement positionType="Float" x="0" y="187" width="555" height="1" forecolor="#BDC3C7" uuid="83190088-698c-4467-9f13-69d496856230"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="16">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" forecolor="#BDC3C7" uuid="b3e6fb62-400e-4b5f-b2af-b774133ef35a"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="3" width="400" height="12" uuid="fb187232-1887-4025-886a-9e3e7037a4fc"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{namars} != null ? $P{namars} : "") + " — Asuhan Keperawatan SDKI/SLKI/SIKI"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="3" width="155" height="12" uuid="e0af04dc-dd5b-417e-bada-990d823011ed"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hal. " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

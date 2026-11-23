@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptLaporanNilaiKritis" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="periode" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select current_date]]>
+	</queryString>
+	<field name="tgl_kejadian" class="java.lang.String"/>
+	<field name="jam_kejadian" class="java.lang.String"/>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="nama_pemeriksaan" class="java.lang.String"/>
+	<field name="nilai_hasil" class="java.lang.String"/>
+	<field name="satuan" class="java.lang.String"/>
+	<field name="kritis_min" class="java.lang.String"/>
+	<field name="kritis_max" class="java.lang.String"/>
+	<field name="status_notifikasi" class="java.lang.String"/>
+	<field name="petugas_nama" class="java.lang.String"/>
+	<field name="waktu_notifikasi" class="java.lang.String"/>
+	<field name="penerima" class="java.lang.String"/>
+	<field name="penerima_tipe" class="java.lang.String"/>
+	<field name="metode" class="java.lang.String"/>
+	<field name="read_back_confirmed" class="java.lang.String"/>
+	<field name="instruksi" class="java.lang.String"/>
+	<field name="pelapor" class="java.lang.String"/>
+	<field name="waktu_lapor" class="java.lang.String"/>
+	<variable name="no" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{no_rkm_medis}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="92">
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="0" y="0" width="70" height="70"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="2" width="620" height="20"/>
+				<textElement><font size="12" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="22" width="620" height="14"/>
+				<textElement><font size="8"/></textElement>
+				<textFieldExpression><![CDATA[($P{alamatrs}==null?"":$P{alamatrs})+", "+($P{kotars}==null?"":$P{kotars})+" "+($P{propinsirs}==null?"":$P{propinsirs})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="36" width="620" height="14"/>
+				<textElement><font size="8"/></textElement>
+				<textFieldExpression><![CDATA["Telp: "+($P{kontakrs}==null?"":$P{kontakrs})+"   "+($P{emailrs}==null?"":$P{emailrs})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="52" width="802" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="56" width="802" height="18"/>
+				<textElement textAlignment="Center"><font size="11" isBold="true"/></textElement>
+				<text><![CDATA[LAPORAN NILAI KRITIS LABORATORIUM (KARS PAP 3)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="74" width="802" height="14"/>
+				<textElement textAlignment="Center"><font size="9"/></textElement>
+				<textFieldExpression><![CDATA["Periode: "+($P{periode}==null?"":$P{periode})]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<staticText><reportElement mode="Opaque" x="0" y="0" width="24" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[No]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="24" y="0" width="66" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Tgl / Jam]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="90" y="0" width="60" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[No.RM]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="150" y="0" width="110" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Pasien]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="260" y="0" width="110" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Pemeriksaan]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="370" y="0" width="55" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Hasil]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="425" y="0" width="70" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Ambang Kritis]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="495" y="0" width="70" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Status]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="565" y="0" width="120" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Pelapor -> Penerima (metode)]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="685" y="0" width="117" height="20" backcolor="#E4E8EE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Instruksi / Read-back]]></text></staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26">
+			<textField><reportElement x="0" y="0" width="24" height="26"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$V{no}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="24" y="0" width="66" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[($F{tgl_kejadian}==null?"":$F{tgl_kejadian})+"\n"+($F{jam_kejadian}==null?"":$F{jam_kejadian})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="90" y="0" width="60" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="150" y="0" width="110" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="260" y="0" width="110" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{nama_pemeriksaan}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="370" y="0" width="55" height="26" forecolor="#C80000"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><textFieldExpression><![CDATA[($F{nilai_hasil}==null?"":$F{nilai_hasil})+" "+($F{satuan}==null?"":$F{satuan})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="425" y="0" width="70" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[($F{kritis_min}==null||$F{kritis_min}.equals("")?"":"< "+$F{kritis_min})+($F{kritis_max}==null||$F{kritis_max}.equals("")?"":(($F{kritis_min}==null||$F{kritis_min}.equals("")?"":" / ")+"> "+$F{kritis_max}))]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="495" y="0" width="70" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{status_notifikasi}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="565" y="0" width="120" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[($F{pelapor}==null||$F{pelapor}.equals("")?"-":$F{pelapor})+" -> "+($F{penerima}==null||$F{penerima}.equals("")?"-":$F{penerima})+" "+($F{penerima_tipe}==null?"":"("+$F{penerima_tipe}+")")+" "+($F{metode}==null||$F{metode}.equals("")?"":"["+$F{metode}+"]")]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="685" y="0" width="117" height="26"/><box leftPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[($F{instruksi}==null||$F{instruksi}.equals("")?"":$F{instruksi})+" "+("1".equals($F{read_back_confirmed})?"(read-back OK)":"")]]></textFieldExpression></textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="16">
+			<textField>
+				<reportElement x="0" y="0" width="650" height="14"/>
+				<textElement><font size="7"/></textElement>
+				<textFieldExpression><![CDATA["Dicetak: "+new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm").format(new java.util.Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="652" y="0" width="150" height="14"/>
+				<textElement textAlignment="Right"><font size="7"/></textElement>
+				<textFieldExpression><![CDATA["Halaman "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

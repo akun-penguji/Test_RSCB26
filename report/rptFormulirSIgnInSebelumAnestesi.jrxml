@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio 6.8.0 / JasperReports 6.8.0 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptFormulirSIgnInSebelumAnestesi" pageWidth="612" pageHeight="936" columnWidth="553" leftMargin="39" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1000000-0000-0000-0000-000000000000">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="logo2" class="java.io.InputStream"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<parameter name="finger2" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select reg_periksa.no_rawat,pasien.no_rkm_medis,pasien.nm_pasien,pasien.tgl_lahir,pasien.jk,signin_sebelum_anestesi.tanggal,
+			signin_sebelum_anestesi.tindakan,signin_sebelum_anestesi.kd_dokter_bedah,dokterbedah.nm_dokter as dokterbedah,
+			signin_sebelum_anestesi.kd_dokter_anestesi,dokteranestesi.nm_dokter as dokteranestesi,signin_sebelum_anestesi.identitas,
+			signin_sebelum_anestesi.penandaan_area_operasi,signin_sebelum_anestesi.mesin_anestesi,signin_sebelum_anestesi.pulse_oximetri,
+			signin_sebelum_anestesi.alergi,signin_sebelum_anestesi.gangguan_pernapasan,signin_sebelum_anestesi.resiko_perdarahan,
+			signin_sebelum_anestesi.nip_perawat_ok,petugas.nama from signin_sebelum_anestesi
+			inner join reg_periksa on signin_sebelum_anestesi.no_rawat=reg_periksa.no_rawat
+			inner join pasien on reg_periksa.no_rkm_medis=pasien.no_rkm_medis
+			inner join dokter as dokterbedah on dokterbedah.kd_dokter=signin_sebelum_anestesi.kd_dokter_bedah
+			inner join dokter as dokteranestesi on dokteranestesi.kd_dokter=signin_sebelum_anestesi.kd_dokter_anestesi
+			inner join petugas on petugas.nip=signin_sebelum_anestesi.nip_perawat_ok]]>
+	</queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.sql.Date"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="tanggal" class="java.sql.Timestamp"/>
+	<field name="tindakan" class="java.lang.String"/>
+	<field name="kd_dokter_bedah" class="java.lang.String"/>
+	<field name="dokterbedah" class="java.lang.String"/>
+	<field name="kd_dokter_anestesi" class="java.lang.String"/>
+	<field name="dokteranestesi" class="java.lang.String"/>
+	<field name="identitas" class="java.lang.String"/>
+	<field name="penandaan_area_operasi" class="java.lang.String"/>
+	<field name="mesin_anestesi" class="java.lang.String"/>
+	<field name="pulse_oximetri" class="java.lang.String"/>
+	<field name="alergi" class="java.lang.String"/>
+	<field name="gangguan_pernapasan" class="java.lang.String"/>
+	<field name="resiko_perdarahan" class="java.lang.String"/>
+	<field name="nip_perawat_ok" class="java.lang.String"/>
+	<field name="nama" class="java.lang.String"/>
+	<detail>
+		<band height="640">
+			<!-- ===== KOP ===== -->
+			<image scaleImage="RetainShape" onErrorType="Blank">
+				<reportElement x="0" y="2" width="52" height="46" uuid="b1000000-0000-0000-0000-000000000010"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="52" y="2" width="441" height="12" uuid="b1000000-0000-0000-0000-000000000011"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="9" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA["PEMERINTAH "+($P{kotars}==null?"":$P{kotars}.toUpperCase().replace("KAB.","KABUPATEN").replace("KAB ","KABUPATEN "))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="52" y="15" width="441" height="18" uuid="b1000000-0000-0000-0000-000000000012"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="13" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}==null?"":$P{namars}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="52" y="34" width="441" height="12" uuid="b1000000-0000-0000-0000-000000000013"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement>
+				<textFieldExpression><![CDATA[($P{alamatrs}==null?"":$P{alamatrs})+(($P{kontakrs}==null||$P{kontakrs}.isEmpty())?"":" — Telp. "+$P{kontakrs})]]></textFieldExpression>
+			</textField>
+			<line><reportElement x="0" y="49" width="545" height="1" uuid="b1000000-0000-0000-0000-000000000014"/><graphicElement><pen lineWidth="2.0" lineStyle="Double"/></graphicElement></line>
+			<!-- ===== JUDUL ===== -->
+			<staticText>
+				<reportElement x="0" y="56" width="545" height="18" uuid="b1000000-0000-0000-0000-000000000015"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="12" isBold="true" isUnderline="true"/></textElement>
+				<text><![CDATA[SIGN IN (SEBELUM INDUKSI ANESTESI)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="335" y="76" width="210" height="10" uuid="b1000000-0000-0000-0000-000000000016"/>
+				<textElement textAlignment="Right"><font fontName="Tahoma" size="8"/></textElement>
+				<textFieldExpression><![CDATA["Tanggal: "+new SimpleDateFormat("dd-MM-yyyy HH:mm", new java.util.Locale("id")).format($F{tanggal})]]></textFieldExpression>
+			</textField>
+			<!-- ===== IDENTITAS ===== -->
+			<staticText><reportElement mode="Opaque" backcolor="#E8EEF6" x="0" y="90" width="545" height="13" uuid="b1000000-0000-0000-0000-000000000017"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/><paragraph leftIndent="4"/></textElement><text><![CDATA[IDENTITAS PASIEN & OPERASI]]></text></staticText>
+			<staticText><reportElement x="6" y="107" width="85" height="10" uuid="b1000000-0000-0000-0000-000000000020"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[No. Rekam Medis]]></text></staticText>
+			<staticText><reportElement x="91" y="107" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000021"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="97" y="107" width="175" height="10" uuid="b1000000-0000-0000-0000-000000000022"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="285" y="107" width="80" height="10" uuid="b1000000-0000-0000-0000-000000000023"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[No. Rawat]]></text></staticText>
+			<staticText><reportElement x="365" y="107" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000024"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="371" y="107" width="174" height="10" uuid="b1000000-0000-0000-0000-000000000025"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{no_rawat}]]></textFieldExpression></textField>
+			<staticText><reportElement x="6" y="119" width="85" height="10" uuid="b1000000-0000-0000-0000-000000000030"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Nama Pasien]]></text></staticText>
+			<staticText><reportElement x="91" y="119" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000031"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="97" y="119" width="175" height="10" uuid="b1000000-0000-0000-0000-000000000032"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression></textField>
+			<staticText><reportElement x="285" y="119" width="80" height="10" uuid="b1000000-0000-0000-0000-000000000033"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Tgl Lahir / JK]]></text></staticText>
+			<staticText><reportElement x="365" y="119" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000034"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="371" y="119" width="174" height="10" uuid="b1000000-0000-0000-0000-000000000035"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[new SimpleDateFormat("dd-MM-yyyy", new java.util.Locale("id")).format($F{tgl_lahir})+" / "+($F{jk}!=null&&$F{jk}.equalsIgnoreCase("P")?"Perempuan":"Laki-Laki")]]></textFieldExpression></textField>
+			<staticText><reportElement x="6" y="131" width="85" height="10" uuid="b1000000-0000-0000-0000-000000000040"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Tindakan / Operasi]]></text></staticText>
+			<staticText><reportElement x="91" y="131" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000041"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="97" y="131" width="448" height="10" uuid="b1000000-0000-0000-0000-000000000042"/><textElement><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{tindakan}]]></textFieldExpression></textField>
+			<staticText><reportElement x="6" y="143" width="85" height="10" uuid="b1000000-0000-0000-0000-000000000050"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Dokter Bedah]]></text></staticText>
+			<staticText><reportElement x="91" y="143" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000051"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="97" y="143" width="175" height="10" uuid="b1000000-0000-0000-0000-000000000052"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{dokterbedah}]]></textFieldExpression></textField>
+			<staticText><reportElement x="285" y="143" width="80" height="10" uuid="b1000000-0000-0000-0000-000000000053"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Dokter Anestesi]]></text></staticText>
+			<staticText><reportElement x="365" y="143" width="5" height="10" uuid="b1000000-0000-0000-0000-000000000054"/><textElement><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="371" y="143" width="174" height="10" uuid="b1000000-0000-0000-0000-000000000055"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{dokteranestesi}]]></textFieldExpression></textField>
+			<!-- ===== CHECKLIST ===== -->
+			<staticText><reportElement mode="Opaque" backcolor="#E8EEF6" x="0" y="160" width="545" height="13" uuid="b1000000-0000-0000-0000-000000000060"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/><paragraph leftIndent="4"/></textElement><text><![CDATA[PEMERIKSAAN SIGN IN (dikonfirmasi bersama sebelum induksi anestesi)]]></text></staticText>
+			<staticText><reportElement x="470" y="160" width="75" height="13" uuid="b1000000-0000-0000-0000-000000000061"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Ya / Tidak]]></text></staticText>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="177" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000070"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["1. Identitas pasien, prosedur, lokasi operasi & persetujuan telah dikonfirmasi"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="177" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000071"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{identitas}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="190" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000072"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["2. Sisi / area operasi telah ditandai"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="190" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000073"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{penandaan_area_operasi}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="203" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000074"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["3. Mesin anestesi & obat-obatan telah diperiksa"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="203" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000075"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{mesin_anestesi}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="216" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000076"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["4. Pulse oximeter terpasang pada pasien & berfungsi"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="216" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000077"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{pulse_oximetri}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="229" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000078"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["5. Pasien memiliki riwayat alergi"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="229" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000079"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{alergi}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="242" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000080"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["6. Kesulitan jalan napas / risiko aspirasi (gangguan pernapasan)"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="242" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000081"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{gangguan_pernapasan}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="8" y="255" width="455" height="10" uuid="b1000000-0000-0000-0000-000000000082"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["7. Risiko kehilangan darah / perdarahan (> 500 ml / 7 ml/kg pada anak)"]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="470" y="255" width="75" height="10" uuid="b1000000-0000-0000-0000-000000000083"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{resiko_perdarahan}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="272" width="545" height="1" uuid="b1000000-0000-0000-0000-000000000084"/><graphicElement><pen lineWidth="0.5"/></graphicElement></line>
+			<!-- ===== TANDA TANGAN ===== -->
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" x="305" y="285" width="240" height="10" uuid="b1000000-0000-0000-0000-000000000090"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement>
+				<textFieldExpression><![CDATA[$P{kotars}+", "+new SimpleDateFormat("dd-MM-yyyy", new java.util.Locale("id")).format($F{tanggal})]]></textFieldExpression>
+			</textField>
+			<staticText><reportElement positionType="Float" x="40" y="295" width="200" height="10" uuid="b1000000-0000-0000-0000-000000000091"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Perawat Kamar Operasi]]></text></staticText>
+			<staticText><reportElement positionType="Float" x="305" y="295" width="240" height="10" uuid="b1000000-0000-0000-0000-000000000092"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement><text><![CDATA[Dokter Anestesi]]></text></staticText>
+			<componentElement>
+				<reportElement positionType="Float" x="100" y="307" width="80" height="80" uuid="b1000000-0000-0000-0000-000000000093"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<componentElement>
+				<reportElement positionType="Float" x="385" y="307" width="80" height="80" uuid="b1000000-0000-0000-0000-000000000094"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger2}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField isStretchWithOverflow="true"><reportElement positionType="Float" x="40" y="391" width="200" height="10" uuid="b1000000-0000-0000-0000-000000000095"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true"><reportElement positionType="Float" x="40" y="402" width="200" height="10" uuid="b1000000-0000-0000-0000-000000000096"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["NIP. "+$F{nip_perawat_ok}]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement positionType="Float" x="305" y="391" width="240" height="10" uuid="b1000000-0000-0000-0000-000000000097"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{dokteranestesi}]]></textFieldExpression></textField>
+		</band>
+	</detail>
+</jasperReport>

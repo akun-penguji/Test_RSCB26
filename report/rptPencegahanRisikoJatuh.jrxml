@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptPencegahanRisikoJatuh" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kabupatenrs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="no_ktp" class="java.lang.String"/>
+	<field name="tanggal" class="java.lang.String"/>
+	<field name="no_tindakan" class="java.lang.String"/>
+	<field name="nm_petugas" class="java.lang.String"/>
+	<variable name="no" class="java.lang.Integer" resetType="Report" calculation="Count">
+		<variableExpression><![CDATA[$V{no}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<title>
+		<band height="95">
+			<image>
+				<reportElement x="0" y="0" width="40" height="40"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="45" y="0" width="360" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA["DINAS KESEHATAN "+$P{kabupatenrs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="12" width="360" height="14"/>
+				<textElement><font fontName="Tahoma" size="8" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="26" width="360" height="10"/>
+				<textElement><font fontName="Tahoma" size="5"/></textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="430" y="0" width="125" height="12"/>
+				<textElement textAlignment="Right"><font fontName="Tahoma" size="7" isBold="true"/></textElement>
+				<text><![CDATA[RM.KEP.08.032.2019]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="42" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="47" width="555" height="16"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="11" isBold="true"/></textElement>
+				<text><![CDATA[PELAKSANAAN PENCEGAHAN RESIKO JATUH PASIEN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="47" width="60" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<text><![CDATA[No. RM :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="47" width="125" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="59" width="60" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<text><![CDATA[Nama :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="59" width="125" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="71" width="60" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<text><![CDATA[Tanggal Lahir :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="71" width="125" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="370" y="83" width="60" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<text><![CDATA[Nik :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="83" width="125" height="12"/>
+				<textElement><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{no_ktp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="30" height="20" backcolor="#EEEEEE"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="30" y="0" width="80" height="20" backcolor="#EEEEEE"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="110" y="0" width="35" height="20" backcolor="#EEEEEE"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="145" y="0" width="260" height="20" backcolor="#EEEEEE"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement>
+				<text><![CDATA[Tindakan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="405" y="0" width="150" height="20" backcolor="#EEEEEE"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement>
+				<text><![CDATA[Petugas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="30" height="20"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="30" y="0" width="80" height="20"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="110" y="0" width="35" height="20"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{no_tindakan}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="145" y="0" width="260" height="20"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$F{no_tindakan}.equals("1") ? " Pasangkan/pantau klip kuning pada gelang identitas pasien" :
+$F{no_tindakan}.equals("2") ? " Observasi keselamatan lingkungan" :
+$F{no_tindakan}.equals("3") ? " Komunikasikan resiko jatuh pada pasien & keluarga" :
+$F{no_tindakan}.equals("4") ? " Anjurkan menggunakan alas kaki tidak licin" :
+$F{no_tindakan}.equals("5") ? " Gunakan alat bantu berjalan" :
+$F{no_tindakan}.equals("6") ? " Pastikan selalu ada pendamping" :
+$F{no_tindakan}.equals("7") ? " Lakukan tindakan pencegahan risiko jatuh rendah/sedang" :
+$F{no_tindakan}.equals("8") ? " Pasangkan segitiga resiko jatuh" :
+$F{no_tindakan}.equals("9") ? " Jaga lantai kamar mandi selalu kering" :
+$F{no_tindakan}.equals("10") ? " Jangan tinggalkan pasien sendiri" : "-"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="405" y="0" width="150" height="20"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[" "+$F{nm_petugas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

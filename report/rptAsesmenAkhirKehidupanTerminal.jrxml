@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAsesmenAkhirKehidupanTerminal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2d3e4f5-0000-0000-0000-000000000001">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select a.*, p.nm_pasien, p.no_rkm_medis, p.jk, DATE_FORMAT(p.tgl_lahir,'%d-%m-%Y') as tgl_lahir, concat(p.alamat) as alamat_pasien, dk.nm_dokter as dpjp, pg.nama as nama_petugas, DATE_FORMAT(a.tanggal,'%d-%m-%Y %H:%i') as tanggal_cetak, ifnull((select bangsal.nm_bangsal from kamar_inap join kamar on kamar_inap.kd_kamar=kamar.kd_kamar join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar_inap.no_rawat=a.no_rawat order by kamar_inap.tgl_masuk desc, kamar_inap.jam_masuk desc limit 1), poliklinik.nm_poli) as ruangan from asesmen_akhir_kehidupan_terminal a inner join reg_periksa r on a.no_rawat=r.no_rawat inner join pasien p on r.no_rkm_medis=p.no_rkm_medis left join dokter dk on r.kd_dokter=dk.kd_dokter left join poliklinik on r.kd_poli=poliklinik.kd_poli left join petugas pg on a.nip=pg.nip where a.no_rawat='-']]>
+	</queryString>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="alamat_pasien" class="java.lang.String"/>
+	<field name="dpjp" class="java.lang.String"/>
+	<field name="ruangan" class="java.lang.String"/>
+	<field name="tanggal_cetak" class="java.lang.String"/>
+	<field name="nama_petugas" class="java.lang.String"/>
+	<field name="skor_tidur" class="java.lang.String"/>
+	<field name="skor_makan" class="java.lang.String"/>
+	<field name="skor_mual" class="java.lang.String"/>
+	<field name="skor_usus" class="java.lang.String"/>
+	<field name="skor_nafas" class="java.lang.String"/>
+	<field name="skor_lelah" class="java.lang.String"/>
+	<field name="skor_nyeri" class="java.lang.String"/>
+	<field name="total_skor" class="java.lang.String"/>
+	<field name="kategori_gejala" class="java.lang.String"/>
+	<field name="paket_asuhan" class="java.lang.String"/>
+	<field name="b_nyeri" class="java.lang.String"/>
+	<field name="b_nyeri_paket" class="java.lang.String"/>
+	<field name="b_gejala_lain" class="java.lang.String"/>
+	<field name="b_gejala_lain_paket" class="java.lang.String"/>
+	<field name="b_psiko_spiritual" class="java.lang.String"/>
+	<field name="b_psiko_spiritual_paket" class="java.lang.String"/>
+	<field name="b_keluarga" class="java.lang.String"/>
+	<field name="b_keluarga_paket" class="java.lang.String"/>
+	<field name="spiritual_butuh" class="java.lang.String"/>
+	<field name="jenis_kepercayaan" class="java.lang.String"/>
+	<field name="keprihatinan_spiritual" class="java.lang.String"/>
+	<field name="hubungan_keluarga" class="java.lang.String"/>
+	<field name="kelayakan_tinggal" class="java.lang.String"/>
+	<field name="perawatan_rumah" class="java.lang.String"/>
+	<field name="reaksi_penyakit" class="java.lang.String"/>
+	<field name="pihak_dihubungi" class="java.lang.String"/>
+	<field name="kebutuhan_alternatif" class="java.lang.String"/>
+	<field name="faktor_risiko_keluarga" class="java.lang.String"/>
+	<field name="potensi_reaksi_patologis" class="java.lang.String"/>
+	<field name="keputusan_asuhan" class="java.lang.String"/>
+	<detail>
+		<band height="560" splitType="Stretch">
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="0" y="0" width="68" height="68" uuid="c2d3e4f5-0000-0000-0000-000000000010"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="70" y="0" width="395" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000011"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[DINAS KESEHATAN KABUPATEN BEKASI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="13" width="395" height="16" uuid="c2d3e4f5-0000-0000-0000-000000000012"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="29" width="395" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000013"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="41" width="395" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000014"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telp. "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="466" y="0" width="89" height="52" uuid="c2d3e4f5-0000-0000-0000-000000000015"/>
+				<box>
+					<pen lineWidth="0.75"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[RM.KEP.PALIATIF]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="70" width="555" height="1" uuid="c2d3e4f5-0000-0000-0000-000000000016"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="74" width="555" height="18" uuid="c2d3e4f5-0000-0000-0000-000000000017"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[ASESMEN MENJELANG AKHIR KEHIDUPAN (TERMINAL)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="96" width="300" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000020"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nama        : "+($F{nm_pasien}==null?"":$F{nm_pasien})+"  ("+($F{jk}==null?"":$F{jk})+")"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="109" width="300" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000021"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tgl Lahir   : "+($F{tgl_lahir}==null?"":$F{tgl_lahir})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="122" width="300" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000022"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. RM      : "+($F{no_rkm_medis}==null?"":$F{no_rkm_medis})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="135" width="300" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000023"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Alamat      : "+($F{alamat_pasien}==null?"":$F{alamat_pasien})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="96" width="250" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000024"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Dr. DPJP : "+($F{dpjp}==null?"":$F{dpjp})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="109" width="250" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000025"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Ruangan  : "+($F{ruangan}==null?"":$F{ruangan})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="122" width="250" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000026"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tanggal   : "+($F{tanggal_cetak}==null?"":$F{tanggal_cetak})]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="151" width="555" height="1" uuid="c2d3e4f5-0000-0000-0000-000000000027"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="156" width="555" height="14" uuid="c2d3e4f5-0000-0000-0000-000000000030"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[A. Skala Penilaian Gejala (skor 0-10; 0=Tidak Mengganggu, 10=Sangat Mengganggu)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="170" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000031"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tidur: "+($F{skor_tidur}==null?"0":$F{skor_tidur})+"   Makan: "+($F{skor_makan}==null?"0":$F{skor_makan})+"   Mual: "+($F{skor_mual}==null?"0":$F{skor_mual})+"   Gangguan Usus: "+($F{skor_usus}==null?"0":$F{skor_usus})+"   Bernafas: "+($F{skor_nafas}==null?"0":$F{skor_nafas})+"   Kelelahan: "+($F{skor_lelah}==null?"0":$F{skor_lelah})+"   Nyeri: "+($F{skor_nyeri}==null?"0":$F{skor_nyeri})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="183" width="545" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000032"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Total Skor: "+($F{total_skor}==null?"0":$F{total_skor})+" / 70      Kategori: "+($F{kategori_gejala}==null?"":$F{kategori_gejala})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="196" width="545" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000033"/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Kesimpulan Tata Laksana: "+($F{paket_asuhan}==null?"":$F{paket_asuhan})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="212" width="555" height="14" uuid="c2d3e4f5-0000-0000-0000-000000000034"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[B. Skor Keparahan Masalah & Paket Rencana]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="226" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000035"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nyeri: "+($F{b_nyeri}==null?"":$F{b_nyeri})+(($F{b_nyeri_paket}==null||$F{b_nyeri_paket}.isEmpty())?"":"  ->  "+$F{b_nyeri_paket})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="238" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000036"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Gejala Lain: "+($F{b_gejala_lain}==null?"":$F{b_gejala_lain})+(($F{b_gejala_lain_paket}==null||$F{b_gejala_lain_paket}.isEmpty())?"":"  ->  "+$F{b_gejala_lain_paket})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="250" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000037"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Psikologis/Spiritual: "+($F{b_psiko_spiritual}==null?"":$F{b_psiko_spiritual})+(($F{b_psiko_spiritual_paket}==null||$F{b_psiko_spiritual_paket}.isEmpty())?"":"  ->  "+$F{b_psiko_spiritual_paket})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="262" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000038"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Keluarga/Perawat: "+($F{b_keluarga}==null?"":$F{b_keluarga})+(($F{b_keluarga_paket}==null||$F{b_keluarga_paket}.isEmpty())?"":"  ->  "+$F{b_keluarga_paket})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="278" width="555" height="14" uuid="c2d3e4f5-0000-0000-0000-000000000039"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[C. Orientasi Spiritual Pasien dan Keluarga]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="292" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-00000000003a"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Butuh pelayanan spiritual/rohani: "+($F{spiritual_butuh}==null?"":$F{spiritual_butuh})+"     Jenis kepercayaan: "+($F{jenis_kepercayaan}==null?"":$F{jenis_kepercayaan})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="308" width="555" height="14" uuid="c2d3e4f5-0000-0000-0000-00000000003b"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[D. Keprihatinan Spiritual Pasien dan Keluarganya]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="322" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-00000000003c"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Putus asa / menderita / rasa bersalah: "+($F{keprihatinan_spiritual}==null?"":$F{keprihatinan_spiritual})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="338" width="555" height="14" uuid="c2d3e4f5-0000-0000-0000-00000000003d"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E. Status Psikososial Pasien/Keluarga]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="352" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-00000000003e"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Hubungan dengan keluarga: "+($F{hubungan_keluarga}==null?"":$F{hubungan_keluarga})+"     Kelayakan tempat tinggal: "+($F{kelayakan_tinggal}==null?"":$F{kelayakan_tinggal})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="364" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-00000000003f"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Perawatan di rumah: "+($F{perawatan_rumah}==null?"":$F{perawatan_rumah})+"     Reaksi terhadap penyakit: "+($F{reaksi_penyakit}==null?"":$F{reaksi_penyakit})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="380" width="555" height="14" uuid="c2d3e4f5-0000-0000-0000-000000000040"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[F. Kebutuhan Bantuan Pelayanan / Penundaan Pelayanan]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="394" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000041"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pihak yang dihubungi: "+($F{pihak_dihubungi}==null?"":$F{pihak_dihubungi})+"     Kebutuhan alternatif: "+($F{kebutuhan_alternatif}==null?"":$F{kebutuhan_alternatif})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="406" width="545" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000042"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Faktor risiko keluarga: "+($F{faktor_risiko_keluarga}==null?"":$F{faktor_risiko_keluarga})+"     Potensi reaksi patologis: "+($F{potensi_reaksi_patologis}==null?"":$F{potensi_reaksi_patologis})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="10" y="418" width="545" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000043"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pengambilan Keputusan Asuhan: "+($F{keputusan_asuhan}==null?"":$F{keputusan_asuhan})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="355" y="446" width="200" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000050"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kotars}+", "+($F{tanggal_cetak}==null?"":$F{tanggal_cetak})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="355" y="459" width="200" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000051"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[Perawat Penilai]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement x="425" y="473" width="60" height="60" uuid="c2d3e4f5-0000-0000-0000-000000000052"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" margin="0" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[($F{nama_petugas}==null||$F{nama_petugas}.isEmpty())?"":("Perawat: "+$F{nama_petugas}+"\n"+$P{namars}+"\n"+($F{tanggal_cetak}==null?"":$F{tanggal_cetak}))]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField isBlankWhenNull="true">
+				<reportElement x="355" y="537" width="200" height="13" uuid="c2d3e4f5-0000-0000-0000-000000000053"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["( "+($F{nama_petugas}==null?"":$F{nama_petugas})+" )"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

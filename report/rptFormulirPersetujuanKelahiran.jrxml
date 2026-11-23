@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+ name="rptFormulirPersetujuanKelahiran" pageWidth="595" pageHeight="842" columnWidth="535"
+ leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" isSummaryNewPage="true">
+<parameter name="no_transaksi" class="java.lang.String"/>
+<parameter name="ihs_bayi" class="java.lang.String"/>
+<parameter name="kode_faskes" class="java.lang.String"/>
+<parameter name="nama_faskes" class="java.lang.String"/>
+<parameter name="alamat_faskes" class="java.lang.String"/>
+<parameter name="propinsi_faskes" class="java.lang.String"/>
+<parameter name="kabupaten_faskes" class="java.lang.String"/>
+<parameter name="nama_bayi" class="java.lang.String"/>
+<parameter name="jk_bayi" class="java.lang.String"/>
+<parameter name="tempat_dilahirkan" class="java.lang.String"/>
+<parameter name="tempat_kelahiran" class="java.lang.String"/>
+<parameter name="tgl_kelahiran" class="java.lang.String"/>
+<parameter name="waktu_kelahiran" class="java.lang.String"/>
+<parameter name="jenis_kelahiran" class="java.lang.String"/>
+<parameter name="anak_ke" class="java.lang.String"/>
+<parameter name="penolong" class="java.lang.String"/>
+<parameter name="berat" class="java.lang.String"/>
+<parameter name="panjang" class="java.lang.String"/>
+<parameter name="agama" class="java.lang.String"/>
+<parameter name="no_kk" class="java.lang.String"/>
+<parameter name="kepala_keluarga" class="java.lang.String"/>
+<parameter name="nik_ibu" class="java.lang.String"/>
+<parameter name="nama_ibu" class="java.lang.String"/>
+<parameter name="tgl_lahir_ibu" class="java.lang.String"/>
+<parameter name="tgl_kawin" class="java.lang.String"/>
+<parameter name="nik_ayah" class="java.lang.String"/>
+<parameter name="nama_ayah" class="java.lang.String"/>
+<parameter name="tgl_lahir_ayah" class="java.lang.String"/>
+<parameter name="nik_pelapor" class="java.lang.String"/>
+<parameter name="nama_pelapor" class="java.lang.String"/>
+<parameter name="tgl_lahir_pelapor" class="java.lang.String"/>
+<parameter name="tgl_lapor" class="java.lang.String"/>
+<parameter name="hp_pelapor" class="java.lang.String"/>
+<parameter name="email_pelapor" class="java.lang.String"/>
+<parameter name="nik_saksi" class="java.lang.String"/>
+<parameter name="nama_saksi" class="java.lang.String"/>
+<parameter name="tgl_lahir_saksi" class="java.lang.String"/>
+<parameter name="dok_skl" class="java.lang.String"/>
+<parameter name="dok_nikah" class="java.lang.String"/>
+<parameter name="dok_lain" class="java.lang.String"/>
+<parameter name="kota_tgl_ttd" class="java.lang.String"/>
+<parameter name="nama_pemohon" class="java.lang.String"/>
+<title><band height="743">
+<staticText><reportElement x="0" y="0" width="535" height="16"/>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="SansSerif" size="11" isBold="true"/></textElement>
+<text><![CDATA[FORMULIR PERMOHONAN PELAYANAN PENCATATAN KELAHIRAN]]></text></staticText>
+<staticText><reportElement x="0" y="16" width="535" height="11"/>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="SansSerif" size="8" isBold="false"/></textElement>
+<text><![CDATA[Fasilitasi Pelaporan Kelahiran dan Pengurusan Dokumen Kependudukan]]></text></staticText>
+<staticText><reportElement x="0" y="27" width="535" height="11"/>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="SansSerif" size="8" isBold="false"/></textElement>
+<text><![CDATA[oleh Fasilitas Pelayanan Kesehatan]]></text></staticText>
+<staticText><reportElement x="0" y="43" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[A. METADATA PELAPORAN]]></text></staticText>
+<staticText><reportElement x="0" y="57" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nomor Transaksi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="57" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{no_transaksi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="71" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nomor Pasien/IHS]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="71" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{ihs_bayi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="85" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Kode Fasilitas Kesehatan]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="85" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{kode_faskes}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="99" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Fasilitas Kesehatan]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="99" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_faskes}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="113" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Alamat Fasilitas Kesehatan]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="113" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{alamat_faskes}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="127" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Provinsi Fasilitas Kesehatan]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="127" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{propinsi_faskes}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="141" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Kabupaten/Kota Fasilitas Kesehatan]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="141" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{kabupaten_faskes}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="161" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[B. DATA BAYI]]></text></staticText>
+<staticText><reportElement x="0" y="175" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Lengkap Bayi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="175" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_bayi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="189" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Jenis Kelamin Bayi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="189" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{jk_bayi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="203" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tempat Dilahirkan]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="203" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tempat_dilahirkan}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="217" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tempat Kelahiran]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="217" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tempat_kelahiran}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="231" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Kelahiran]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="231" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_kelahiran}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="245" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Waktu Kelahiran]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="245" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{waktu_kelahiran}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="259" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Jenis Kelahiran]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="259" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{jenis_kelahiran}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="273" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Anak Ke-]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="273" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{anak_ke}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="287" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Penolong Kelahiran]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="287" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{penolong}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="301" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Berat Bayi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="301" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{berat}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="315" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Panjang Bayi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="315" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{panjang}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="329" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Agama Bayi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="329" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{agama}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="343" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nomor Kartu Keluarga Bayi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="343" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{no_kk}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="357" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Kepala Keluarga dalam KK]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="357" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{kepala_keluarga}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="377" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[C. DATA IBU]]></text></staticText>
+<staticText><reportElement x="0" y="391" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  NIK Ibu]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="391" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nik_ibu}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="405" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Lengkap Ibu]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="405" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_ibu}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="419" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Lahir Ibu]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="419" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_lahir_ibu}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="433" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Perkawinan Ibu]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="433" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_kawin}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="453" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[D. DATA AYAH]]></text></staticText>
+<staticText><reportElement x="0" y="467" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  NIK Ayah]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="467" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nik_ayah}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="481" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Lengkap Ayah]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="481" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_ayah}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="495" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Lahir Ayah]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="495" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_lahir_ayah}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="515" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[E. DATA PELAPOR]]></text></staticText>
+<staticText><reportElement x="0" y="529" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  NIK Pelapor]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="529" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nik_pelapor}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="543" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Lengkap Pelapor]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="543" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_pelapor}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="557" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Lahir Pelapor]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="557" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_lahir_pelapor}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="571" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Pelaporan Kelahiran]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="571" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_lapor}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="585" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nomor HP Pelapor]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="585" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{hp_pelapor}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="599" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Email Pelapor]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="599" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{email_pelapor}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="619" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[F. DATA SAKSI]]></text></staticText>
+<staticText><reportElement x="0" y="633" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  NIK Saksi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="633" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nik_saksi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="647" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Nama Lengkap Saksi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="647" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_saksi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="661" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Tanggal Lahir Saksi]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="661" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{tgl_lahir_saksi}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="681" width="535" height="14"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[G. DOKUMEN PENDUKUNG]]></text></staticText>
+<staticText><reportElement x="0" y="695" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Surat Keterangan Lahir (SKL)]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="695" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{dok_skl}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="709" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Akta/Buku Nikah]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="709" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{dok_nikah}]]></textFieldExpression></textField>
+<staticText><reportElement x="0" y="723" width="235" height="14"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[  Dokumen Pendukung Lainnya]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="235" y="723" width="300" height="14"/>
+<box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement verticalAlignment="Middle"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{dok_lain}]]></textFieldExpression></textField>
+</band></title>
+<summary><band height="272">
+<staticText><reportElement x="0" y="0" width="535" height="14"/>
+<textElement textAlignment="Left"><font fontName="SansSerif" size="9" isBold="true"/></textElement>
+<text><![CDATA[H. PERNYATAAN DAN PERSETUJUAN PEMOHON]]></text></staticText>
+<staticText><reportElement x="0" y="20" width="535" height="34"/>
+<textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+<text><![CDATA[Saya yang bertanda tangan di bawah ini menyatakan bahwa seluruh data dan dokumen yang disampaikan dalam formulir ini adalah benar, lengkap, dan sesuai dengan keadaan yang sebenarnya.]]></text></staticText>
+<staticText><reportElement x="0" y="60" width="535" height="72"/>
+<textElement textAlignment="Justified"><font fontName="SansSerif" size="9"/></textElement>
+<text><![CDATA[Saya memahami bahwa pemberian data dan dokumen ini dilakukan dalam rangka pelayanan pencatatan kelahiran dan pengurusan dokumen kependudukan anak. Dengan ini, saya memberikan persetujuan kepada fasilitas pelayanan kesehatan terkait untuk membantu memfasilitasi proses pelaporan kelahiran, penyampaian data, koordinasi antarinstansi, serta pemrosesan dokumen administrasi kependudukan sesuai dengan ketentuan peraturan perundang-undangan yang berlaku.]]></text></staticText>
+<textField isBlankWhenNull="true"><reportElement x="285" y="152" width="250" height="14"/>
+<textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{kota_tgl_ttd}]]></textFieldExpression></textField>
+<staticText><reportElement x="285" y="170" width="250" height="14"/>
+<textElement textAlignment="Center"><font fontName="SansSerif" size="9" isBold="false"/></textElement>
+<text><![CDATA[Pemohon,]]></text></staticText>
+<line><reportElement x="315" y="244" width="190" height="1"/></line>
+<textField isBlankWhenNull="true"><reportElement x="285" y="248" width="250" height="14"/>
+<textElement textAlignment="Center"><font fontName="SansSerif" size="9"/></textElement>
+<textFieldExpression><![CDATA[$P{nama_pemohon}]]></textFieldExpression></textField>
+</band></summary>
+</jasperReport>

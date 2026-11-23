@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="rptAskep3SEval" language="groovy"
+              pageWidth="555" pageHeight="842" columnWidth="555"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              uuid="d188e557-6ad5-41be-b032-00ff477b00d4">
+    <parameter name="DIAG_ID" class="java.lang.Integer"/>
+    <queryString>
+        <![CDATA[SELECT ae.tgl_evaluasi, ae.shift, ae.soap_s, ae.soap_o, ae.soap_a, ae.soap_p,
+                        ae.kesimpulan, ae.nm_perawat
+                 FROM askep_evaluasi ae
+                 WHERE ae.id_diagnosis = $P{DIAG_ID}
+                 ORDER BY ae.tgl_evaluasi, ae.id]]>
+    </queryString>
+    <field name="tgl_evaluasi" class="java.lang.String"/>
+    <field name="shift" class="java.lang.String"/>
+    <field name="soap_s" class="java.lang.String"/>
+    <field name="soap_o" class="java.lang.String"/>
+    <field name="soap_a" class="java.lang.String"/>
+    <field name="soap_p" class="java.lang.String"/>
+    <field name="kesimpulan" class="java.lang.String"/>
+    <field name="nm_perawat" class="java.lang.String"/>
+    <detail>
+        <band height="80" splitType="Stretch">
+            <!-- Header evaluasi -->
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="14" backcolor="#FDFEFE" uuid="42c2b933-d62a-4270-9300-0b7ea5d54ceb"/>
+                <graphicElement>
+                    <pen lineWidth="0.3" lineColor="#BDC3C7"/>
+                </graphicElement>
+            </rectangle>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="2" y="1" width="300" height="12" uuid="492cb41e-9f9c-4d01-87f8-40ea310cc781"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{tgl_evaluasi} + "  |  Shift: " + $F{shift} + "  |  " + ($F{nm_perawat} != null ? $F{nm_perawat} : "")]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="302" y="1" width="253" height="12" uuid="428562f0-be7b-45fd-98c3-9e90f7441144"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Kesimpulan: " + ($F{kesimpulan} != null ? $F{kesimpulan} : "-")]]></textFieldExpression>
+            </textField>
+            <!-- S -->
+            <staticText>
+                <reportElement x="2" y="16" width="20" height="12" positionType="Float" uuid="49a7790a-a817-4a4a-8f92-30cf56e5a484"/>
+                <textElement verticalAlignment="Top"><font size="7.5" isBold="true"/></textElement>
+                <text><![CDATA[S:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="22" y="16" width="533" height="12" positionType="Float" uuid="681c2dd0-ba69-44cc-950e-6405d4dd656f"/>
+                <textElement verticalAlignment="Top"><font size="7.5"/></textElement>
+                <textFieldExpression><![CDATA[$F{soap_s} != null ? $F{soap_s} : "-"]]></textFieldExpression>
+            </textField>
+            <!-- O -->
+            <staticText>
+                <reportElement x="2" y="30" width="20" height="12" positionType="Float" uuid="9347ae4d-22cd-4af9-877f-b1acb7b5183c"/>
+                <textElement verticalAlignment="Top"><font size="7.5" isBold="true"/></textElement>
+                <text><![CDATA[O:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="22" y="30" width="533" height="12" positionType="Float" uuid="55b08059-b9bc-4394-bb42-cd852a3d7cf2"/>
+                <textElement verticalAlignment="Top"><font size="7.5"/></textElement>
+                <textFieldExpression><![CDATA[$F{soap_o} != null ? $F{soap_o} : "-"]]></textFieldExpression>
+            </textField>
+            <!-- A -->
+            <staticText>
+                <reportElement x="2" y="44" width="20" height="12" positionType="Float" uuid="6c2531d3-fda8-4537-a2b3-a1309fb5e76f"/>
+                <textElement verticalAlignment="Top"><font size="7.5" isBold="true"/></textElement>
+                <text><![CDATA[A:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="22" y="44" width="533" height="12" positionType="Float" uuid="86eef27c-59fa-4b50-857c-c91246f0fc6b"/>
+                <textElement verticalAlignment="Top"><font size="7.5"/></textElement>
+                <textFieldExpression><![CDATA[$F{soap_a} != null ? $F{soap_a} : "-"]]></textFieldExpression>
+            </textField>
+            <!-- P -->
+            <staticText>
+                <reportElement x="2" y="58" width="20" height="12" positionType="Float" uuid="14b1db01-4d2d-42d7-adf8-61b0c5248caf"/>
+                <textElement verticalAlignment="Top"><font size="7.5" isBold="true"/></textElement>
+                <text><![CDATA[P:]]></text>
+            </staticText>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="22" y="58" width="533" height="12" positionType="Float" uuid="db2d89b2-3569-416b-87a8-a237e6ffaf07"/>
+                <textElement verticalAlignment="Top"><font size="7.5"/></textElement>
+                <textFieldExpression><![CDATA[$F{soap_p} != null ? $F{soap_p} : "-"]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptMonitoringVAPHarian" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ff000000-0000-0000-0000-000000000000">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString><![CDATA[select 1]]></queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="tgl_pemasangan" class="java.sql.Date"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="ins_hh" class="java.lang.String"/>
+	<field name="ins_apd" class="java.lang.String"/>
+	<field name="ins_steril" class="java.lang.String"/>
+	<field name="tanggal" class="java.sql.Timestamp"/>
+	<field name="main_hh" class="java.lang.String"/>
+	<field name="main_apd" class="java.lang.String"/>
+	<field name="main_posisi" class="java.lang.String"/>
+	<field name="main_oralhygiene" class="java.lang.String"/>
+	<field name="main_sekresi" class="java.lang.String"/>
+	<field name="main_profilaksis" class="java.lang.String"/>
+	<field name="main_sedasi" class="java.lang.String"/>
+	<field name="nm_petugas" class="java.lang.String"/>
+	<group name="grpPemasangan">
+		<groupExpression><![CDATA[$F{tgl_pemasangan}]]></groupExpression>
+		<groupHeader><band height="92" splitType="Stretch">
+				<textField isBlankWhenNull="true"><reportElement x="0" y="0" width="500" height="14"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/></textElement><textFieldExpression><![CDATA["Nama : "+$F{nm_pasien}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="500" y="0" width="302" height="14"/><textElement textAlignment="Right" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/></textElement><textFieldExpression><![CDATA["No.RM : "+$F{no_rkm_medis}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="0" y="15" width="802" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA["Tanggal Pemasangan ETT / Intubasi : "+(new java.text.SimpleDateFormat("dd MMMM yyyy").format($F{tgl_pemasangan}))]]></textFieldExpression></textField>
+				<staticText><reportElement x="0" y="30" width="802" height="13" mode="Opaque" backcolor="#EDEDE0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[INSERSI (saat pemasangan/intubasi) :]]></text></staticText>
+				<staticText><reportElement x="0" y="43" width="222" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false" isItalic="false"/></textElement><text><![CDATA[1. Kebersihan Tangan:]]></text></staticText>
+				<textField isBlankWhenNull="true"><reportElement x="222" y="43" width="40" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{ins_hh}]]></textFieldExpression></textField>
+				<staticText><reportElement x="267" y="43" width="222" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false" isItalic="false"/></textElement><text><![CDATA[2. APD sesuai paparan:]]></text></staticText>
+				<textField isBlankWhenNull="true"><reportElement x="489" y="43" width="40" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{ins_apd}]]></textFieldExpression></textField>
+				<staticText><reportElement x="534" y="43" width="222" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false" isItalic="false"/></textElement><text><![CDATA[3. Teknik steril intubasi/manipulasi ETT:]]></text></staticText>
+				<textField isBlankWhenNull="true"><reportElement x="756" y="43" width="40" height="13"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><textFieldExpression><![CDATA[$F{ins_steril}]]></textFieldExpression></textField>
+				<staticText><reportElement x="0" y="58" width="802" height="13" mode="Opaque" backcolor="#EDEDE0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[MAINTENANCE (tiap hari) :]]></text></staticText>
+				<staticText><reportElement x="0" y="71" width="80" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Tgl Monitoring]]></text></staticText>
+				<staticText><reportElement x="80" y="71" width="92" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Kebersihan Tangan]]></text></staticText>
+				<staticText><reportElement x="172" y="71" width="72" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[APD]]></text></staticText>
+				<staticText><reportElement x="244" y="71" width="98" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Posisi Kepala 30-45]]></text></staticText>
+				<staticText><reportElement x="342" y="71" width="92" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Oral Hygiene]]></text></staticText>
+				<staticText><reportElement x="434" y="71" width="92" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Manaj. Sekresi]]></text></staticText>
+				<staticText><reportElement x="526" y="71" width="98" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Profilaksis PU/DVT]]></text></staticText>
+				<staticText><reportElement x="624" y="71" width="96" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Sedation Vacation]]></text></staticText>
+				<staticText><reportElement x="720" y="71" width="82" height="20" mode="Opaque" backcolor="#F6F6EC"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true" isItalic="false"/></textElement><text><![CDATA[Petugas]]></text></staticText>
+				<line><reportElement x="0" y="91" width="802" height="1"/><graphicElement><pen lineWidth="0.5"/></graphicElement></line>
+		</band></groupHeader>
+		<groupFooter><band height="6" splitType="Stretch"/></groupFooter>
+	</group>
+	<background><band splitType="Stretch"/></background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<image scaleImage="FillFrame" onErrorType="Blank"><reportElement x="0" y="2" width="48" height="45"/><imageExpression><![CDATA[$P{logo}]]></imageExpression></image>
+			<textField><reportElement x="2" y="0" width="798" height="17"/><textElement textAlignment="Center"><font fontName="Tahoma" size="12"/></textElement><textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression></textField>
+			<textField><reportElement x="2" y="14" width="798" height="13"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression></textField>
+			<textField><reportElement x="2" y="25" width="798" height="13"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$P{kontakrs}+"   E-mail : "+$P{emailrs}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="40" width="802" height="1"/><graphicElement><pen lineWidth="2.0" lineStyle="Double"/></graphicElement></line>
+			<staticText><reportElement x="2" y="44" width="798" height="18"/><textElement textAlignment="Center"><font fontName="Tahoma" size="11" isBold="true"/></textElement><text><![CDATA[LEMBAR MONITORING PENCEGAHAN VENTILATOR ASSOCIATED PNEUMONIA (VAP) HARIAN]]></text></staticText>
+			<staticText><reportElement x="2" y="63" width="798" height="12"/><textElement textAlignment="Left"><font fontName="Tahoma" size="7" isItalic="true"/></textElement><text><![CDATA[Isi tiap indikator: Ya / Tidak / NA.]]></text></staticText>
+		</band>
+	</title>
+	<pageHeader><band splitType="Stretch"/></pageHeader>
+	<columnHeader><band splitType="Stretch"/></columnHeader>
+	<detail><band height="13" splitType="Stretch">
+				<textField isBlankWhenNull="true" pattern="dd/MM/yy"><reportElement x="0" y="0" width="80" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="80" y="0" width="92" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_hh}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="172" y="0" width="72" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_apd}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="244" y="0" width="98" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_posisi}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="342" y="0" width="92" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_oralhygiene}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="434" y="0" width="92" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_sekresi}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="526" y="0" width="98" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_profilaksis}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="624" y="0" width="96" height="12"/><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{main_sedasi}]]></textFieldExpression></textField>
+				<textField isBlankWhenNull="true"><reportElement x="720" y="0" width="82" height="12"/><textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="false"/></textElement><textFieldExpression><![CDATA[$F{nm_petugas}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="12" width="802" height="1"/><graphicElement><pen lineWidth="0.25" lineStyle="Dotted"/></graphicElement></line>
+		</band></detail>
+	<pageFooter><band height="16"><textField><reportElement x="652" y="2" width="150" height="12"/><textElement textAlignment="Right"><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA["Hal "+$V{PAGE_NUMBER}]]></textFieldExpression></textField></band></pageFooter>
+</jasperReport>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptPernyataanDNRDPJP" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="28b5f37d-d86a-44fe-b8af-0aca54b19809">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kabupatenrs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select d.*,r.no_rkm_medis,p.nm_pasien as nm_pasien_reg,dk.nm_dokter from pernyataan_dnr_dpjp d inner join reg_periksa r on d.no_rawat=r.no_rawat inner join pasien p on r.no_rkm_medis=p.no_rkm_medis left join dokter dk on d.kd_dokter=dk.kd_dokter]]>
+	</queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="tanggal" class="java.sql.Timestamp"/>
+	<field name="nama_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="perintah_dnr" class="java.lang.String"/>
+	<field name="informed_consent_dari" class="java.lang.String"/>
+	<field name="dasar_dnr" class="java.lang.String"/>
+	<field name="kd_dokter" class="java.lang.String"/>
+	<field name="no_telp" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_dokter" class="java.lang.String"/>
+	<title>
+		<band height="70">
+			<image>
+				<reportElement x="0" y="0" width="55" height="55" uuid="8293e2c2-42ff-4d5a-9dba-28eff6ddcf08"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="0" width="495" height="12" uuid="e9cbb026-d025-44c4-ae69-b31664e652c8"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["DINAS KESEHATAN "+$P{kabupatenrs}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="12" width="495" height="16" uuid="34277191-ea01-4280-a287-71843f2df992"/>
+				<textElement textAlignment="Center">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="28" width="495" height="11" uuid="29f576bf-55c8-4016-bc5b-1352d4ae65fd"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kabupatenrs}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="39" width="495" height="11" uuid="6ee49ce1-c1f3-4c4a-9602-b10a8c6cb464"/>
+				<textElement textAlignment="Center">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telp. "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="55" width="555" height="1" uuid="592f327e-1e70-409e-83bd-b1c393509a12"/>
+			</line>
+		</band>
+	</title>
+	<detail>
+		<band height="572">
+			<staticText>
+				<reportElement x="400" y="5" width="155" height="15" uuid="c1819fc2-71ed-43e8-937e-9e9578155664"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[RM.KEP.REV01.08.039.2022]]></text>
+			</staticText>
+			<rectangle radius="0">
+				<reportElement x="0" y="23" width="555" height="35" uuid="dd172103-5f3c-4e51-9dea-5ad675ba8b8d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="26" width="545" height="15" uuid="ebbc5ea5-04f3-4f2e-95e8-e300b2f3c25f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULIR PERNYATAAN JANGAN DILAKUKAN RESUSITASI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="41" width="545" height="15" uuid="a9214876-fdb9-47d0-9266-85b78f221962"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DNR (DO NOT RESUSCITATE)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="68" width="555" height="15" uuid="8cdea3ee-3620-47d0-b3b3-e2062fe51e44"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Formulir ini adalah perintah dokter penanggung jawab pelayanan kepada seluruh staf klinis rumah sakit agar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="82" width="555" height="15" uuid="785660f4-ed65-4264-80e5-37a4972227ca"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[tidak dilakukan resusitasi pada pasien ini bila terjadi henti jantung dan henti nafas.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="96" width="555" height="15" uuid="c3ae438c-1024-4d06-8a68-339ae2eebffe"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Formulir ini juga memberikan perintah kepada staff medis untuk tetap melakukan intervensi atau]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="110" width="555" height="15" uuid="2439883e-4566-48d6-8357-bceef10926e0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[pengobatan, atau tata laksana lainnya sebelum terjadinya henti jantung atau henti nafas.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="132" width="100" height="15" uuid="8420614b-b273-4adf-a753-de1234c1854c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="132" width="10" height="15" uuid="003d7740-0963-45a4-b41e-2de471518f48"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="145" y="132" width="400" height="15" uuid="f682ae22-98c1-4743-8eaa-ba07223aa190"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="150" width="100" height="15" uuid="eb0d6501-1332-420e-acfc-776b6d61f8d9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="150" width="10" height="15" uuid="0ee588de-15ca-4a4a-8764-70e15d1ca1c0"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="145" y="150" width="400" height="15" uuid="5cedcfb3-3980-4343-a6df-ec3c34fcdf14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="168" width="100" height="15" uuid="32e11e1c-6a94-48ec-905b-3f74a611b6c7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[No.RM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="168" width="10" height="15" uuid="41936859-66ff-4ca4-8ba9-0dacd74d24d6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="145" y="168" width="400" height="15" uuid="6ab5762a-6458-44f7-89dd-8cee5b2768aa"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="193" width="555" height="15" uuid="c8547ea0-8bba-499a-af36-0a4be92a0550"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Perintah atau pernyataan dokter penanggung jawab pelayanan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="209" width="555" height="15" uuid="ff127808-4602-446e-80c5-4953b0ebe86d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Saya dokter yang bertanda tangan di bawah ini menginstruksikan kepada seluruh staf medis dan staf klinis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="223" width="555" height="15" uuid="3b510caf-f9a7-45c7-8132-512178746676"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[lainnya untuk melakukan hal-hal tertulis di bawah ini :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="241" width="555" height="15" uuid="26cb25ae-e707-42c9-92dd-57e6170c53a8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{perintah_dnr}.equals("1")?"[X]":"[  ]"+" 1. Usahakan komprehensif untuk mencegah henti jantung nafas tanpa melakukan intubasi"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="255" width="540" height="15" uuid="b9b6db34-a8aa-4916-ae09-08bafd50b91b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DO NOT RESUSCITATE, TIDAK DILAKUKAN RESUSITASI JANTUNG PARU (RJP)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="273" width="555" height="15" uuid="b2a12a23-5c53-4447-9cf2-87510662d205"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{perintah_dnr}.equals("2")?"[X]":"[  ]"+" 2. Usaha suportif sebelum terjadi henti nafas atau henti jantung yang meliputi pembukaan"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="287" width="540" height="15" uuid="90efa6de-0756-4456-ba1d-54564f580c70"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[jalan nafas non invasif, mengontrol pendarahan, memposisikan pasien dengan nyaman,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="15" y="301" width="540" height="15" uuid="dabd15e0-9f6f-4d33-9f9b-f51568150a6d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[pemberian obat-obatan anti nyeri. TIDAK MELAKUKAN RESUSITASI JANTUNG PARU (RJP)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="321" width="555" height="15" uuid="50f44610-b826-4e4f-b174-0e62d3084a70"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Keputusan DNR di atas diambil setelah pasien diberikan penjelasan dan informed consent diperoleh dari :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="337" width="555" height="15" uuid="08760e20-0b37-4569-b21e-3ccbeb9fa729"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["   "+$F{informed_consent_dari}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="355" width="555" height="15" uuid="0a967fd8-33e8-4f28-a784-8711ddb048e3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Dasar perintah DNR :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="369" width="555" height="15" uuid="d2ed9d72-d46e-4f05-b92a-dff4534df0a7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["   "+$F{dasar_dnr}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="394" width="555" height="15" uuid="4caf81fd-d4ce-4583-9e20-9036a2f20cfe"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dokter penanggung jawab]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="412" width="100" height="15" uuid="6338806a-ce84-4df3-b0ff-672a53d16d89"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nama Lengkap]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="412" width="10" height="15" uuid="3d50e258-40a7-4375-bc4d-111a038d3431"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="115" y="412" width="300" height="15" uuid="1af6432f-caf7-42a4-b950-93de4d0a30ff"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="428" width="100" height="15" uuid="d1a5afb3-163f-4632-90df-318a89153af6"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[NIP / NIK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="428" width="10" height="15" uuid="657dfa8b-8f2c-4022-b523-b75cb359dc60"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="115" y="428" width="300" height="15" uuid="b7dc46fa-045c-49d8-903b-f8aefe5cc5f3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kd_dokter}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="444" width="100" height="15" uuid="aa59d898-3973-4a17-9d19-7e51cdfe0cc3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Nomor Telepon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="444" width="10" height="15" uuid="8b407e24-6bc2-4ac6-9fb9-7bb9f4739112"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="115" y="444" width="300" height="15" uuid="9d290e72-0a38-4488-8801-dcd5c3b49655"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_telp}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="469" width="255" height="15" uuid="7211a1d5-f34a-4016-a78a-d00f60919545"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Bekasi, "+new java.text.SimpleDateFormat("dd MMMM yyyy",new java.util.Locale("id","ID")).format($F{tanggal})]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="300" y="487" width="255" height="15" uuid="3383f05c-5d56-4669-9ec8-d385d8108c2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Dokter Penanggung Jawab]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="300" y="557" width="255" height="15" uuid="7c366f9c-eb88-4a5a-9ede-5f098c10b158"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="382" y="505" width="50" height="50" uuid="1c8cc446-ba46-4ae5-96d4-187dea86d15c"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$F{nm_dokter}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

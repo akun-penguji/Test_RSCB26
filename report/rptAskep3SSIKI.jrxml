@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="rptAskep3SSIKI" language="groovy"
+              pageWidth="555" pageHeight="842" columnWidth="555"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              uuid="a9e1ae8b-73cd-4d27-ab57-d612195e7daf">
+    <parameter name="DIAG_ID" class="java.lang.Integer"/>
+    <queryString>
+        <![CDATA[SELECT ai.id, ai.label_siki, ai.tindakan_dipilih
+                 FROM askep_intervensi ai
+                 WHERE ai.id_diagnosis = $P{DIAG_ID}
+                 ORDER BY ai.id]]>
+    </queryString>
+    <field name="id" class="java.lang.Integer"/>
+    <field name="label_siki" class="java.lang.String"/>
+    <field name="tindakan_dipilih" class="java.lang.String"/>
+    <detail>
+        <band height="26" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="14" backcolor="#EBF5FB" uuid="37bf588f-fc3c-4e11-8a08-fcd9ec94ac4c"/>
+                <graphicElement>
+                    <pen lineWidth="0.3" lineColor="#AED6F1"/>
+                </graphicElement>
+            </rectangle>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="2" y="1" width="553" height="12" uuid="0d69f379-64ca-4550-940d-d068aeae70cc"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{label_siki}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="true">
+                <reportElement x="10" y="14" width="545" height="12" positionType="Float" uuid="8f0427e3-e8bf-4136-aa24-f5ad9bd15d65"/>
+                <textElement>
+                    <font size="7.5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[($F{tindakan_dipilih} != null && !$F{tindakan_dipilih}.isEmpty()) ?
+    "• " + $F{tindakan_dipilih}.replace("|", "\n• ") : ""]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

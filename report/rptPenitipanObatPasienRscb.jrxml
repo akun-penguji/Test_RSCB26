@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptPenitipanObatPasienRscb" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kabupatenrs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<queryString><![CDATA[]]></queryString>
+	<field name="no_urut" class="java.lang.String"/>
+	<field name="nama_obat" class="java.lang.String"/>
+	<field name="jumlah" class="java.lang.String"/>
+	<field name="satuan" class="java.lang.String"/>
+	<field name="exp_date" class="java.lang.String"/>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="tanggal" class="java.lang.String"/>
+	<field name="tgl_penyerahan" class="java.lang.String"/>
+	<field name="no_lemari" class="java.lang.String"/>
+	<field name="ruangan" class="java.lang.String"/>
+	<field name="nama_keluarga_penerima" class="java.lang.String"/>
+	<field name="nama_keluarga_kembali" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="nm_petugas" class="java.lang.String"/>
+	<title>
+		<band height="140">
+			<image><reportElement x="0" y="0" width="40" height="40"/><imageExpression><![CDATA[$P{logo}]]></imageExpression></image>
+			<textField><reportElement x="45" y="0" width="360" height="12"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA["DINAS KESEHATAN "+$P{kabupatenrs}]]></textFieldExpression></textField>
+			<textField><reportElement x="45" y="12" width="360" height="14"/><textElement><font fontName="Tahoma" size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression></textField>
+			<textField><reportElement x="45" y="26" width="360" height="10"/><textElement><font fontName="Tahoma" size="5"/></textElement><textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="42" width="555" height="1"/></line>
+			<staticText><reportElement x="0" y="44" width="555" height="12"/><textElement textAlignment="Center"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[INSTALASI FARMASI]]></text></staticText>
+			<staticText><reportElement x="0" y="56" width="555" height="14"/><textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement><text><![CDATA[FORMULIR PENITIPAN OBAT PASIEN]]></text></staticText>
+			<staticText><reportElement x="0" y="76" width="70" height="11"/><textElement><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Nama Pasien :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="70" y="76" width="200" height="11"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="87" width="70" height="11"/><textElement><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[No. RM :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="70" y="87" width="200" height="11"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="76" width="70" height="11"/><textElement><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Tgl Penyerahan :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="370" y="76" width="100" height="11"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{tgl_penyerahan}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="87" width="70" height="11"/><textElement><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[No. Lemari :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="370" y="87" width="100" height="11"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{no_lemari}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="98" width="70" height="11"/><textElement><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Ruangan :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="370" y="98" width="100" height="11"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{ruangan}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="113" width="555" height="1"/></line>
+			<!-- Header -->
+			<staticText><reportElement mode="Opaque" x="0" y="117" width="30" height="20" backcolor="#EEEEEE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[No]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="30" y="117" width="200" height="20" backcolor="#EEEEEE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Nama Obat]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="230" y="117" width="60" height="20" backcolor="#EEEEEE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Jumlah]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="290" y="117" width="80" height="20" backcolor="#EEEEEE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Satuan]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="370" y="117" width="80" height="20" backcolor="#EEEEEE"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7" isBold="true"/></textElement><text><![CDATA[Exp. Date]]></text></staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="18">
+			<textField isBlankWhenNull="true"><reportElement x="0" y="0" width="30" height="18"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{no_urut}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="30" y="0" width="200" height="18"/><box leftPadding="3"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{nama_obat}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="230" y="0" width="60" height="18"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="290" y="0" width="80" height="18"/><box leftPadding="3"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{satuan}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="370" y="0" width="80" height="18"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA[$F{exp_date}]]></textFieldExpression></textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="120">
+			<staticText><reportElement x="0" y="15" width="200" height="12"/><textElement><font fontName="Tahoma" size="7"/></textElement><text><![CDATA[Penerima Obat]]></text></staticText>
+			<staticText><reportElement x="280" y="15" width="200" height="12"/><textElement><font fontName="Tahoma" size="7"/></textElement><text><![CDATA[Petugas Farmasi]]></text></staticText>
+			<componentElement>
+				<reportElement x="320" y="30" width="60" height="45" isRemoveLineWhenBlank="true"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField isBlankWhenNull="true"><reportElement x="0" y="78" width="200" height="12"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA["("+($F{nama_keluarga_penerima}==null?"":$F{nama_keluarga_penerima})+")"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="280" y="78" width="200" height="12"/><textElement><font fontName="Tahoma" size="7"/></textElement><textFieldExpression><![CDATA["("+($F{nm_petugas}==null?"":$F{nm_petugas})+")"]]></textFieldExpression></textField>
+		</band>
+	</summary>
+</jasperReport>

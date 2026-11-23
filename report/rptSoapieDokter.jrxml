@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptSoapieDokter" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="umur" class="java.lang.String"/>
+	<field name="tgl_perawatan" class="java.lang.String"/>
+	<field name="jam_rawat" class="java.lang.String"/>
+	<field name="keluhan" class="java.lang.String"/>
+	<field name="pemeriksaan" class="java.lang.String"/>
+	<field name="penilaian" class="java.lang.String"/>
+	<field name="rtl" class="java.lang.String"/>
+	<field name="instruksi" class="java.lang.String"/>
+	<field name="evaluasi" class="java.lang.String"/>
+	<field name="alergi" class="java.lang.String"/>
+	<field name="tensi" class="java.lang.String"/>
+	<field name="nadi" class="java.lang.String"/>
+	<field name="suhu_tubuh" class="java.lang.String"/>
+	<field name="respirasi" class="java.lang.String"/>
+	<field name="spo2" class="java.lang.String"/>
+	<field name="tinggi" class="java.lang.String"/>
+	<field name="berat" class="java.lang.String"/>
+	<field name="gcs" class="java.lang.String"/>
+	<field name="kesadaran" class="java.lang.String"/>
+	<field name="lingkar_perut" class="java.lang.String"/>
+	<field name="nip" class="java.lang.String"/>
+	<field name="nama" class="java.lang.String"/>
+	<field name="prognosa" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<group name="GrupRawat">
+		<groupExpression><![CDATA[$F{no_rawat}]]></groupExpression>
+		<groupHeader>
+			<band height="72">
+				<staticText><reportElement x="0" y="2" width="120" height="14"/><textElement><font size="8"/></textElement><text><![CDATA[Nama Pasien]]></text></staticText>
+				<textField><reportElement x="122" y="2" width="420" height="14"/><textElement><font size="8" isBold="true"/></textElement><textFieldExpression><![CDATA[": "+$F{nm_pasien}+"  ("+($F{jk}=="L"?"L":"P")+" / "+($F{umur}==null?"":$F{umur})+")"]]></textFieldExpression></textField>
+				<staticText><reportElement x="0" y="16" width="120" height="14"/><textElement><font size="8"/></textElement><text><![CDATA[No. RM / No. Rawat]]></text></staticText>
+				<textField><reportElement x="122" y="16" width="420" height="14"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[": "+$F{no_rkm_medis}+"  /  "+$F{no_rawat}]]></textFieldExpression></textField>
+								<staticText><reportElement x="0" y="30" width="120" height="14"/><textElement><font size="8"/></textElement><text><![CDATA[Tanggal Lahir]]></text></staticText>
+				<textField isBlankWhenNull="true"><reportElement x="122" y="30" width="420" height="14"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[": "+($F{tgl_lahir}==null?"":$F{tgl_lahir})]]></textFieldExpression></textField>
+				<line><reportElement x="0" y="48" width="555" height="1"/></line>
+				<staticText><reportElement x="0" y="50" width="70" height="20" mode="Opaque" backcolor="#E8EEF6"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Tgl / Jam]]></text></staticText>
+				<staticText><reportElement x="70" y="50" width="375" height="20" mode="Opaque" backcolor="#E8EEF6"/><box leftPadding="4"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Catatan Perkembangan (S - O - A - P - I - E)]]></text></staticText>
+				<staticText><reportElement x="445" y="50" width="110" height="20" mode="Opaque" backcolor="#E8EEF6"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Petugas / PPA]]></text></staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<title>
+		<band height="78">
+			<textField><reportElement x="3" y="0" width="549" height="17"/><textElement textAlignment="Center"><font fontName="Tahoma" size="12"/></textElement><textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression></textField>
+			<textField><reportElement x="3" y="17" width="549" height="14"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[($P{alamatrs}==null?"":$P{alamatrs})+", "+($P{kotars}==null?"":$P{kotars})+", "+($P{propinsirs}==null?"":$P{propinsirs})]]></textFieldExpression></textField>
+			<textField><reportElement x="3" y="29" width="549" height="14"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression></textField>
+			<textField><reportElement x="3" y="40" width="549" height="14"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA["E-mail : "+($P{emailrs}==null?"":$P{emailrs})]]></textFieldExpression></textField>
+			<image scaleImage="FillFrame" onErrorType="Blank"><reportElement x="1" y="2" width="48" height="45"/><imageExpression><![CDATA[$P{logo}]]></imageExpression></image>
+			<line><reportElement x="1" y="55" width="553" height="1"/><graphicElement><pen lineWidth="2.0" lineStyle="Double"/></graphicElement></line>
+			<staticText><reportElement x="0" y="58" width="555" height="18"/><textElement textAlignment="Center"><font size="11" isBold="true"/></textElement><text><![CDATA[CATATAN PERKEMBANGAN PASIEN TERINTEGRASI (SOAPIE)]]></text></staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="56">
+			<textField isStretchWithOverflow="true"><reportElement x="0" y="0" width="70" height="56" stretchType="RelativeToTallestObject"/><box leftPadding="3"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Top"><font size="7"/></textElement><textFieldExpression><![CDATA[($F{tgl_perawatan}==null?"":$F{tgl_perawatan})+"\n"+($F{jam_rawat}==null?"":$F{jam_rawat})]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="70" y="0" width="375" height="56"/><box leftPadding="4" topPadding="2" bottomPadding="2"><pen lineWidth="0.5"/></box><textElement verticalAlignment="Top"><font size="8"/></textElement><textFieldExpression><![CDATA[
+"S : "+($F{keluhan}==null?"":$F{keluhan})+"\n"+
+"O : "+($F{pemeriksaan}==null?"":$F{pemeriksaan})
++(($F{tensi}==null||$F{tensi}.trim().equals(""))?"":"  TD:"+$F{tensi})
++(($F{nadi}==null||$F{nadi}.trim().equals(""))?"":"  N:"+$F{nadi})
++(($F{suhu_tubuh}==null||$F{suhu_tubuh}.trim().equals(""))?"":"  S:"+$F{suhu_tubuh})
++(($F{respirasi}==null||$F{respirasi}.trim().equals(""))?"":"  RR:"+$F{respirasi})
++(($F{spo2}==null||$F{spo2}.trim().equals(""))?"":"  SpO2:"+$F{spo2})
++(($F{tinggi}==null||$F{tinggi}.trim().equals(""))?"":"  TB:"+$F{tinggi})
++(($F{berat}==null||$F{berat}.trim().equals(""))?"":"  BB:"+$F{berat})
++(($F{lingkar_perut}==null||$F{lingkar_perut}.trim().equals(""))?"":"  LP:"+$F{lingkar_perut})
++(($F{gcs}==null||$F{gcs}.trim().equals(""))?"":"  GCS:"+$F{gcs})
++(($F{kesadaran}==null||$F{kesadaran}.trim().equals(""))?"":"  Kes:"+$F{kesadaran})
++(($F{alergi}==null||$F{alergi}.trim().equals(""))?"":"  Alergi:"+$F{alergi})+"\n"+
+"A : "+($F{penilaian}==null?"":$F{penilaian})+"\n"+
+"P : "+($F{rtl}==null?"":$F{rtl})+"\n"+
+"I : "+($F{instruksi}==null?"":$F{instruksi})+"\n"+
+"E : "+($F{evaluasi}==null?"":$F{evaluasi})
++(($F{prognosa}==null||$F{prognosa}.trim().equals(""))?"":"\nPrognosa : "+$F{prognosa})
+]]></textFieldExpression></textField>
+			<textField isStretchWithOverflow="true"><reportElement x="445" y="0" width="110" height="56" stretchType="RelativeToTallestObject"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Top"><font size="7"/></textElement><textFieldExpression><![CDATA[($F{nama}==null?"":$F{nama})]]></textFieldExpression></textField>
+			<componentElement>
+				<reportElement x="478" y="15" width="44" height="38"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="M">
+					<jr:codeExpression><![CDATA["PPA: "+($F{nama}==null?"-":$F{nama})+" | NIP:"+($F{nip}==null?"":$F{nip})+" | "+($F{no_rawat}==null?"":$F{no_rawat})+" "+($F{tgl_perawatan}==null?"":$F{tgl_perawatan})+" "+($F{jam_rawat}==null?"":$F{jam_rawat})]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptSkriningASQ" pageWidth="612" pageHeight="1008" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4a8419a0-4c02-461d-a7ac-e92c2a3673b2">
+<property name="ireport.zoom" value="1.0"/>
+<import value="java.util.*"/>
+<import value="java.text.*"/>
+<parameter name="namars" class="java.lang.String"/>
+<parameter name="alamatrs" class="java.lang.String"/>
+<parameter name="kotars" class="java.lang.String"/>
+<parameter name="propinsirs" class="java.lang.String"/>
+<parameter name="kontakrs" class="java.lang.String"/>
+<parameter name="emailrs" class="java.lang.String"/>
+<parameter name="logo" class="java.io.InputStream"/>
+<parameter name="finger" class="java.lang.String"/>
+<queryString><![CDATA[]]></queryString>
+<field name="no_rawat" class="java.lang.String"/>
+<field name="no_rkm_medis" class="java.lang.String"/>
+<field name="nm_pasien" class="java.lang.String"/>
+<field name="tgl_lahir" class="java.sql.Date"/>
+<field name="jk" class="java.lang.String"/>
+<field name="nip" class="java.lang.String"/>
+<field name="nama" class="java.lang.String"/>
+<field name="tanggal" class="java.sql.Timestamp"/>
+<field name="umurdaftar" class="java.lang.Integer"/>
+<field name="sttsumur" class="java.lang.String"/>
+<field name="asq1" class="java.lang.String"/>
+<field name="asq2" class="java.lang.String"/>
+<field name="asq3" class="java.lang.String"/>
+<field name="asq4" class="java.lang.String"/>
+<field name="asq4_deskripsi" class="java.lang.String"/>
+<field name="asq5" class="java.lang.String"/>
+<field name="asq5_deskripsi" class="java.lang.String"/>
+<field name="kesimpulan" class="java.lang.String"/>
+<title>
+<band height="127" splitType="Stretch">
+<image scaleImage="FillFrame" onErrorType="Blank"><reportElement x="10" y="2" width="48" height="45" uuid="343b162b-78db-42bd-a99e-89a86f140292"/><imageExpression><![CDATA[$P{logo}]]></imageExpression></image>
+<textField><reportElement x="12" y="0" width="553" height="17" uuid="de3342e3-90ec-42ab-9b27-a09a1f95cbe6"/><textElement textAlignment="Center"><font fontName="Tahoma" size="12"/></textElement><textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression></textField>
+<textField><reportElement x="12" y="14" width="553" height="14" uuid="8bf68b17-443c-4325-a547-077196164a0a"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression></textField>
+<textField><reportElement x="12" y="25" width="553" height="14" uuid="2064ed49-218a-494a-a7bf-ab1576f3876b"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$P{kontakrs}]]></textFieldExpression></textField>
+<textField><reportElement x="12" y="35" width="553" height="14" uuid="00b757bd-0f05-48be-bb53-37934d047e4e"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA["E-mail : "+$P{emailrs}]]></textFieldExpression></textField>
+<line><reportElement x="10" y="48" width="555" height="1" uuid="b1c8671f-6350-4826-8df5-b671840ffd02"/><graphicElement><pen lineWidth="2.0" lineStyle="Double"/></graphicElement></line>
+<staticText><reportElement x="10" y="54" width="552" height="23" uuid="99f4a597-82e1-43f6-b20f-1055bd658a4b"/><textElement textAlignment="Center"><font fontName="Tahoma" size="11" isBold="true"/></textElement><text><![CDATA[SKRINING PASIEN RISIKO BUNUH DIRI (ASQ)]]></text></staticText>
+<line><reportElement x="10" y="83" width="552" height="1" uuid="766646d3-db8d-438a-afaf-f4cf5c886adb"/><graphicElement><pen lineWidth="1.0"/></graphicElement></line>
+<line><reportElement x="10" y="83" width="1" height="43" uuid="3d45303c-578f-47a6-a446-afe030629c12"/><graphicElement><pen lineWidth="1.0"/></graphicElement></line>
+<line><reportElement x="562" y="83" width="1" height="44" uuid="02e62afc-e22b-4b76-a1f4-c32a1b2381fb"/><graphicElement><pen lineWidth="1.0"/></graphicElement></line>
+<line><reportElement x="10" y="126" width="552" height="1" uuid="531c466f-d65f-4bee-a30b-dbd211c21de3"/><graphicElement><pen lineWidth="1.0"/></graphicElement></line>
+<staticText><reportElement x="15" y="87" width="60" height="14" uuid="2e883bca-0d8f-4d38-b8b6-f45bef5d8f88"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[Nama Pasien]]></text></staticText>
+<staticText><reportElement x="75" y="87" width="4" height="14" uuid="181e9da0-3bd7-4614-8ed0-997c32ff6f8d"/><textElement textAlignment="Right" verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[:]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="82" y="87" width="278" height="14" uuid="34bde8dd-4799-48ee-ac47-eae14f7cce3b"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression></textField>
+<staticText><reportElement x="364" y="87" width="32" height="14" uuid="da4ebcb3-a7e1-4a88-8b3c-c97decbe8a31"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[Umur :]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="396" y="87" width="106" height="14" uuid="7733fd6e-9ef3-4499-b472-d77c9ef080e5"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$F{umurdaftar}+" "+$F{sttsumur}]]></textFieldExpression></textField>
+<staticText><reportElement x="15" y="105" width="60" height="14" uuid="fa7b9533-7a7c-46b3-af4a-510916f6ad5b"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[Tanggal Lahir]]></text></staticText>
+<staticText><reportElement x="75" y="105" width="4" height="14" uuid="b7abd3ca-3673-4aa2-b4cb-95eb275893f5"/><textElement textAlignment="Right" verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[:]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="82" y="105" width="279" height="14" uuid="3716af92-c239-42bf-b61e-3f18a38b8a85"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$F{tgl_lahir}==null?"":new SimpleDateFormat("dd MMMM yyyy", new java.util.Locale("id")).format($F{tgl_lahir})]]></textFieldExpression></textField>
+<staticText><reportElement x="364" y="105" width="74" height="14" uuid="24901a4c-f7f5-4dde-944f-fa551c8a385d"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[Tanggal Skrining :]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="439" y="105" width="110" height="14" uuid="76eb2f8a-9b91-4f6f-9dcb-cdfdd80bf6d6"/><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement><textFieldExpression><![CDATA[$F{tanggal}==null?"":new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", new java.util.Locale("id")).format($F{tanggal})]]></textFieldExpression></textField>
+</band>
+</title>
+<pageHeader><band splitType="Stretch"/></pageHeader>
+<detail>
+<band height="464">
+<staticText><reportElement x="14" y="0" width="540" height="20" uuid="8ca190b3-93ac-450f-90f7-58af3a010c78"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Asesmen Risiko Bunuh Diri (ASQ) - beri tanda X pada kolom yang sesuai]]></text></staticText>
+<staticText><reportElement x="14" y="24" width="24" height="26" uuid="7b8f5581-251e-4abd-ace5-eaa52c9852f1"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[No]]></text></staticText>
+<staticText><reportElement x="38" y="24" width="430" height="26" uuid="c93aad88-3087-4df1-aeac-6c3c7e709cfa"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Pertanyaan]]></text></staticText>
+<staticText><reportElement x="468" y="24" width="42" height="26" uuid="7fe606cb-468c-4b1d-b5dd-2e91eb9eb1eb"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Ya]]></text></staticText>
+<staticText><reportElement x="510" y="24" width="44" height="26" uuid="575a0105-438c-475e-a2b2-bb67d4a3455a"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Tidak]]></text></staticText>
+<staticText><reportElement x="14" y="50" width="24" height="32" uuid="2a8f9595-eb26-4e0a-98ec-aa8361e2221f"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[1]]></text></staticText>
+<staticText><reportElement x="38" y="50" width="430" height="32" uuid="c2c14805-a869-4fad-a28c-b6519a6a696a"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Dalam beberapa minggu terakhir, apakah Anda berharap untuk mengakhiri hidup?]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="468" y="50" width="42" height="32" uuid="adc59e85-bcc1-4297-976f-85fdebe9b4c4"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Ya".equals($F{asq1}) ? "X" : ""]]></textFieldExpression></textField>
+<textField isStretchWithOverflow="true"><reportElement x="510" y="50" width="44" height="32" uuid="69da9081-81e6-45be-9b62-de1323d28b29"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Tidak".equals($F{asq1}) ? "X" : ""]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="82" width="24" height="32" uuid="6085b46d-d336-4e4b-9676-a5c4beb3b335"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[2]]></text></staticText>
+<staticText><reportElement x="38" y="82" width="430" height="32" uuid="4185794f-1bb7-4d54-97e2-f76abe3c34ac"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Dalam beberapa minggu terakhir, apakah Anda merasa keluarga Anda lebih baik bila Anda mengakhiri hidup?]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="468" y="82" width="42" height="32" uuid="42e55f51-5436-4ae8-9959-d4ac9f336371"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Ya".equals($F{asq2}) ? "X" : ""]]></textFieldExpression></textField>
+<textField isStretchWithOverflow="true"><reportElement x="510" y="82" width="44" height="32" uuid="35428521-37bd-41c4-87d6-546a65501f9c"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Tidak".equals($F{asq2}) ? "X" : ""]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="114" width="24" height="32" uuid="b02bd1af-1806-4736-bca5-cd8167593b38"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[3]]></text></staticText>
+<staticText><reportElement x="38" y="114" width="430" height="32" uuid="9b1ad39a-d757-46f0-b994-bbb1a4dc48b5"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Dalam beberapa minggu terakhir, apakah Anda ada keinginan bunuh diri?]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="468" y="114" width="42" height="32" uuid="e3bdba2b-ff75-4ef4-8c61-c4f283c9f6e5"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Ya".equals($F{asq3}) ? "X" : ""]]></textFieldExpression></textField>
+<textField isStretchWithOverflow="true"><reportElement x="510" y="114" width="44" height="32" uuid="c76e3649-fda0-4de9-9289-ab62b4fa4ed6"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Tidak".equals($F{asq3}) ? "X" : ""]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="146" width="24" height="32" uuid="7d0300cc-9157-4dc4-94c8-0841ae8b091f"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[4]]></text></staticText>
+<staticText><reportElement x="38" y="146" width="430" height="32" uuid="a4faa9e7-387d-4149-8d43-410fee099238"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Apakah Anda pernah mencoba bunuh diri? (bila iya: bagaimana & kapan)]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="468" y="146" width="42" height="32" uuid="43472d60-47a6-433a-b734-b16125fca849"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Ya".equals($F{asq4}) ? "X" : ""]]></textFieldExpression></textField>
+<textField isStretchWithOverflow="true"><reportElement x="510" y="146" width="44" height="32" uuid="9ace1ff8-ee6b-427c-97fc-a812b038c9f3"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Tidak".equals($F{asq4}) ? "X" : ""]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="178" width="90" height="20" uuid="d35b58f1-dd04-4fbf-bfeb-e18334080d23"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Ket. Q4 :]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="104" y="178" width="450" height="20" uuid="e8ac639b-d9a5-4187-a3a9-8db9d445e9f1"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA[$F{asq4_deskripsi}]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="200" width="24" height="32" uuid="14ec2fc0-7c37-4afb-bdfb-a3f4ca2313c3"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[5]]></text></staticText>
+<staticText><reportElement x="38" y="200" width="430" height="32" uuid="d2e7bdf4-0636-46df-9094-45105e780251"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Apakah Anda merasa ingin bunuh diri saat ini? (bila iya, deskripsikan)]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="468" y="200" width="42" height="32" uuid="9d5253bc-cac0-4b36-a6f1-34e228fb7be8"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Ya".equals($F{asq5}) ? "X" : ""]]></textFieldExpression></textField>
+<textField isStretchWithOverflow="true"><reportElement x="510" y="200" width="44" height="32" uuid="5b3171a5-ab09-4e8f-8303-02c1bdd4035a"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA["Tidak".equals($F{asq5}) ? "X" : ""]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="232" width="90" height="20" uuid="83b04d51-9ecb-4781-a8d4-4f64ed2ad19e"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Ket. Q5 :]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="104" y="232" width="450" height="20" uuid="0936ab9d-ac2f-4df7-b586-229be8e30fdc"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA[$F{asq5_deskripsi}]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="260" width="90" height="18" uuid="1c6f4c03-b71b-4a93-ab97-10822fc4d2a7"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Kesimpulan :]]></text></staticText>
+<textField isStretchWithOverflow="true"><reportElement x="104" y="260" width="450" height="18" uuid="87514050-3471-4962-9eaf-89c201dac4c7"/>
+<textElement textAlignment="Left" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA[$F{kesimpulan}]]></textFieldExpression></textField>
+<staticText><reportElement x="14" y="284" width="540" height="44" uuid="1cfae22c-e49d-4f6a-b9b6-02c3e85c43bf"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Left" verticalAlignment="Top"><font fontName="Tahoma" size="8" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Interpretasi ASQ:  Q1-Q4 semua "Tidak" = Skrining Negatif.  Ada "Ya" (Q1-Q4) dan Q5 "Tidak" = Positif Non-Akut (perlu evaluasi kesehatan jiwa lebih lanjut).  Q5 "Ya" = Positif AKUT (evaluasi keselamatan segera, jangan tinggalkan pasien sendiri).]]></text></staticText>
+<staticText><reportElement x="360" y="336" width="200" height="14" uuid="949147ef-665b-439d-b368-eb0dd715c926"/><box><pen lineWidth="0.5" lineColor="#000000"/></box>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="false"/><paragraph lineSpacing="Single"/></textElement>
+<text><![CDATA[Petugas Pemeriksa,]]></text></staticText>
+<componentElement>
+<reportElement x="415" y="352" width="90" height="90" isRemoveLineWhenBlank="true" uuid="ea8f415b-e3a6-4c60-b4ed-5c5665104a7b"/>
+<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+<jr:codeExpression><![CDATA[$P{finger}]]></jr:codeExpression>
+</jr:QRCode>
+</componentElement>
+<textField isStretchWithOverflow="true"><reportElement x="360" y="444" width="200" height="14" uuid="671e3546-3b7f-4792-a202-94eddd031346"/>
+<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph lineSpacing="Single"/></textElement>
+<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression></textField>
+</band>
+</detail>
+<pageFooter><band splitType="Stretch"/></pageFooter>
+</jasperReport>

@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Asesmen Pasien Tahap Terminal - RM.KEP.08.002 - RSUD Cabangbungin -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAsesmenPasienTerminal" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b1c2d3e4-0000-0000-0000-000000000001">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select a.*, p.nm_pasien, p.no_rkm_medis, p.jk, DATE_FORMAT(p.tgl_lahir,'%d-%m-%Y') as tgl_lahir, concat(p.alamat) as alamat_pasien, dk.nm_dokter as dpjp, pg.nama as nama_petugas, DATE_FORMAT(a.tanggal,'%d-%m-%Y') as tanggal_cetak, ifnull((select bangsal.nm_bangsal from kamar_inap join kamar on kamar_inap.kd_kamar=kamar.kd_kamar join bangsal on kamar.kd_bangsal=bangsal.kd_bangsal where kamar_inap.no_rawat=a.no_rawat order by kamar_inap.tgl_masuk desc, kamar_inap.jam_masuk desc limit 1), poliklinik.nm_poli) as ruangan from asesmen_pasien_terminal a inner join reg_periksa r on a.no_rawat=r.no_rawat inner join pasien p on r.no_rkm_medis=p.no_rkm_medis left join dokter dk on r.kd_dokter=dk.kd_dokter left join poliklinik on r.kd_poli=poliklinik.kd_poli left join petugas pg on a.nip=pg.nip where a.no_rawat='-']]>
+	</queryString>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="alamat_pasien" class="java.lang.String"/>
+	<field name="dpjp" class="java.lang.String"/>
+	<field name="ruangan" class="java.lang.String"/>
+	<field name="tanggal_cetak" class="java.lang.String"/>
+	<field name="nama_petugas" class="java.lang.String"/>
+	<field name="tingkat_pemahaman" class="java.lang.String"/>
+	<field name="tipe_pernapasan" class="java.lang.String"/>
+	<field name="tipe_pernapasan_lain" class="java.lang.String"/>
+	<field name="frekuensi_nafas" class="java.lang.String"/>
+	<field name="suara_nafas" class="java.lang.String"/>
+	<field name="sputum" class="java.lang.String"/>
+	<field name="sputum_warna" class="java.lang.String"/>
+	<field name="sputum_lain" class="java.lang.String"/>
+	<field name="irama_jantung" class="java.lang.String"/>
+	<field name="frekuensi_nadi" class="java.lang.String"/>
+	<field name="td" class="java.lang.String"/>
+	<field name="ekstremitas" class="java.lang.String"/>
+	<field name="suhu" class="java.lang.String"/>
+	<field name="pulsasi" class="java.lang.String"/>
+	<field name="cv_line" class="java.lang.String"/>
+	<field name="map" class="java.lang.String"/>
+	<field name="perdarahan_lokasi" class="java.lang.String"/>
+	<field name="gcs_mata" class="java.lang.String"/>
+	<field name="gcs_motorik" class="java.lang.String"/>
+	<field name="gcs_verbal" class="java.lang.String"/>
+	<field name="kesadaran" class="java.lang.String"/>
+	<field name="tanda_tik" class="java.lang.String"/>
+	<field name="konjungtiva" class="java.lang.String"/>
+	<field name="konjungtiva_lain" class="java.lang.String"/>
+	<field name="area_genital" class="java.lang.String"/>
+	<field name="cara_bak" class="java.lang.String"/>
+	<field name="produksi_urine" class="java.lang.String"/>
+	<field name="warna_urine" class="java.lang.String"/>
+	<field name="nafsu_makan" class="java.lang.String"/>
+	<field name="porsi_makan" class="java.lang.String"/>
+	<field name="minum_cc" class="java.lang.String"/>
+	<field name="jenis_cairan" class="java.lang.String"/>
+	<field name="mulut" class="java.lang.String"/>
+	<field name="eliminasi_bab" class="java.lang.String"/>
+	<field name="bab_frekuensi" class="java.lang.String"/>
+	<field name="bab_lain" class="java.lang.String"/>
+	<field name="pergerakan_sendi" class="java.lang.String"/>
+	<field name="kontraktur_lokasi" class="java.lang.String"/>
+	<field name="fraktur_lokasi" class="java.lang.String"/>
+	<field name="infus_lokasi" class="java.lang.String"/>
+	<field name="warna_kulit" class="java.lang.String"/>
+	<field name="oedema_tungkai" class="java.lang.String"/>
+	<field name="oedema_lokasi" class="java.lang.String"/>
+	<field name="dekubitus" class="java.lang.String"/>
+	<field name="dekubitus_lokasi" class="java.lang.String"/>
+	<field name="nyeri" class="java.lang.String"/>
+	<field name="skala_nyeri" class="java.lang.String"/>
+	<field name="nyeri_lokasi" class="java.lang.String"/>
+	<field name="psikososial" class="java.lang.String"/>
+	<field name="spiritual_pelayanan" class="java.lang.String"/>
+	<field name="spiritual_pelayanan_oleh" class="java.lang.String"/>
+	<field name="spiritual_didoakan" class="java.lang.String"/>
+	<field name="spiritual_didoakan_oleh" class="java.lang.String"/>
+	<field name="spiritual_bimbingan" class="java.lang.String"/>
+	<field name="spiritual_bimbingan_oleh" class="java.lang.String"/>
+	<field name="spiritual_pendampingan" class="java.lang.String"/>
+	<field name="spiritual_pendampingan_oleh" class="java.lang.String"/>
+	<background><band splitType="Stretch"/></background>
+	<detail>
+		<band height="700" splitType="Stretch">
+			<!-- KOP -->
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="0" y="0" width="68" height="68" uuid="b1c2d3e4-0000-0000-0000-000000000010"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="70" y="0" width="395" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000011"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement>
+				<text><![CDATA[DINAS KESEHATAN KABUPATEN BEKASI]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="70" y="13" width="395" height="16" uuid="b1c2d3e4-0000-0000-0000-000000000012"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="11" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="29" width="395" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000013"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="41" width="395" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000014"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA["Telp. "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="466" y="0" width="89" height="52" uuid="b1c2d3e4-0000-0000-0000-000000000015"/>
+				<box><pen lineWidth="0.75"/></box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="9"/></textElement>
+				<text><![CDATA[RM.KEP.08.002.2019]]></text>
+			</staticText>
+			<line><reportElement x="0" y="70" width="555" height="1" uuid="b1c2d3e4-0000-0000-0000-000000000016"/><graphicElement><pen lineWidth="1.25"/></graphicElement></line>
+			<staticText>
+				<reportElement x="0" y="74" width="555" height="18" uuid="b1c2d3e4-0000-0000-0000-000000000017"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="12" isBold="true" isUnderline="true"/></textElement>
+				<text><![CDATA[ASESMEN PASIEN TAHAP TERMINAL]]></text>
+			</staticText>
+			<!-- IDENTITAS -->
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="96" width="300" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000020"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Nama        : "+($F{nm_pasien}==null?"":$F{nm_pasien})+"  ("+($F{jk}==null?"":$F{jk})+")"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="109" width="300" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000021"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Tgl Lahir   : "+($F{tgl_lahir}==null?"":$F{tgl_lahir})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="122" width="300" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000022"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["No. RM      : "+($F{no_rkm_medis}==null?"":$F{no_rkm_medis})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="135" width="300" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000023"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Alamat      : "+($F{alamat_pasien}==null?"":$F{alamat_pasien})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="96" width="250" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000024"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Dr. DPJP : "+($F{dpjp}==null?"":$F{dpjp})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="109" width="250" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000025"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Ruangan  : "+($F{ruangan}==null?"":$F{ruangan})]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="305" y="122" width="250" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000026"/>
+				<textElement><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Tanggal   : "+($F{tanggal_cetak}==null?"":$F{tanggal_cetak})]]></textFieldExpression>
+			</textField>
+			<line><reportElement x="0" y="151" width="555" height="1" uuid="b1c2d3e4-0000-0000-0000-000000000027"/></line>
+			<!-- 1. PEMAHAMAN -->
+			<staticText><reportElement x="0" y="156" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000030"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[1. Tingkat Pemahaman Pasien/Keluarga]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="170" width="545" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000031"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{tingkat_pemahaman}]]></textFieldExpression></textField>
+			<!-- 2.1 RESPIRATORY -->
+			<staticText><reportElement x="0" y="186" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000032"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[2.1 Respiratory (Pernapasan)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="200" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000033"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Tipe Pernapasan: "+($F{tipe_pernapasan}==null?"":$F{tipe_pernapasan})+(($F{tipe_pernapasan_lain}==null||$F{tipe_pernapasan_lain}.isEmpty())?"":", "+$F{tipe_pernapasan_lain})+"     Frek. Nafas: "+($F{frekuensi_nafas}==null?"":$F{frekuensi_nafas})+" x/mnt"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="212" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000034"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Suara Nafas: "+($F{suara_nafas}==null?"":$F{suara_nafas})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="224" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000035"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Sputum: "+($F{sputum}==null?"":$F{sputum})+(($F{sputum_warna}==null||$F{sputum_warna}.isEmpty())?"":", warna "+$F{sputum_warna})+(($F{sputum_lain}==null||$F{sputum_lain}.isEmpty())?"":", "+$F{sputum_lain})]]></textFieldExpression></textField>
+			<!-- 2.2 BLOOD -->
+			<staticText><reportElement x="0" y="238" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000036"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[2.2 Kardiovaskuler (Blood)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="252" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000037"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Irama Jantung: "+($F{irama_jantung}==null?"":$F{irama_jantung})+"     Nadi: "+($F{frekuensi_nadi}==null?"":$F{frekuensi_nadi})+" x/mnt     TD: "+($F{td}==null?"":$F{td})+" mmHg     Suhu: "+($F{suhu}==null?"":$F{suhu})+" C"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="264" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000038"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Ekstremitas: "+($F{ekstremitas}==null?"":$F{ekstremitas})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="276" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000039"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Pulsasi: "+($F{pulsasi}==null?"":$F{pulsasi})+"     CV Line: "+($F{cv_line}==null?"":$F{cv_line})+" cmH2O     MAP: "+($F{map}==null?"":$F{map})+" mmHg     Perdarahan: "+($F{perdarahan_lokasi}==null?"":$F{perdarahan_lokasi})]]></textFieldExpression></textField>
+			<!-- 2.3 BRAIN -->
+			<staticText><reportElement x="0" y="290" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-00000000003a"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[2.3 Persyarafan (Brain)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="304" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000003b"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["GCS: Mata "+($F{gcs_mata}==null?"":$F{gcs_mata})+" Motorik "+($F{gcs_motorik}==null?"":$F{gcs_motorik})+" Verbal "+($F{gcs_verbal}==null?"":$F{gcs_verbal})+"     Kesadaran: "+($F{kesadaran}==null?"":$F{kesadaran})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="316" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000003c"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Tanda Peningkatan TIK: "+($F{tanda_tik}==null?"":$F{tanda_tik})+"     Konjungtiva: "+($F{konjungtiva}==null?"":$F{konjungtiva})+(($F{konjungtiva_lain}==null||$F{konjungtiva_lain}.isEmpty())?"":", "+$F{konjungtiva_lain})]]></textFieldExpression></textField>
+			<!-- 2.4 BLADER -->
+			<staticText><reportElement x="0" y="330" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-00000000003d"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[2.4 Perkemihan (Blader)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="344" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000003e"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Area Genital: "+($F{area_genital}==null?"":$F{area_genital})+"     Cara BAK: "+($F{cara_bak}==null?"":$F{cara_bak})+"     Produksi Urine: "+($F{produksi_urine}==null?"":$F{produksi_urine})+" cc/jam"+(($F{warna_urine}==null||$F{warna_urine}.isEmpty())?"":", warna "+$F{warna_urine})]]></textFieldExpression></textField>
+			<!-- 2.5 BOWEL -->
+			<staticText><reportElement x="0" y="358" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-00000000003f"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[2.5 Pencernaan (Bowel)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="372" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000040"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Nafsu Makan: "+($F{nafsu_makan}==null?"":$F{nafsu_makan})+"     Porsi: "+($F{porsi_makan}==null?"":$F{porsi_makan})+"     Minum: "+($F{minum_cc}==null?"":$F{minum_cc})+" cc/hari"+(($F{jenis_cairan}==null||$F{jenis_cairan}.isEmpty())?"":", "+$F{jenis_cairan})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="384" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000041"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Mulut: "+($F{mulut}==null?"":$F{mulut})+"     Eliminasi BAB: "+($F{eliminasi_bab}==null?"":$F{eliminasi_bab})+(($F{bab_frekuensi}==null||$F{bab_frekuensi}.isEmpty())?"":", "+$F{bab_frekuensi}+" x/hari")+(($F{bab_lain}==null||$F{bab_lain}.isEmpty())?"":", "+$F{bab_lain})]]></textFieldExpression></textField>
+			<!-- 2.6 MUSKULOSKELETAL -->
+			<staticText><reportElement x="0" y="398" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000042"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[2.6 Muskuloskeletal (Integumen)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="412" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000043"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Pergerakan Sendi: "+($F{pergerakan_sendi}==null?"":$F{pergerakan_sendi})+(($F{kontraktur_lokasi}==null||$F{kontraktur_lokasi}.isEmpty())?"":"     Kontraktur: "+$F{kontraktur_lokasi})+(($F{fraktur_lokasi}==null||$F{fraktur_lokasi}.isEmpty())?"":"     Fraktur: "+$F{fraktur_lokasi})+(($F{infus_lokasi}==null||$F{infus_lokasi}.isEmpty())?"":"     Infus: "+$F{infus_lokasi})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="424" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000044"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Warna Kulit: "+($F{warna_kulit}==null?"":$F{warna_kulit})+"     Oedema Tungkai: "+($F{oedema_tungkai}==null?"":$F{oedema_tungkai})+(($F{oedema_lokasi}==null||$F{oedema_lokasi}.isEmpty())?"":" ("+$F{oedema_lokasi}+")")+"     Dekubitus: "+($F{dekubitus}==null?"":$F{dekubitus})+(($F{dekubitus_lokasi}==null||$F{dekubitus_lokasi}.isEmpty())?"":" ("+$F{dekubitus_lokasi}+")")]]></textFieldExpression></textField>
+			<!-- 3. NYERI -->
+			<staticText><reportElement x="0" y="438" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000045"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[3. Nyeri]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="452" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000046"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Nyeri: "+($F{nyeri}==null?"":$F{nyeri})+"     Skala Nyeri: "+($F{skala_nyeri}==null?"":$F{skala_nyeri})+(($F{nyeri_lokasi}==null||$F{nyeri_lokasi}.isEmpty())?"":"     Lokasi: "+$F{nyeri_lokasi})]]></textFieldExpression></textField>
+			<!-- 4. PSIKOSOSIAL -->
+			<staticText><reportElement x="0" y="466" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000047"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[4. Psikososial (Tahap Berduka)]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="480" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-000000000048"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{psikososial}]]></textFieldExpression></textField>
+			<!-- 5. SPIRITUAL -->
+			<staticText><reportElement x="0" y="494" width="555" height="14" uuid="b1c2d3e4-0000-0000-0000-000000000049"/><textElement><font fontName="Tahoma" size="9" isBold="true"/></textElement><text><![CDATA[5. Spiritual]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="508" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000004a"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Perlu pelayanan spiritual: "+($F{spiritual_pelayanan}==null?"":$F{spiritual_pelayanan})+(($F{spiritual_pelayanan_oleh}==null||$F{spiritual_pelayanan_oleh}.isEmpty())?"":", oleh "+$F{spiritual_pelayanan_oleh})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="520" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000004b"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Perlu didoakan: "+($F{spiritual_didoakan}==null?"":$F{spiritual_didoakan})+(($F{spiritual_didoakan_oleh}==null||$F{spiritual_didoakan_oleh}.isEmpty())?"":", oleh "+$F{spiritual_didoakan_oleh})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="532" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000004c"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Perlu bimbingan rohani: "+($F{spiritual_bimbingan}==null?"":$F{spiritual_bimbingan})+(($F{spiritual_bimbingan_oleh}==null||$F{spiritual_bimbingan_oleh}.isEmpty())?"":", oleh "+$F{spiritual_bimbingan_oleh})]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="10" y="544" width="545" height="12" uuid="b1c2d3e4-0000-0000-0000-00000000004d"/><textElement><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA["Perlu pendampingan rohani: "+($F{spiritual_pendampingan}==null?"":$F{spiritual_pendampingan})+(($F{spiritual_pendampingan_oleh}==null||$F{spiritual_pendampingan_oleh}.isEmpty())?"":", oleh "+$F{spiritual_pendampingan_oleh})]]></textFieldExpression></textField>
+			<!-- TTD -->
+			<textField isBlankWhenNull="true">
+				<reportElement x="355" y="574" width="200" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000050"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA[$P{kotars}+", "+($F{tanggal_cetak}==null?"":$F{tanggal_cetak})]]></textFieldExpression>
+			</textField>
+			<staticText><reportElement x="355" y="587" width="200" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000051"/><textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement><text><![CDATA[Perawat]]></text></staticText>
+			<componentElement>
+				<reportElement x="425" y="601" width="60" height="60" uuid="b1c2d3e4-0000-0000-0000-000000000052"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" margin="0" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[($F{nama_petugas}==null||$F{nama_petugas}.isEmpty())?"":("Perawat: "+$F{nama_petugas}+"\n"+$P{namars}+"\n"+($F{tanggal_cetak}==null?"":$F{tanggal_cetak}))]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+			<textField isBlankWhenNull="true">
+				<reportElement x="355" y="665" width="200" height="13" uuid="b1c2d3e4-0000-0000-0000-000000000053"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["( "+($F{nama_petugas}==null?"":$F{nama_petugas})+" )"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary><band splitType="Stretch"/></summary>
+</jasperReport>

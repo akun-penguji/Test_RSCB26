@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Laporan Pemakaian Obat per Hari per Depo - RSUD Cabangbungin -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptPemakaianObatPerDepo" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2d3e4f5-0000-0000-0000-000000000001">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="periode" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select '-' tanggal, '' depo, '' nm_depo, '' kode_brng, '' nama, '' satuan, '' sumber, 0 qty]]>
+	</queryString>
+	<field name="tanggal" class="java.lang.String"/>
+	<field name="depo" class="java.lang.String"/>
+	<field name="nm_depo" class="java.lang.String"/>
+	<field name="kode_brng" class="java.lang.String"/>
+	<field name="nama" class="java.lang.String"/>
+	<field name="satuan" class="java.lang.String"/>
+	<field name="sumber" class="java.lang.String"/>
+	<field name="qty" class="java.math.BigDecimal"/>
+	<variable name="sumQty" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{qty}]]></variableExpression>
+	</variable>
+	<title>
+		<band height="78" splitType="Stretch">
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="0" y="0" width="60" height="60" uuid="c2d3e4f5-0000-0000-0000-000000000010"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="0" width="742" height="18" uuid="c2d3e4f5-0000-0000-0000-000000000011"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="12" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="18" width="742" height="12" uuid="c2d3e4f5-0000-0000-0000-000000000012"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="7"/></textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+"  Telp. "+$P{kontakrs}]]></textFieldExpression>
+			</textField>
+			<line><reportElement x="0" y="32" width="802" height="1" uuid="c2d3e4f5-0000-0000-0000-000000000013"/><graphicElement><pen lineWidth="1.0"/></graphicElement></line>
+			<staticText>
+				<reportElement x="0" y="38" width="802" height="16" uuid="c2d3e4f5-0000-0000-0000-000000000014"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="11" isBold="true" isUnderline="true"/></textElement>
+				<text><![CDATA[LAPORAN PEMAKAIAN OBAT PER HARI PER DEPO]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="56" width="802" height="14" uuid="c2d3e4f5-0000-0000-0000-000000000015"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="9"/></textElement>
+				<textFieldExpression><![CDATA["Periode : "+$P{periode}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText><reportElement mode="Opaque" x="0" y="0" width="30" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000020"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[No]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="30" y="0" width="65" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000021"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Tanggal]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="95" y="0" width="55" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000022"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Kd Depo]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="150" y="0" width="130" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000023"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Nama Depo]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="280" y="0" width="80" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000024"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Kode Obat]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="360" y="0" width="210" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000025"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Nama Obat]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="570" y="0" width="55" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000026"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Satuan]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="625" y="0" width="110" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000027"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Sumber]]></text></staticText>
+			<staticText><reportElement mode="Opaque" x="735" y="0" width="67" height="20" backcolor="#E6E6E6" uuid="c2d3e4f5-0000-0000-0000-000000000028"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8" isBold="true"/></textElement><text><![CDATA[Qty]]></text></staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField><reportElement x="0" y="0" width="30" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000030"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="30" y="0" width="65" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000031"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="95" y="0" width="55" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000032"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{depo}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="150" y="0" width="130" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000033"/><box><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="8"/><paragraph leftIndent="2"/></textElement><textFieldExpression><![CDATA[$F{nm_depo}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="280" y="0" width="80" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000034"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{kode_brng}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="360" y="0" width="210" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000035"/><box><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="8"/><paragraph leftIndent="2"/></textElement><textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="570" y="0" width="55" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000036"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Tahoma" size="8"/></textElement><textFieldExpression><![CDATA[$F{satuan}]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="625" y="0" width="110" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000037"/><box><pen lineWidth="0.5"/></box><textElement verticalAlignment="Middle"><font fontName="Tahoma" size="8"/><paragraph leftIndent="2"/></textElement><textFieldExpression><![CDATA[$F{sumber}]]></textFieldExpression></textField>
+			<textField pattern="#,##0.###" isBlankWhenNull="true"><reportElement x="735" y="0" width="67" height="15" uuid="c2d3e4f5-0000-0000-0000-000000000038"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Right" verticalAlignment="Middle"><font fontName="Tahoma" size="8"/><paragraph rightIndent="3"/></textElement><textFieldExpression><![CDATA[$F{qty}]]></textFieldExpression></textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<staticText><reportElement mode="Opaque" x="0" y="0" width="735" height="20" backcolor="#F0F0F0" uuid="c2d3e4f5-0000-0000-0000-000000000040"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Right" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph rightIndent="6"/></textElement><text><![CDATA[TOTAL QTY]]></text></staticText>
+			<textField pattern="#,##0.###"><reportElement mode="Opaque" x="735" y="0" width="67" height="20" backcolor="#F0F0F0" uuid="c2d3e4f5-0000-0000-0000-000000000041"/><box><pen lineWidth="0.5"/></box><textElement textAlignment="Right" verticalAlignment="Middle"><font fontName="Tahoma" size="9" isBold="true"/><paragraph rightIndent="3"/></textElement><textFieldExpression><![CDATA[$V{sumQty}]]></textFieldExpression></textField>
+		</band>
+	</summary>
+</jasperReport>

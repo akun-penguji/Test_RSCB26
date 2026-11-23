@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.8.0.final using JasperReports Library version 6.8.0-2ed8dfabb690ff337a5797129f2cd92902b0c87b  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptFormEWSRscb" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="15" bottomMargin="15" uuid="a1234567-b890-cdef-0123-456789abcde0">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="no_rawat" class="java.lang.String"/>
+	<parameter name="qrcode" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select 1]]>
+	</queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="tanggal" class="java.lang.String"/>
+	<field name="tingkat_kesadaran" class="java.lang.String"/>
+	<field name="skor_kesadaran" class="java.lang.String"/>
+	<field name="td_sistolik" class="java.lang.String"/>
+	<field name="skor_td" class="java.lang.String"/>
+	<field name="nadi" class="java.lang.String"/>
+	<field name="skor_nadi" class="java.lang.String"/>
+	<field name="pernafasan" class="java.lang.String"/>
+	<field name="skor_pernafasan" class="java.lang.String"/>
+	<field name="suhu" class="java.lang.String"/>
+	<field name="skor_suhu" class="java.lang.String"/>
+	<field name="spo2" class="java.lang.String"/>
+	<field name="skor_spo2" class="java.lang.String"/>
+	<field name="oksigen" class="java.lang.String"/>
+	<field name="skor_oksigen" class="java.lang.String"/>
+	<field name="total_ews" class="java.lang.String"/>
+	<field name="kategori" class="java.lang.String"/>
+	<field name="nm_petugas" class="java.lang.String"/>
+	<title>
+		<band height="75" splitType="Stretch">
+			<image scaleImage="RetainShape" hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="65" height="65" uuid="a1234567-b890-cdef-0123-456789abcde1"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="0" width="415" height="20" uuid="a1234567-b890-cdef-0123-456789abcde2"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Tahoma" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="490" y="0" width="65" height="14" uuid="a1234567-b890-cdef-0123-456789abcde3"/>
+				<textElement textAlignment="Right">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RM.KEP.08.015.2019]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="22" width="480" height="12" uuid="a1234567-b890-cdef-0123-456789abcde4"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="70" y="35" width="480" height="12" uuid="a1234567-b890-cdef-0123-456789abcde5"/>
+				<textElement>
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Tlp. "+$P{kontakrs}+"  Email: "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="68" width="555" height="2" uuid="a1234567-b890-cdef-0123-456789abcde6"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="72" width="555" height="1" uuid="a1234567-b890-cdef-0123-456789abcde7"/>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="290" height="22" uuid="a1234567-b890-cdef-0123-456789abcde8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORM EARLY WARNING SCORE (EWS)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="295" y="0" width="260" height="78" uuid="a1234567-b890-cdef-0123-456789abcde9"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="298" y="3" width="80" height="14" uuid="a1234567-b890-cdef-0123-456789abcdea"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[No. RM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="3" width="8" height="14" uuid="a1234567-b890-cdef-0123-456789abcdeb"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="3" width="170" height="14" uuid="a1234567-b890-cdef-0123-456789abcdec"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="19" width="80" height="14" uuid="a1234567-b890-cdef-0123-456789abcded"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="19" width="8" height="14" uuid="a1234567-b890-cdef-0123-456789abcdee"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="19" width="170" height="14" uuid="a1234567-b890-cdef-0123-456789abcdef"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="35" width="80" height="14" uuid="a1234567-b890-cdef-0123-456789abcdf0"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[Tanggal Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="35" width="8" height="14" uuid="a1234567-b890-cdef-0123-456789abcdf1"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="35" width="170" height="14" uuid="a1234567-b890-cdef-0123-456789abcdf2"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="298" y="51" width="80" height="14" uuid="a1234567-b890-cdef-0123-456789abcdf3"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="51" width="8" height="14" uuid="a1234567-b890-cdef-0123-456789abcdf4"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="380" y="51" width="170" height="14" uuid="a1234567-b890-cdef-0123-456789abcdf5"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{jk}==null?"":$F{jk})+" / P / L"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="26" width="290" height="24" uuid="a1234567-b890-cdef-0123-456789abcdf6"/>
+				<textElement>
+					<font fontName="Tahoma" size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Pencatatan observasi menggunakan Early Warning Score (EWS)
+untuk pasien dengan usia > 18 tahun]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="500" splitType="Prevent">
+			<rectangle>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="18" backcolor="#2F5496" uuid="a1234567-b890-cdef-0123-456789abcdf7"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="2" y="2" width="100" height="14" forecolor="#FFFFFF" uuid="a1234567-b890-cdef-0123-456789abcdf8"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tanggal & Jam :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="102" y="2" width="200" height="14" forecolor="#FFFFFF" uuid="a1234567-b890-cdef-0123-456789abcdf9"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="2" width="80" height="14" forecolor="#FFFFFF" uuid="a1234567-b890-cdef-0123-456789abcdfa"/>
+				<textElement>
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Paraf & Petugas :]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="392" y="2" width="161" height="14" forecolor="#FFFFFF" uuid="a1234567-b890-cdef-0123-456789abcdfb"/>
+				<textElement>
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_petugas}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="18" width="180" height="14" forecolor="#FFFFFF" backcolor="#4472C4" uuid="a1234567-b890-cdef-0123-456789abcdfc"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EWS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="180" y="18" width="130" height="14" forecolor="#FFFFFF" backcolor="#4472C4" uuid="a1234567-b890-cdef-0123-456789abcdfd"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nilai / Rentang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="310" y="18" width="155" height="14" forecolor="#FFFFFF" backcolor="#4472C4" uuid="a1234567-b890-cdef-0123-456789abcdfe"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nilai Observasi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="465" y="18" width="90" height="14" forecolor="#FFFFFF" backcolor="#4472C4" uuid="a1234567-b890-cdef-0123-456789abcdff"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SKOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="32" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0001"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  TINGKAT KESADARAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="32" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0002"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Sadar]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="32" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0003"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{tingkat_kesadaran}!=null&&$F{tingkat_kesadaran}.equals("Sadar"))?"✓ "+$F{tingkat_kesadaran}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="32" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0004"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="44" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0005"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="44" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0006"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[V/P/U]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="44" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0007"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{tingkat_kesadaran}!=null&&!$F{tingkat_kesadaran}.equals("Sadar"))?"✓ "+$F{tingkat_kesadaran}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="44" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0008"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="56" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0009"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  TEKANAN DARAH (SISTOLIK)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="56" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0010"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≥ 230]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="56" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0011"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})>=230?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="56" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0012"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="68" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0013"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="68" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0014"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[201 - 229]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="68" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0015"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})>=201&&Integer.parseInt($F{td_sistolik})<=229?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="68" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0016"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="80" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0017"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="80" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0018"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[161 - 200]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="80" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0019"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})>=161&&Integer.parseInt($F{td_sistolik})<=200?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="80" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0020"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="92" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0021"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="92" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0022"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[101 - 160]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="92" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0023"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})>=101&&Integer.parseInt($F{td_sistolik})<=160?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="92" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0024"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="104" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0025"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="104" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0026"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[81 - 100]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="104" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0027"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})>=81&&Integer.parseInt($F{td_sistolik})<=100?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="104" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0028"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="116" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0029"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="116" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0030"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[71 - 80]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="116" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0031"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})>=71&&Integer.parseInt($F{td_sistolik})<=80?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="116" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0032"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="128" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0033"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="128" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0034"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≤ 61]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="128" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0035"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{td_sistolik}==null||$F{td_sistolik}.isEmpty())?"":Integer.parseInt($F{td_sistolik})<=70?"✓ "+$F{td_sistolik}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="128" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0036"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="140" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0037"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  NADI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="140" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0038"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≥ 131]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="140" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0039"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nadi}==null||$F{nadi}.isEmpty())?"":Integer.parseInt($F{nadi})>=131?"✓ "+$F{nadi}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="140" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0040"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="152" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0041"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="152" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0042"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[111 - 130]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="152" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0043"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nadi}==null||$F{nadi}.isEmpty())?"":Integer.parseInt($F{nadi})>=111&&Integer.parseInt($F{nadi})<=130?"✓ "+$F{nadi}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="152" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0044"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="164" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0045"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="164" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0046"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[101 - 110]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="164" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0047"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nadi}==null||$F{nadi}.isEmpty())?"":Integer.parseInt($F{nadi})>=101&&Integer.parseInt($F{nadi})<=110?"✓ "+$F{nadi}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="164" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0048"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="176" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0049"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="176" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0050"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[51 - 100]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="176" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0051"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nadi}==null||$F{nadi}.isEmpty())?"":Integer.parseInt($F{nadi})>=51&&Integer.parseInt($F{nadi})<=100?"✓ "+$F{nadi}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="176" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0052"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="188" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0053"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="188" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0054"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[41 - 50]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="188" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0055"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nadi}==null||$F{nadi}.isEmpty())?"":Integer.parseInt($F{nadi})>=41&&Integer.parseInt($F{nadi})<=50?"✓ "+$F{nadi}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="188" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0056"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="200" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0057"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="200" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0058"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≤ 40]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="200" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0059"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{nadi}==null||$F{nadi}.isEmpty())?"":Integer.parseInt($F{nadi})<=40?"✓ "+$F{nadi}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="200" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0060"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="212" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0061"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  PERNAFASAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="212" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0062"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≥ 30]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="212" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0063"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pernafasan}==null||$F{pernafasan}.isEmpty())?"":Integer.parseInt($F{pernafasan})>=30?"✓ "+$F{pernafasan}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="212" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0064"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="224" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0065"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="224" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0066"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[21 - 29]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="224" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0067"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pernafasan}==null||$F{pernafasan}.isEmpty())?"":Integer.parseInt($F{pernafasan})>=21&&Integer.parseInt($F{pernafasan})<=29?"✓ "+$F{pernafasan}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="224" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0068"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="236" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0069"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="236" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0070"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[18 - 20]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="236" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0071"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pernafasan}==null||$F{pernafasan}.isEmpty())?"":Integer.parseInt($F{pernafasan})>=18&&Integer.parseInt($F{pernafasan})<=20?"✓ "+$F{pernafasan}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="236" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0072"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="248" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0073"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="248" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0074"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[9 - 17]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="248" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0075"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pernafasan}==null||$F{pernafasan}.isEmpty())?"":Integer.parseInt($F{pernafasan})>=9&&Integer.parseInt($F{pernafasan})<=17?"✓ "+$F{pernafasan}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="248" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0076"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="260" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0077"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="260" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0078"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[8]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="260" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0079"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pernafasan}==null||$F{pernafasan}.isEmpty())?"":Integer.parseInt($F{pernafasan})==8?"✓ "+$F{pernafasan}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="260" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0080"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="272" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0081"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="272" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0082"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[< 8]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="272" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0083"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{pernafasan}==null||$F{pernafasan}.isEmpty())?"":Integer.parseInt($F{pernafasan})<8?"✓ "+$F{pernafasan}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="272" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0084"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="284" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0085"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  SUHU]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="284" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0086"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[> 38,5°]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="284" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0087"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{suhu}==null||$F{suhu}.isEmpty())?"":Double.parseDouble($F{suhu})>38.5?"✓ "+$F{suhu}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="284" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0088"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="296" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0089"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="296" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0090"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[38,05° - 38,5°]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="296" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0091"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{suhu}==null||$F{suhu}.isEmpty())?"":Double.parseDouble($F{suhu})>=38.05&&Double.parseDouble($F{suhu})<=38.5?"✓ "+$F{suhu}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="296" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0092"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="308" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0093"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="308" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0094"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[36,05° - 38°]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="308" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0095"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{suhu}==null||$F{suhu}.isEmpty())?"":Double.parseDouble($F{suhu})>=36.05&&Double.parseDouble($F{suhu})<=38.0?"✓ "+$F{suhu}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="308" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0096"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="320" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0097"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="320" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0098"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[35,0° - 36°]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="320" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0099"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{suhu}==null||$F{suhu}.isEmpty())?"":Double.parseDouble($F{suhu})>=35.0&&Double.parseDouble($F{suhu})<36.05?"✓ "+$F{suhu}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="320" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0100"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="332" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0101"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="332" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0102"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[< 35°]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="332" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0103"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{suhu}==null||$F{suhu}.isEmpty())?"":Double.parseDouble($F{suhu})<35.0?"✓ "+$F{suhu}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="332" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0104"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="344" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0105"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  SpO2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="344" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0106"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≥ 96]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="344" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0107"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{spo2}==null||$F{spo2}.isEmpty())?"":Integer.parseInt($F{spo2})>=96?"✓ "+$F{spo2}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="344" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0108"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="356" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0109"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="356" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0110"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[94 - 95]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="356" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0111"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{spo2}==null||$F{spo2}.isEmpty())?"":Integer.parseInt($F{spo2})>=94&&Integer.parseInt($F{spo2})<=95?"✓ "+$F{spo2}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="356" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0112"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="368" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0113"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="368" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0114"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[92 - 93]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="368" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0115"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{spo2}==null||$F{spo2}.isEmpty())?"":Integer.parseInt($F{spo2})>=92&&Integer.parseInt($F{spo2})<=93?"✓ "+$F{spo2}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="368" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0116"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="380" width="180" height="12" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0117"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="380" width="130" height="12" uuid="a1234567-b890-cdef-0123-456789ab0118"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[≤ 91]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="380" width="155" height="12" uuid="a1234567-b890-cdef-0123-456789ab0119"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{spo2}==null||$F{spo2}.isEmpty())?"":Integer.parseInt($F{spo2})<=91?"✓ "+$F{spo2}:""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="380" width="90" height="12" uuid="a1234567-b890-cdef-0123-456789ab0120"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="392" width="180" height="14" backcolor="#EAF0FA" uuid="a1234567-b890-cdef-0123-456789ab0121"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  OKSIGEN (ALAT BANTU)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="392" width="130" height="14" uuid="a1234567-b890-cdef-0123-456789ab0122"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[Ya]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="310" y="392" width="155" height="14" uuid="a1234567-b890-cdef-0123-456789ab0123"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{oksigen}!=null&&$F{oksigen}.equals("Ya"))?"✓ Ya":""]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="465" y="392" width="90" height="14" uuid="a1234567-b890-cdef-0123-456789ab0124"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#AAAAAA"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="406" width="310" height="16" backcolor="#FFC000" uuid="a1234567-b890-cdef-0123-456789ab0125"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  TOTAL Early Warning Score]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="310" y="406" width="245" height="16" backcolor="#FFC000" uuid="a1234567-b890-cdef-0123-456789ab0126"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total_ews}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="422" width="180" height="14" backcolor="#FFF2CC" uuid="a1234567-b890-cdef-0123-456789ab0127"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Paraf dan Nama Petugas]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="180" y="422" width="275" height="14" backcolor="#FFF2CC" uuid="a1234567-b890-cdef-0123-456789ab0128"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_petugas}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="RetainShape" isUsingCache="false" onErrorType="Blank">
+				<reportElement x="455" y="420" width="100" height="60" uuid="a1234567-b890-cdef-0127-56789ab0131a"/>
+				<imageExpression><![CDATA[$P{qrcode}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="464" width="555" height="14" uuid="a1234567-b890-cdef-0123-456789ab0129"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Kategori/Tindakan :]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="478" width="555" height="14" uuid="a1234567-b890-cdef-0123-456789ab0130"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+($F{kategori}==null?"":$F{kategori})]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="160" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="4" width="555" height="152" uuid="a1234567-b890-cdef-0123-456789ab0131"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="4" width="30" height="20" forecolor="#FFFFFF" backcolor="#2F5496" uuid="a1234567-b890-cdef-0123-456789ab0132"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="30" y="4" width="100" height="20" forecolor="#FFFFFF" backcolor="#2F5496" uuid="a1234567-b890-cdef-0123-456789ab0133"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NILAI EWS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="130" y="4" width="155" height="20" forecolor="#FFFFFF" backcolor="#2F5496" uuid="a1234567-b890-cdef-0123-456789ab0134"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FREKUENSI MONITORING]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="285" y="4" width="270" height="20" forecolor="#FFFFFF" backcolor="#2F5496" uuid="a1234567-b890-cdef-0123-456789ab0135"/>
+				<box>
+					<pen lineWidth="0.5" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASUHAN YANG DIBERIKAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="30" height="16" uuid="a1234567-b890-cdef-0123-456789ab0136"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="24" width="100" height="16" uuid="a1234567-b890-cdef-0123-456789ab0137"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[0]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="24" width="155" height="16" uuid="a1234567-b890-cdef-0123-456789ab0138"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[ Min. setiap 12 jam sekali]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="24" width="270" height="16" uuid="a1234567-b890-cdef-0123-456789ab0139"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[ Lanjutkan observasi/monitoring secara rutin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="30" height="32" uuid="a1234567-b890-cdef-0123-456789ab0140"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="40" width="100" height="32" uuid="a1234567-b890-cdef-0123-456789ab0141"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL SCORE 1 - 4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="40" width="155" height="32" uuid="a1234567-b890-cdef-0123-456789ab0142"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[ Min. setiap 4-6 jam sekali]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="40" width="270" height="32" uuid="a1234567-b890-cdef-0123-456789ab0143"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<text><![CDATA[ Perawat pelaksana menginformasikan kepada ketua tim/PJ jaga. Ketua tim membuat keputusan meningkatkan frekuensi observasi dan perbaikan asuhan.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="72" width="30" height="40" uuid="a1234567-b890-cdef-0123-456789ab0144"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="72" width="100" height="40" uuid="a1234567-b890-cdef-0123-456789ab0145"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL SCORE 5-6 ATAU 3 DALAM 1 PARAMETER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="72" width="155" height="40" uuid="a1234567-b890-cdef-0123-456789ab0146"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[ Peningkatan Frekuensi Observasi. Setidaknya setiap 1 jam sekali]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="72" width="270" height="40" uuid="a1234567-b890-cdef-0123-456789ab0147"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<text><![CDATA[ 1. Ketua Tim segera informasi ke dokter jaga atau DPJP. 2. Dokter melakukan assesmen dan menentukan kondisi pasien. 3. Siapkan fasilitas monitoring lebih canggih.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="112" width="30" height="44" uuid="a1234567-b890-cdef-0123-456789ab0148"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="112" width="100" height="44" uuid="a1234567-b890-cdef-0123-456789ab0149"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL SCORE 7 ATAU LEBIH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="112" width="155" height="44" uuid="a1234567-b890-cdef-0123-456789ab0150"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<text><![CDATA[ Lanjutkan Observasi/Monitoring Tanda-Tanda Vital]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="112" width="270" height="44" uuid="a1234567-b890-cdef-0123-456789ab0151"/>
+				<box>
+					<pen lineWidth="0.3" lineColor="#888888"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="7"/>
+				</textElement>
+				<text><![CDATA[ 1. Ketua Tim melaporkan kepada Tim Code Blue. 2. Tim Code Blue melakukan assesmen segera. 3. Stabilisasi dan pasien dirujuk ke Intermediate Care. 4. Untuk pasien IGD (Prioritas 3,4,5) kirim ke ruang Resusitasi untuk BHL.]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

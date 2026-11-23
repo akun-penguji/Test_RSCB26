@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="rptAskep3SSLKI" language="groovy"
+              pageWidth="555" pageHeight="842" columnWidth="555"
+              leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0"
+              uuid="bf66c9d6-8a41-4217-bf2a-3c6ec4b7f287">
+    <parameter name="DIAG_ID" class="java.lang.Integer"/>
+    <queryString>
+        <![CDATA[SELECT al.id AS id_luaran, al.label_slki, al.skala_awal, al.skala_target, al.waktu_target_hari,
+                        ali.label_indikator, ali.skala_awal AS ind_awal, ali.skala_target AS ind_target
+                 FROM askep_luaran al
+                 LEFT JOIN askep_luaran_indikator ali ON ali.id_luaran = al.id
+                 WHERE al.id_diagnosis = $P{DIAG_ID}
+                 ORDER BY al.id, ali.id]]>
+    </queryString>
+    <field name="id_luaran" class="java.lang.Integer"/>
+    <field name="label_slki" class="java.lang.String"/>
+    <field name="skala_awal" class="java.lang.Integer"/>
+    <field name="skala_target" class="java.lang.Integer"/>
+    <field name="waktu_target_hari" class="java.lang.Integer"/>
+    <field name="label_indikator" class="java.lang.String"/>
+    <field name="ind_awal" class="java.lang.Integer"/>
+    <field name="ind_target" class="java.lang.Integer"/>
+    <group name="grpLuaran" isStartNewPage="false" isResetPageNumber="false">
+        <groupExpression><![CDATA[$F{id_luaran}]]></groupExpression>
+        <groupHeader>
+            <band height="20">
+                <rectangle>
+                    <reportElement x="0" y="0" width="555" height="20" backcolor="#D6EAF8" uuid="24a1c7d5-3797-44bc-927f-5984b48a1d6e"/>
+                    <graphicElement>
+                        <pen lineWidth="0.5" lineColor="#2980B9"/>
+                    </graphicElement>
+                </rectangle>
+                <textField isStretchWithOverflow="true">
+                    <reportElement x="2" y="2" width="400" height="16" uuid="1c13f4c9-b00d-424e-b8cd-79e202383683"/>
+                    <textElement verticalAlignment="Middle">
+                        <font size="8" isBold="true"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{label_slki}]]></textFieldExpression>
+                </textField>
+                <textField>
+                    <reportElement x="402" y="2" width="153" height="16" uuid="5345573e-e399-4cf8-880b-3f1cdd5969c5"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="8"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA["Skala: " + $F{skala_awal} + " → " + $F{skala_target} + "  |  " + $F{waktu_target_hari} + " hari"]]></textFieldExpression>
+                </textField>
+            </band>
+        </groupHeader>
+    </group>
+    <detail>
+        <band height="14" splitType="Stretch">
+            <textField isStretchWithOverflow="true">
+                <reportElement x="10" y="1" width="420" height="12" uuid="1e433a0b-cf4e-4677-89e1-9aa4d1fac6ec"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="7.5"/>
+                </textElement>
+                <textFieldExpression><![CDATA["• " + ($F{label_indikator} != null ? $F{label_indikator} : "")]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="430" y="1" width="55" height="12" uuid="76275b10-70d5-42d8-9f5b-3150567cf7d1"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7.5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ind_awal} != null ? String.valueOf($F{ind_awal}) : "-"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="485" y="1" width="55" height="12" uuid="9a180b9f-4acd-47dc-83a6-33faada6ea9f"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7.5"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{ind_target} != null ? String.valueOf($F{ind_target}) : "-"]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

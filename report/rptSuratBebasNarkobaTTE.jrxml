@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created for RSUD Cabangbungin TTE BSrE -->
+<jasperReport language="groovy" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptSuratBebasNarkobaTTE" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cf6f89ac-ce76-4f98-96d7-d5d22d408e46">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="logo2" class="java.io.InputStream"/>
+	<parameter name="logobsre" class="java.io.InputStream"/>
+	<parameter name="sip" class="java.lang.String"/>
+	<parameter name="nip" class="java.lang.String"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="no_surat" class="java.lang.String"/>
+	<field name="tanggalsurat" class="java.lang.String"/>
+	<field name="kategori" class="java.lang.String"/>
+	<field name="keperluan" class="java.lang.String"/>
+	<field name="opiat" class="java.lang.String"/>
+	<field name="ganja" class="java.lang.String"/>
+	<field name="amphetamin" class="java.lang.String"/>
+	<field name="methamphetamin" class="java.lang.String"/>
+	<field name="benzodiazepin" class="java.lang.String"/>
+	<field name="cocain" class="java.lang.String"/>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="nm_dokter" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="pekerjaan" class="java.lang.String"/>
+	<field name="umur" class="java.lang.String"/>
+	<field name="alamat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<!-- Header Kop -->
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="0" y="0" width="70" height="70" uuid="00a8dc11-e821-426a-bd6a-9794652fcd39"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="484" y="0" width="70" height="70" uuid="03c8fffe-a752-4292-8486-57ee3b182be3"/>
+				<imageExpression><![CDATA[$P{logo2}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="72" y="4" width="410" height="17" uuid="b88876c7-359e-455f-ae45-783532a3ec59"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="23" width="410" height="14" uuid="1717abb7-f9a5-402f-817b-848779fac6ba"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="38" width="410" height="14" uuid="52a4f1f9-0d55-4d90-b7d8-827e879504e0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="9"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kontakrs} + " | e-mail: " + $P{emailrs}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="74" width="555" height="1" uuid="7110e9ce-c332-4957-b381-97bc5228e830"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+
+			<!-- Judul Dokumen -->
+			<staticText>
+				<reportElement x="0" y="85" width="555" height="18" uuid="93bcb07f-9ba6-4bdc-9686-858118206330"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="13" isBold="true" isUnderline="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[SURAT KETERANGAN BEBAS NARKOBA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="104" width="555" height="15" uuid="599ee915-25f7-4422-a298-7aab681b650c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["No. " + $F{no_surat}]]></textFieldExpression>
+			</textField>
+
+			<!-- Narasi Pembuka -->
+			<textField>
+				<reportElement x="0" y="128" width="555" height="28" uuid="5c789737-bf0c-4378-b69d-55ec842ffb08"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Yang bertanda tangan di bawah ini dokter pemeriksa pada " + $P{namars} + ", menerangkan bahwa telah melakukan wawancara, pemeriksaan fisik dan pemeriksaan skrining narkoba terhadap :"]]></textFieldExpression>
+			</textField>
+
+			<!-- Identitas Pasien -->
+			<staticText>
+				<reportElement x="20" y="162" width="110" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811be"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="162" width="10" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811bf"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="162" width="410" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c0"/>
+				<textElement><font fontName="Tahoma" size="11" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="20" y="182" width="110" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c1"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="182" width="10" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c2"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="182" width="410" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c3"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<textFieldExpression><![CDATA[$F{jk}.equals("L") ? "Laki-Laki" : "Perempuan"]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="20" y="202" width="110" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c4"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Tgl. Lahir / Umur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="202" width="10" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c5"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="202" width="410" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c6"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<textFieldExpression><![CDATA[$F{tgl_lahir} + " (" + $F{umur} + ")"]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="20" y="222" width="110" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c7"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Pekerjaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="222" width="10" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c8"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="222" width="410" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811c9"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="20" y="242" width="110" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d0"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="242" width="10" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d1"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="145" y="242" width="410" height="28" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d2"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="20" y="274" width="110" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d3"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Keperluan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="274" width="10" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d4"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="274" width="410" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d5"/>
+				<textElement><font fontName="Tahoma" size="11"/></textElement>
+				<textFieldExpression><![CDATA[$F{keperluan}]]></textFieldExpression>
+			</textField>
+
+			<!-- Tabel Hasil Pemeriksaan Laboratorium -->
+			<staticText>
+				<reportElement x="0" y="302" width="555" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d6"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="11" isBold="true"/></textElement>
+				<text><![CDATA[Hasil Pemeriksaan Urine Skrining Narkoba (Rapid Test) :]]></text>
+			</staticText>
+
+			<!-- Header Tabel Mini -->
+			<rectangle>
+				<reportElement x="20" y="324" width="515" height="20" backcolor="#F0F0F0" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d7"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="326" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d8"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="326" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811d9"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<text><![CDATA[Parameter Pemeriksaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="326" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e0"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<text><![CDATA[Hasil]]></text>
+			</staticText>
+
+			<!-- Baris 1: Amphetamine -->
+			<rectangle>
+				<reportElement x="20" y="344" width="515" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e1"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="345" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e2"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[1.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="345" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e3"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[Amphetamine (AMP)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="345" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e4"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{amphetamin}]]></textFieldExpression>
+			</textField>
+
+			<!-- Baris 2: Methamphetamine -->
+			<rectangle>
+				<reportElement x="20" y="362" width="515" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e5"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="363" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e6"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[2.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="363" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e7"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[Methamphetamine (MET)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="363" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e8"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{methamphetamin}]]></textFieldExpression>
+			</textField>
+
+			<!-- Baris 3: THC / Mariyuana -->
+			<rectangle>
+				<reportElement x="20" y="380" width="515" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811e9"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="381" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811ea"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[3.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="381" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811eb"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[Cannabinoid / THC / Mariyuana]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="381" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811ec"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{ganja}]]></textFieldExpression>
+			</textField>
+
+			<!-- Baris 4: Morfin / Opiat -->
+			<rectangle>
+				<reportElement x="20" y="398" width="515" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811ed"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="399" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811ee"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[4.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="399" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811ef"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[Morphine / Opiate (MOP)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="399" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f0"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{opiat}]]></textFieldExpression>
+			</textField>
+
+			<!-- Baris 5: Cocaine -->
+			<rectangle>
+				<reportElement x="20" y="416" width="515" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f1"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="417" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f2"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[5.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="417" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f3"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[Cocaine (COC)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="417" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f4"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{cocain}]]></textFieldExpression>
+			</textField>
+
+			<!-- Baris 6: Benzodiazepine -->
+			<rectangle>
+				<reportElement x="20" y="434" width="515" height="18" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f5"/>
+				<graphicElement><pen lineWidth="0.5" lineColor="#888888"/></graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="435" width="30" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f6"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[6.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="435" width="280" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f7"/>
+				<textElement textAlignment="Left"><font fontName="Tahoma" size="10"/></textElement>
+				<text><![CDATA[Benzodiazepine (BZO)]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="360" y="435" width="160" height="16" uuid="0c3d9bf2-bc7e-47c2-a032-5adce6a811f8"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="10" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$F{benzodiazepin}]]></textFieldExpression>
+			</textField>
+
+			<!-- Kesimpulan -->
+			<staticText>
+				<reportElement x="0" y="460" width="555" height="16" uuid="e6d7b471-04cf-4feb-ba78-acec569b2c21"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="11"/></textElement>
+				<text><![CDATA[Berdasarkan hasil pemeriksaan tersebut di atas, yang bersangkutan dinyatakan :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="478" width="555" height="22" uuid="e6d7b471-04cf-4feb-ba78-acec569b2c22"/>
+				<textElement textAlignment="Center"><font fontName="Tahoma" size="13" isBold="true"/></textElement>
+				<text><![CDATA[BEBAS DARI ZAT ADIKTIF / NARKOBA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="502" width="555" height="26" uuid="7ba21711-85a0-4c78-b47f-5dfdea477522"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Tahoma" size="11"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Demikian surat keterangan ini dibuat dengan sebenar-benarnya untuk dapat dipergunakan sebagaimana mestinya.]]></text>
+			</staticText>
+
+			<!-- Area Tanda Tangan DPJP -->
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="330" y="534" width="225" height="16" uuid="2402d72a-bb9e-433e-9bcc-7b29c0244a95"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kotars}+", "+$F{tanggalsurat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="330" y="550" width="225" height="16" uuid="187b0c30-9efc-4a4d-864b-c1c458264899"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11"/>
+				</textElement>
+				<text><![CDATA[Dokter Pemeriksa,]]></text>
+			</staticText>
+
+			<!-- Tag # Tempat QR TTE BSrE (85x85) -->
+			<staticText>
+				<reportElement x="410" y="572" width="65" height="85" uuid="50dcc251-7f55-4c95-a0ac-aefdb2ec185c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[#]]></text>
+			</staticText>
+
+			<textField>
+				<reportElement x="330" y="662" width="225" height="18" uuid="709fe9c7-d28e-46c9-bdf2-6f30324426f1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="11" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="330" y="680" width="225" height="15" uuid="a9c82430-c29a-4e70-993d-746d7338d36b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SIP: "+$P{sip}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="330" y="695" width="225" height="15" uuid="a9c82430-c29a-4e70-993d-746d7338d36c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["NIP: "+$P{nip}]]></textFieldExpression>
+			</textField>
+
+			<!-- Footer Legalitas BSrE Proporsional 1:1 -->
+			<line>
+				<reportElement x="0" y="742" width="555" height="1" uuid="6c99c82b-df5e-4bb8-9366-5b5832a8a1e2"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#A0A0A0"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="RetainShape" hAlign="Left" vAlign="Middle" onErrorType="Blank">
+				<reportElement x="0" y="746" width="76" height="26" uuid="9ffc3b26-f923-4058-bc35-b334013da74c"/>
+				<imageExpression><![CDATA[$P{logobsre}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="84" y="744" width="471" height="30" forecolor="#333333" uuid="cd204c79-3f37-4800-aa09-74b4e748962a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9" isItalic="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Dokumen ini telah ditandatangani secara elektronik menggunakan sertifikat elektronik yang diterbitkan oleh
+Balai Besar Sertifikasi Elektronik (BSrE), Badan Siber dan Sandi Negara.]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

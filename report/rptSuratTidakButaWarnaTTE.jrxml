@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created for RSUD Cabangbungin TTE BSrE - Surat Keterangan Tidak Buta Warna -->
+<jasperReport language="groovy" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptSuratTidakButaWarnaTTE" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="23b08b13-d2ac-4c33-8e4f-a878f29013ec">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="kotars" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<parameter name="logo2" class="java.io.InputStream"/>
+	<parameter name="logobsre" class="java.io.InputStream"/>
+	<parameter name="sip" class="java.lang.String"/>
+	<parameter name="nip" class="java.lang.String"/>
+	<parameter name="finger" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="no_surat" class="java.lang.String"/>
+	<field name="tanggalperiksa" class="java.lang.String"/>
+	<field name="hasilperiksa" class="java.lang.String"/>
+	<field name="nm_dokter" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="tmp_lahir" class="java.lang.String"/>
+	<field name="pekerjaan" class="java.lang.String"/>
+	<field name="kd_dokter" class="java.lang.String"/>
+	<field name="alamat" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="802" splitType="Stretch">
+			<!-- Header Kop Surat Dua Logo -->
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="0" y="0" width="70" height="70" uuid="bb92be62-e826-4689-a6bc-b3eef4b548a3"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement x="484" y="0" width="70" height="70" uuid="03c8fffe-a752-4292-8486-57ee3b182be3"/>
+				<imageExpression><![CDATA[$P{logo2}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="72" y="4" width="410" height="17" uuid="016440dc-612e-42ff-b8d9-e4c3df9a3a0e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="23" width="410" height="12" uuid="a63b018b-59bf-450f-a9cb-b2f9fa2ca477"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kotars}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="37" width="410" height="12" uuid="3d21c385-48fa-4e0e-8fec-165c27f311c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Telepon : "+$P{kontakrs}+"   E-mail : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="74" width="554" height="1" uuid="884faef2-7b19-482f-b44c-204128549646"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+
+			<!-- Judul Dokumen -->
+			<staticText>
+				<reportElement x="0" y="88" width="554" height="18" uuid="8a6142fb-2483-4a6c-9a4f-56037e8c07e0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SURAT KETERANGAN PEMERIKSAAN BUTA WARNA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="106" width="554" height="15" uuid="554f8cf1-7b4d-43ca-bbe7-7f962974b9e6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nomor : "+$F{no_surat}]]></textFieldExpression>
+			</textField>
+
+			<!-- Kalimat Pembuka -->
+			<staticText>
+				<reportElement x="20" y="135" width="514" height="28" uuid="b24fc0b7-4d1a-464a-a1b4-b895697a315e"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Yang bertanda tangan di bawah ini Dokter Pemeriksa pada RSUD Cabangbungin menerangkan bahwa telah memeriksa dengan teliti terhadap seorang :]]></text>
+			</staticText>
+
+			<!-- Biodata Pasien -->
+			<staticText>
+				<reportElement x="40" y="175" width="130" height="16" uuid="e3881ca7-53e7-4978-8314-8772bf2ea64a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Nama Pasien]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="175" width="10" height="16" uuid="f9064ebc-fa85-4ae0-b96e-5e363a01ba26"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="175" width="354" height="16" uuid="93f350ec-9442-4217-a00d-58ec7952445c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="40" y="193" width="130" height="16" uuid="2a417565-5c12-4cf0-8b4e-4f368f5c351f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Tempat / Tgl. Lahir]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="193" width="10" height="16" uuid="a9d5fe52-b4c6-43b9-a46c-c9c6f2df6df0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="193" width="354" height="16" uuid="e0dc8084-e9cc-4395-b040-5712f270aefb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tmp_lahir}+", "+$F{tgl_lahir}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="40" y="211" width="130" height="16" uuid="7cf4f7ad-0870-4e35-a6e5-4ae036d0ad0d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Jenis Kelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="211" width="10" height="16" uuid="f7ca62a8-a517-4589-a0ca-dfb798782ee8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="211" width="354" height="16" uuid="bf8d2516-ec72-4e92-9136-12fb1a5a73e6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jk}.equals("L")?"Laki-laki":"Perempuan"]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="40" y="229" width="130" height="16" uuid="b4be6da2-5c5b-4964-a0aa-f9e964459791"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Pekerjaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="229" width="10" height="16" uuid="9e7b43bf-e8e3-4c20-a275-d1e36431d6e7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="180" y="229" width="354" height="16" uuid="62b5994a-3921-4ad4-857a-b456974278dc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="40" y="247" width="130" height="16" uuid="2a563914-7473-45f8-b343-7fdf65e94b89"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Alamat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="247" width="10" height="16" uuid="f98e6df3-f8ad-4d44-be1f-9da8b61e2fbc"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="180" y="247" width="354" height="30" uuid="7d66d7ad-a67b-449e-b53d-2490d16be993"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+
+			<!-- Hasil Pemeriksaan -->
+			<staticText>
+				<reportElement x="20" y="295" width="514" height="20" uuid="70b42df3-294d-44a6-98dc-a3c0516fc98b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Berdasarkan hasil pemeriksaan yang telah dilakukan pada tanggal pemeriksaan tersebut, menyatakan bahwa :]]></text>
+			</staticText>
+
+			<rectangle radius="5">
+				<reportElement x="60" y="325" width="434" height="40" backcolor="#F4F8FB" uuid="3d8e52a9-0639-448f-bb7e-f635467c603b"/>
+				<graphicElement>
+					<pen lineWidth="1.0" lineColor="#4B6584"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="70" y="332" width="414" height="25" uuid="521764eb-9d18-406a-a1ad-467f56475689"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{hasilperiksa}.toUpperCase()]]></textFieldExpression>
+			</textField>
+
+			<staticText>
+				<reportElement x="20" y="380" width="514" height="28" uuid="02cdbb1e-f55f-4649-aede-4f0249266ca0"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Demikian surat keterangan pemeriksaan ini dibuat dengan sebenarnya dan untuk dapat dipergunakan sebagaimana mestinya.]]></text>
+			</staticText>
+
+			<!-- Area Tanda Tangan Dokter & Visual Anchor BSrE -->
+			<textField>
+				<reportElement x="310" y="445" width="230" height="15" uuid="2a92a5ee-bc54-4720-bd6c-486016df16d9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kotars}+", "+$F{tanggalperiksa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="310" y="460" width="230" height="15" uuid="95beccec-5c33-46f8-8d6a-6f7fbb700c5b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10"/>
+				</textElement>
+				<text><![CDATA[Dokter Pemeriksa,]]></text>
+			</staticText>
+
+			<!-- Visual Tag '#' untuk Koordinat QR TTE BSrE (85x85) -->
+			<textField>
+				<reportElement x="385" y="480" width="85" height="85" forecolor="#FFFFFF" uuid="bcce4461-dbda-43fd-8846-20328e2ab72d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{finger}]]></textFieldExpression>
+			</textField>
+
+			<textField>
+				<reportElement x="310" y="570" width="230" height="15" uuid="41e74ff0-e94b-4028-9444-4aaf40e2692f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="10" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nm_dokter}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="585" width="230" height="14" uuid="d9be117c-8646-4a11-b016-dfa4fa0a48bb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SIP. "+$P{sip}]]></textFieldExpression>
+			</textField>
+
+			<!-- Footer BSrE Legal Notice -->
+			<line>
+				<reportElement x="20" y="730" width="514" height="1" forecolor="#B0B0B0" uuid="e0d4eb0c-848d-4e9e-b9b5-c08a95610e7b"/>
+				<graphicElement>
+					<pen lineWidth="0.75" lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<image scaleImage="RetainShape" onErrorType="Blank">
+				<reportElement x="20" y="735" width="45" height="45" uuid="e8537b9d-a411-4475-bce1-d707ee4b7724"/>
+				<imageExpression><![CDATA[$P{logobsre}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="72" y="736" width="462" height="44" forecolor="#505050" uuid="09d0cb7d-d42b-426b-9e4a-4a7b75f8f9ea"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Tahoma" size="7" isItalic="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[Dokumen ini telah ditandatangani secara elektronik menggunakan sertifikat elektronik yang diterbitkan oleh Balai Besar Sertifikasi Elektronik (BSrE), Badan Siber dan Sandi Negara (BSSN). Keaslian dokumen dapat diverifikasi melalui pemindaian QR Code resmi pada dokumen ini.]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

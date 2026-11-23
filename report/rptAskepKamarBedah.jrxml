@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptAskepKamarBedah" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="15" bottomMargin="15" uuid="a3744f83-7f37-409f-8a19-6fb9e0904863">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="propinsirs" class="java.lang.String"/>
+	<parameter name="kabupatenrs" class="java.lang.String"/>
+	<parameter name="kontakrs" class="java.lang.String"/>
+	<parameter name="emailrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[select da.no_rawat, da.tanggal, r.no_rkm_medis, p.nm_pasien, p.alamat, concat(r.umurdaftar,' ',r.sttsumur) as umur,
+da.tindakan, da.jenis_anestesi, da.catatan, pt.nama as nm_petugas,
+pre.puasa, pre.kondisi_kulit, pre.preop_kesadaran, pre.gcs, pre.kesimpulan, pre.gangguan_sensorik,
+pre.muskuloskeletal, pre.protesa, pre.edema, pre.respirasi, pre.kondisi_psikologis, pre.laboratorium, pre.data_penunjang,
+pre.informed_consent, pre.identitas_pasien, pre.lavamen, pre.isolasi, pre.marking, pre.alergi, pre.verifikasi_tindakan,
+pre.riwayat_asma, pre.ekg, pre.foto_thorax, pre.riwayat_hepatitis, pre.penyakit_lain, pre.waktu_pengukuran,
+ms.masalah_preop_kecemasan, ms.cemas_tingkat, ms.intervensi_cemas, ms.masalah_preop_nyeri, ms.intervensi_nyeri,
+io.klasifikasi_luka, io.posisi_operasi, io.aseptik_antiseptik, io.aseptik_oleh, io.kateter, io.kateter_no, io.kateter_urine_cc, io.kateter_oleh,
+io.drain_intraop, io.drain_intraop_jenis, io.drain_intraop_cc, io.tampon_intraop, io.tampon_intraop_jenis, io.tampon_intraop_lokasi,
+io.gips, io.gips_jenis, io.gips_lokasi, io.matras_penghangat, io.cairan_iv_hangat, io.irigasi_hangat,
+io.sabuk_pengaman, io.plat_grounding, io.elektrokauter_koagulasi, io.elektrokauter_cutting, io.kulit_setelah_plate,
+io.tourniquet_waktu, io.tourniquet_tekanan, io.cairan_infus, io.urine, io.ngt, io.pemberian_darah,
+po.jam_masuk_rr, po.td, po.hr, po.spo2, po.rr, po.jenis_anestesi_postop, po.kulit_postop, po.respirasi_postop,
+po.kesadaran, po.posisi_pasien, po.lama_anestesi, po.lama_operasi, po.diagnosa_postop, po.drain, po.tampon, po.pa,
+dg.efektifitas_jalan_nafas, dg.hipotermi_postop, dg.nip_perawat_rr, dg.nip_perawat_ruangan
+from asuhan_keperawatan_kamar_bedah_data_awal da
+inner join reg_periksa r on da.no_rawat=r.no_rawat
+inner join pasien p on r.no_rkm_medis=p.no_rkm_medis
+left join petugas pt on da.nip=pt.nip
+left join askep_kb_preop pre on da.no_rawat=pre.no_rawat and da.tanggal=pre.tanggal
+left join askep_kb_masalah ms on da.no_rawat=ms.no_rawat and da.tanggal=ms.tanggal
+left join askep_kb_intraop io on da.no_rawat=io.no_rawat and da.tanggal=io.tanggal
+left join askep_kb_postop po on da.no_rawat=po.no_rawat and da.tanggal=po.tanggal
+left join askep_kb_diagnosa dg on da.no_rawat=dg.no_rawat and da.tanggal=dg.tanggal]]>
+	</queryString>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="tanggal" class="java.sql.Timestamp"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="alamat" class="java.lang.String"/>
+	<field name="umur" class="java.lang.String"/>
+	<field name="tindakan" class="java.lang.String"/>
+	<field name="jenis_anestesi" class="java.lang.String"/>
+	<field name="catatan" class="java.lang.String"/>
+	<field name="nm_petugas" class="java.lang.String"/>
+	<field name="puasa" class="java.lang.String"/>
+	<field name="kondisi_kulit" class="java.lang.String"/>
+	<field name="preop_kesadaran" class="java.lang.String"/>
+	<field name="gcs" class="java.lang.String"/>
+	<field name="kesimpulan" class="java.lang.String"/>
+	<field name="gangguan_sensorik" class="java.lang.String"/>
+	<field name="muskuloskeletal" class="java.lang.String"/>
+	<field name="protesa" class="java.lang.String"/>
+	<field name="edema" class="java.lang.String"/>
+	<field name="respirasi" class="java.lang.String"/>
+	<field name="kondisi_psikologis" class="java.lang.String"/>
+	<field name="laboratorium" class="java.lang.String"/>
+	<field name="data_penunjang" class="java.lang.String"/>
+	<field name="informed_consent" class="java.lang.String"/>
+	<field name="identitas_pasien" class="java.lang.String"/>
+	<field name="lavamen" class="java.lang.String"/>
+	<field name="isolasi" class="java.lang.String"/>
+	<field name="marking" class="java.lang.String"/>
+	<field name="alergi" class="java.lang.String"/>
+	<field name="verifikasi_tindakan" class="java.lang.String"/>
+	<field name="riwayat_asma" class="java.lang.String"/>
+	<field name="ekg" class="java.lang.String"/>
+	<field name="foto_thorax" class="java.lang.String"/>
+	<field name="riwayat_hepatitis" class="java.lang.String"/>
+	<field name="penyakit_lain" class="java.lang.String"/>
+	<field name="waktu_pengukuran" class="java.lang.String"/>
+	<field name="masalah_preop_kecemasan" class="java.lang.String"/>
+	<field name="cemas_tingkat" class="java.lang.String"/>
+	<field name="intervensi_cemas" class="java.lang.String"/>
+	<field name="masalah_preop_nyeri" class="java.lang.String"/>
+	<field name="intervensi_nyeri" class="java.lang.String"/>
+	<field name="klasifikasi_luka" class="java.lang.String"/>
+	<field name="posisi_operasi" class="java.lang.String"/>
+	<field name="aseptik_antiseptik" class="java.lang.String"/>
+	<field name="aseptik_oleh" class="java.lang.String"/>
+	<field name="kateter" class="java.lang.String"/>
+	<field name="kateter_no" class="java.lang.String"/>
+	<field name="kateter_urine_cc" class="java.lang.String"/>
+	<field name="kateter_oleh" class="java.lang.String"/>
+	<field name="drain_intraop" class="java.lang.String"/>
+	<field name="drain_intraop_jenis" class="java.lang.String"/>
+	<field name="drain_intraop_cc" class="java.lang.String"/>
+	<field name="tampon_intraop" class="java.lang.String"/>
+	<field name="tampon_intraop_jenis" class="java.lang.String"/>
+	<field name="tampon_intraop_lokasi" class="java.lang.String"/>
+	<field name="gips" class="java.lang.String"/>
+	<field name="gips_jenis" class="java.lang.String"/>
+	<field name="gips_lokasi" class="java.lang.String"/>
+	<field name="matras_penghangat" class="java.lang.String"/>
+	<field name="cairan_iv_hangat" class="java.lang.String"/>
+	<field name="irigasi_hangat" class="java.lang.String"/>
+	<field name="sabuk_pengaman" class="java.lang.String"/>
+	<field name="plat_grounding" class="java.lang.String"/>
+	<field name="elektrokauter_koagulasi" class="java.lang.String"/>
+	<field name="elektrokauter_cutting" class="java.lang.String"/>
+	<field name="kulit_setelah_plate" class="java.lang.String"/>
+	<field name="tourniquet_waktu" class="java.lang.String"/>
+	<field name="tourniquet_tekanan" class="java.lang.String"/>
+	<field name="cairan_infus" class="java.lang.String"/>
+	<field name="urine" class="java.lang.String"/>
+	<field name="ngt" class="java.lang.String"/>
+	<field name="pemberian_darah" class="java.lang.String"/>
+	<field name="jam_masuk_rr" class="java.lang.String"/>
+	<field name="td" class="java.lang.String"/>
+	<field name="hr" class="java.lang.String"/>
+	<field name="spo2" class="java.lang.String"/>
+	<field name="rr" class="java.lang.String"/>
+	<field name="jenis_anestesi_postop" class="java.lang.String"/>
+	<field name="kulit_postop" class="java.lang.String"/>
+	<field name="respirasi_postop" class="java.lang.String"/>
+	<field name="kesadaran" class="java.lang.String"/>
+	<field name="posisi_pasien" class="java.lang.String"/>
+	<field name="lama_anestesi" class="java.lang.String"/>
+	<field name="lama_operasi" class="java.lang.String"/>
+	<field name="diagnosa_postop" class="java.lang.String"/>
+	<field name="drain" class="java.lang.String"/>
+	<field name="tampon" class="java.lang.String"/>
+	<field name="pa" class="java.lang.String"/>
+	<field name="efektifitas_jalan_nafas" class="java.lang.String"/>
+	<field name="hipotermi_postop" class="java.lang.String"/>
+	<field name="nip_perawat_rr" class="java.lang.String"/>
+	<field name="nip_perawat_ruangan" class="java.lang.String"/>
+	<title>
+		<band height="75">
+			<image>
+				<reportElement x="0" y="0" width="55" height="55" uuid="3ba4795c-2350-4e84-9383-f210ff62b30f"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="60" y="0" width="495" height="14" uuid="bcdd44c0-43c8-4cc4-8090-051824ff1a98"/>
+				<textElement textAlignment="Center"><font size="9" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="14" width="495" height="11" uuid="a7dc3b49-f54c-4c9b-ae9b-ccb6adc26930"/>
+				<textElement textAlignment="Center"><font size="6"/></textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}+", "+$P{kabupatenrs}+", "+$P{propinsirs}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="60" y="25" width="495" height="11" uuid="f2b1a58d-4e1c-49a2-b6ac-ac33969fe35f"/>
+				<textElement textAlignment="Center"><font size="6"/></textElement>
+				<textFieldExpression><![CDATA["Telp. "+$P{kontakrs}+", Email : "+$P{emailrs}]]></textFieldExpression>
+			</textField>
+			<line><reportElement x="0" y="40" width="555" height="1" uuid="98fc59c8-7529-45ea-ae11-2c846354257a"/></line>
+			<staticText>
+				<reportElement x="0" y="42" width="455" height="16" uuid="09f49e85-ca87-4ee9-8e92-ea7dfa2cafa7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"><font size="10" isBold="true"/></textElement>
+				<text><![CDATA[ASUHAN KEPERAWATAN KAMAR BEDAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="42" width="95" height="16" uuid="172773d0-d3ad-4adf-83e1-42f0879cfc5c"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"><font size="6"/></textElement>
+				<text><![CDATA[RM.KEP.08.044.A.2019]]></text>
+			</staticText>
+			<line><reportElement x="0" y="60" width="555" height="1" uuid="7ee79bfe-bd20-4f5a-9685-c6ea9dc451ae"/></line>
+		</band>
+	</title>
+	<detail>
+		<band height="877">
+			<rectangle><reportElement x="0" y="5" width="555" height="70" uuid="41ad4759-acd3-4661-88ca-4cddcb696e69"/></rectangle>
+			<staticText><reportElement x="5" y="10" width="80" height="13" uuid="a9f56d6c-d964-4e38-baed-f83d705f697d"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Nama]]></text></staticText>
+			<staticText><reportElement x="85" y="10" width="10" height="13" uuid="f1041348-94b1-4785-a23c-2be2f5eb1274"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="95" y="10" width="180" height="13" uuid="bc904da2-31e3-4989-91f4-5a613e08a2ab"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{nm_pasien}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="10" width="50" height="13" uuid="a9c2fae2-5bf7-4259-a90e-fdbdaf27333b"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Unit]]></text></staticText>
+			<staticText><reportElement x="340" y="10" width="10" height="13" uuid="0360d02a-5247-4f8e-9f51-4060344363f3"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<staticText><reportElement x="5" y="25" width="80" height="13" uuid="9505ae43-2b7a-4138-8d2f-6404a32e87d1"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Umur]]></text></staticText>
+			<staticText><reportElement x="85" y="25" width="10" height="13" uuid="bbb07a44-43e7-41f0-ad11-5224befe37ea"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="95" y="25" width="180" height="13" uuid="9ff0f211-2c32-4f83-b9be-e4e6e243a7be"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{umur}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="25" width="50" height="13" uuid="1bb6e19a-655d-4b08-a2c3-26824971f1e1"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Tanggal]]></text></staticText>
+			<staticText><reportElement x="340" y="25" width="10" height="13" uuid="a5c8d4d1-d9ad-45b8-8ead-f53b7d3dda54"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="350" y="25" width="120" height="13" uuid="7f14d30d-089c-46c1-bac7-4bc8bb0497f1"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm").format($F{tanggal})]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="40" width="80" height="13" uuid="e6b65968-bcb5-4de5-8a1d-f350c2414add"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Alamat]]></text></staticText>
+			<staticText><reportElement x="85" y="40" width="10" height="13" uuid="e0612206-1515-449e-9504-cbdd810f0067"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="95" y="40" width="180" height="13" uuid="7ef3f98f-0ce0-4cf4-96cf-b93a61aba0e3"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="40" width="50" height="13" uuid="0a2bed4a-75fa-41cf-a72d-c000611b8cbe"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[No.RM]]></text></staticText>
+			<staticText><reportElement x="340" y="40" width="10" height="13" uuid="8fc166d3-19be-4a25-a43c-549d213cfae3"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="350" y="40" width="120" height="13" uuid="747c7f9e-67d2-4a31-be0e-7bb7e140f5a1"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{no_rkm_medis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="55" width="80" height="13" uuid="2d9437fc-b63d-4bc7-b595-2f4f3abde8de"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Tindakan]]></text></staticText>
+			<staticText><reportElement x="85" y="55" width="10" height="13" uuid="3750123d-beb3-4017-af6e-d5b2280c8e5c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="95" y="55" width="455" height="13" uuid="4d8ecb6f-a41c-4626-8aa8-43303a0ffb4b"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{tindakan}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="85" width="555" height="16" uuid="630c8f27-bc34-4ece-8058-34a1a048e714"/></rectangle>
+			<staticText><reportElement x="5" y="87" width="545" height="13" uuid="2883a333-a337-4b58-88de-30f618a2adb4"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[PENGKAJIAN PERAWATAN PRE-OP]]></text></staticText>
+			<staticText><reportElement x="5" y="105" width="200" height="13" uuid="9d7602eb-02b3-464b-af2d-959b3e8c90c9"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Evaluasi / review ceklist pre - op :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="210" y="105" width="340" height="13" uuid="f2574cc4-17d3-4406-9d92-63289f00a934"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA["Identitas pasien: "+($F{identitas_pasien}==null?"":$F{identitas_pasien})+" | Informed consent: "+($F{informed_consent}==null?"":$F{informed_consent})+" | Isolasi: "+($F{isolasi}==null?"":$F{isolasi})+" | Alergi: "+($F{alergi}==null?"":$F{alergi})+" | Verifikasi tindakan: "+($F{verifikasi_tindakan}==null?"":$F{verifikasi_tindakan})]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="121" width="60" height="13" uuid="ce1c9fbc-04fc-49c9-896a-c6d9e5344601"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Puasa jam :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="70" y="121" width="60" height="13" uuid="746a6f71-e605-4bdd-bc67-97fe606b74a8"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{puasa}]]></textFieldExpression></textField>
+			<staticText><reportElement x="140" y="121" width="55" height="13" uuid="4c79b52e-a7dd-4299-a44f-c784e33b958a"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Levamen :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="200" y="121" width="40" height="13" uuid="7037678f-fc36-4a74-b84c-19bbae2bbbae"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{lavamen}]]></textFieldExpression></textField>
+			<staticText><reportElement x="250" y="121" width="50" height="13" uuid="d7174797-83c2-47c1-b05f-ddf181e6a267"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Markes :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="305" y="121" width="40" height="13" uuid="c8476a87-793b-4787-bc3f-453a43696160"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{marking}]]></textFieldExpression></textField>
+			<staticText><reportElement x="355" y="121" width="80" height="13" uuid="e5c33f01-4a73-4769-a4dc-a14f6a1474f7"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Pengukuran jam :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="440" y="121" width="60" height="13" uuid="e7ea8cc6-09ef-4cdf-8c41-35f180ec88c5"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{waktu_pengukuran}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="137" width="30" height="13" uuid="6e0896db-b2a6-479a-80e7-11f744f0e229"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Kulit :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="40" y="137" width="230" height="13" uuid="8be3efbe-2e8a-433a-8a69-355f2a4bfac1"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kondisi_kulit}]]></textFieldExpression></textField>
+			<staticText><reportElement x="280" y="137" width="90" height="13" uuid="57d15b18-5c97-4345-8084-427b896ddae2"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tingkat kesadaran :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="375" y="137" width="175" height="13" uuid="7a5ac56a-c915-412b-98ac-9ba6e124d910"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{preop_kesadaran}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="153" width="50" height="13" uuid="5fa1f0d3-0559-4eba-970d-15ae5180fd88"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[GCS  M,V,E :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="65" y="153" width="70" height="13" uuid="0d7a469d-08a9-4d1e-bd0d-7ac360e7b978"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{gcs}]]></textFieldExpression></textField>
+			<staticText><reportElement x="145" y="153" width="65" height="13" uuid="9f345d31-a4c5-425f-85a3-868fe9f08e29"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Kesimpulan :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="215" y="153" width="335" height="13" uuid="dca74504-6901-4a6b-8387-bad489929abd"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kesimpulan}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="169" width="95" height="13" uuid="dbfca629-60ee-4984-96d3-047cab9f56de"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Gangguan Sensorik :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="105" y="169" width="170" height="13" uuid="409e95d5-4d61-4cfc-a6a2-8fb002f17b80"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{gangguan_sensorik}]]></textFieldExpression></textField>
+			<staticText><reportElement x="280" y="169" width="85" height="13" uuid="08452343-f235-46a9-9ef5-d76625114912"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Muskuloskeletal :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="370" y="169" width="180" height="13" uuid="24ad9fe7-4068-476f-831a-a315eb74a5ab"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{muskuloskeletal}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="185" width="95" height="13" uuid="8b9f1de8-3435-4084-be14-8ea5ff62bb81"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Protase/alat bantu :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="105" y="185" width="170" height="13" uuid="289df588-f44a-417e-a566-9c51cffb6fdd"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{protesa}]]></textFieldExpression></textField>
+			<staticText><reportElement x="280" y="185" width="80" height="13" uuid="58311016-f103-4dd1-ba15-bec100809b80"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Cardiopulmonal :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="365" y="185" width="185" height="13" uuid="c1b98e4a-3f29-47d3-94ab-2a398e1094b3"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA["Edema: "+($F{edema}==null?"":$F{edema})]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="201" width="100" height="13" uuid="c3beb0f6-f4df-461a-8b3a-78fd0cfedb01"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Pernapasan, sebutkan :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="110" y="201" width="100" height="13" uuid="d7d24bed-23ee-46bd-a081-720c38deb311"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{respirasi}]]></textFieldExpression></textField>
+			<staticText><reportElement x="220" y="201" width="25" height="13" uuid="e242b00d-25a7-43df-8e12-ac57c0c385d7"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[EKG :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="250" y="201" width="30" height="13" uuid="c875ef72-173b-4268-a5b7-f60c5ccb5d30"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{ekg}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="201" width="60" height="13" uuid="9c11ca42-c05f-4f58-bb28-234a10248e6f"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Thorax Foto :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="355" y="201" width="30" height="13" uuid="f8282e2a-ad3f-4c84-883f-c4385e7fd343"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{foto_thorax}]]></textFieldExpression></textField>
+			<staticText><reportElement x="395" y="201" width="75" height="13" uuid="9f0ee8cf-5921-4a6c-a29f-38c872e44b39"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Riwayat astma :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="475" y="201" width="30" height="13" uuid="e180f4bd-a0f5-4496-a7b5-6e7e3cf06d0a"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{riwayat_asma}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="217" width="80" height="13" uuid="c7d5ee5b-10b6-44cd-998c-f908b9428a2c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Riwayat penyakit :]]></text></staticText>
+			<staticText><reportElement x="90" y="217" width="50" height="13" uuid="016037d9-bfa2-49a7-8119-204f6694a8aa"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Hepatitis :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="145" y="217" width="30" height="13" uuid="c9fe2aa1-c6cd-4bfe-9568-6dbabdc4b197"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{riwayat_hepatitis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="185" y="217" width="45" height="13" uuid="1a53f767-5c58-4f05-af92-0870b2770276"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Lain-lain :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="235" y="217" width="130" height="13" uuid="84d52317-20d0-40b8-855e-2c0b9b8be227"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{penyakit_lain}]]></textFieldExpression></textField>
+			<staticText><reportElement x="375" y="217" width="85" height="13" uuid="a10bae21-a13b-4116-a123-0a7b9d12b4e7"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Psiko - sosial :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="465" y="217" width="85" height="13" uuid="ce35573b-3ec7-4060-b168-8d114493883f"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kondisi_psikologis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="233" width="80" height="13" uuid="7a6b3db3-294f-4c1c-ba74-226c09766a97"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Data pendukung :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="90" y="233" width="460" height="15" uuid="ff091175-00ba-4caa-8c0b-55cb9f02efce"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{data_penunjang}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="251" width="70" height="13" uuid="0e31c276-2f49-4379-b801-9820b9a05a72"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Laboratorium :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="80" y="251" width="470" height="20" uuid="fcc7c1c5-7bfe-474b-81f0-bfccc09934d5"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{laboratorium}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="275" width="555" height="16" uuid="43b8227a-570c-4fd9-8110-8bf44b7223e3"/></rectangle>
+			<staticText><reportElement x="5" y="277" width="545" height="13" uuid="a38cd5d4-6b94-47c2-973c-1f3accc8deaa"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[MASALAH, INTERVENSI DAN IMPLEMENTASI KEPERAWATAN]]></text></staticText>
+			<staticText><reportElement x="5" y="295" width="50" height="13" uuid="98a64522-2cc9-4ef5-a119-f9b5a3f69407"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Cemas :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="60" y="295" width="200" height="13" uuid="3a6090f9-40f0-498e-ab3b-49615c3472e6"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{cemas_tingkat}]]></textFieldExpression></textField>
+			<staticText><reportElement x="270" y="295" width="280" height="13" uuid="a82159af-1a35-48a6-9bf0-1025696fd2ea"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[HYD Kecemasan berkurang/hilang]]></text></staticText>
+			<staticText><reportElement x="5" y="310" width="55" height="13" uuid="a3ebbee4-b194-4248-9e87-749ed9e6801f"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Intervensi :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="65" y="310" width="485" height="20" uuid="3a4e5cce-0e1e-4c32-aa38-cc354db64bcd"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA[$F{intervensi_cemas}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="332" width="60" height="13" uuid="7438b445-fd9b-48c1-a63f-85b17a661659"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Nyeri b.d :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="70" y="332" width="200" height="13" uuid="d1c859ba-b625-4b3d-8fb2-54690fa81235"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{masalah_preop_nyeri}]]></textFieldExpression></textField>
+			<staticText><reportElement x="280" y="332" width="270" height="13" uuid="2c590c47-ea69-4682-83d8-393ad63788e7"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[HYD : Nyeri berkurang / hilang]]></text></staticText>
+			<staticText><reportElement x="5" y="347" width="55" height="13" uuid="ad5d9e12-4bd1-4a0b-9513-e89f13860902"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Intervensi :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="65" y="347" width="485" height="20" uuid="a1587883-a76f-4f3d-815d-8081b68d0b4e"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA[$F{intervensi_nyeri}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="371" width="555" height="16" uuid="c242cd83-c874-450c-b3f3-d5b177268da6"/></rectangle>
+			<staticText><reportElement x="5" y="373" width="545" height="13" uuid="e36c9313-7c06-405d-b337-dc784c9ae29c"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[PENGKAJIAN PERAWATAN INTRA OPERASI]]></text></staticText>
+			<staticText><reportElement x="5" y="391" width="75" height="13" uuid="f17da261-a2cb-4468-b5f3-f5e8c254d183"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Resti infeksi :]]></text></staticText>
+			<staticText><reportElement x="85" y="391" width="200" height="13" uuid="bd47e82d-72ad-4b7a-825f-66efec1d10ae"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[HYD : Infeksi tidak terjadi]]></text></staticText>
+			<staticText><reportElement x="5" y="406" width="100" height="13" uuid="8db54b1f-d765-459f-ae37-87544fb346a0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Aseptik, antiseptik dg :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="110" y="406" width="170" height="13" uuid="be84fa7b-8181-425f-9007-5c3c55e17f42"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{aseptik_antiseptik}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="406" width="30" height="13" uuid="1465873e-3784-4dc6-9550-a841d3ed6047"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Oleh :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="325" y="406" width="225" height="13" uuid="f0e04429-9237-4db6-8134-b4af7adb90a3"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{aseptik_oleh}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="421" width="80" height="13" uuid="8b500c17-512e-4e23-98df-ee489d6cf714"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Klasifikasi luka :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="90" y="421" width="200" height="13" uuid="166fdd49-9ece-42fb-92ad-38055d0ec066"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{klasifikasi_luka}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="421" width="80" height="13" uuid="4ffab847-78e7-4a4c-bc6e-f2b09d0445ba"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Kateter urine :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="385" y="421" width="30" height="13" uuid="197912a1-dfac-4762-bd54-2e3959e38265"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kateter}]]></textFieldExpression></textField>
+			<staticText><reportElement x="420" y="421" width="20" height="13" uuid="7cc9699f-64ee-4561-84f6-6216dc29742f"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[no:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="445" y="421" width="50" height="13" uuid="0e7960fe-5a5e-4a38-ae70-72c531ce3393"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kateter_no}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="436" width="55" height="13" uuid="dc251072-07a3-459c-b794-f4f911a75c15"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Drain, jenis :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="65" y="436" width="150" height="13" uuid="422423d8-2251-4df1-a69b-4f38981ba9a7"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{drain_intraop_jenis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="220" y="436" width="55" height="13" uuid="e63a4877-d04a-4d01-99d7-582f7aebf002"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Cairan drain :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="280" y="436" width="40" height="13" uuid="3a92fa51-806b-44e4-8d2c-5433d31c942d"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{drain_intraop_cc}]]></textFieldExpression></textField>
+			<staticText><reportElement x="325" y="436" width="65" height="13" uuid="63d8b7b6-95ab-4506-a9a9-5aa51b17c50c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tampon, Jenis :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="395" y="436" width="90" height="13" uuid="674a052f-3809-442b-9021-b85bba1e45aa"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{tampon_intraop_jenis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="490" y="436" width="30" height="13" uuid="11fac85e-7e57-4c2d-bb79-c971dcce9dae"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Lok :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="525" y="436" width="25" height="13" uuid="998cf67d-27c5-4ebf-9d42-55cda6e20e31"/><textElement verticalAlignment="Middle"><font size="5"/></textElement><textFieldExpression><![CDATA[$F{tampon_intraop_lokasi}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="454" width="80" height="13" uuid="12fd6bf4-3092-47f3-a6a1-4a62c599e07e"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Posisi operasi :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="90" y="454" width="200" height="13" uuid="0706e242-3c0d-4496-a6fc-9ec27b5c5911"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{posisi_operasi}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="454" width="80" height="13" uuid="6b6af704-fcc9-4854-828c-739b311dfd18"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Kulit setelah plate :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="385" y="454" width="165" height="13" uuid="0bf0460c-7995-4783-a9fd-8916c886058d"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kulit_setelah_plate}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="469" width="80" height="13" uuid="240e8cf3-c87c-4474-b1b4-723b8696dc7a"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Cairan Masuk :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="90" y="469" width="200" height="13" uuid="315c9205-80cb-4975-a385-3591048ef37a"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{cairan_infus}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="469" width="40" height="13" uuid="d8ff21fe-047f-4155-9bae-f5ac05abd74c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Urine :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="345" y="469" width="60" height="13" uuid="c774a21c-ffda-46e1-ae1c-693ed36f9534"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{urine}]]></textFieldExpression></textField>
+			<staticText><reportElement x="415" y="469" width="30" height="13" uuid="3ac7ec50-7325-4d1e-b8e2-d1e23f5c9b7c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[NGT :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="450" y="469" width="60" height="13" uuid="e6d6cbc9-0921-4a92-b4e5-54e5ef72b12e"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{ngt}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="487" width="555" height="16" uuid="511dec48-116c-4c9b-bc4d-93a1a29cea94"/></rectangle>
+			<staticText><reportElement x="5" y="489" width="545" height="13" uuid="01ff0a76-3034-4ee0-ad58-ec679ab53903"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[PENGKAJIAN POST OPERASI]]></text></staticText>
+			<staticText><reportElement x="5" y="507" width="65" height="13" uuid="06802e99-65d9-47fd-80a8-f68cec80b3aa"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Masuk RR pk :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="75" y="507" width="60" height="13" uuid="24de2c57-0411-4b1e-a1e6-247aa6b5a78e"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{jam_masuk_rr}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="522" width="80" height="13" uuid="03eecf68-3ead-4646-baf0-e4b52d81be54"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tanda-tanda vital :]]></text></staticText>
+			<staticText><reportElement x="90" y="522" width="20" height="13" uuid="e5bcdbc5-4bc4-41e4-ae0b-9fe7fb8a78a3"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[TD:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="115" y="522" width="50" height="13" uuid="6c63b307-98b2-4457-a577-81257a459a46"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{td}]]></textFieldExpression></textField>
+			<staticText><reportElement x="170" y="522" width="25" height="13" uuid="b0d1a731-3551-4736-824c-431ba7650aa0"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[mmHg]]></text></staticText>
+			<staticText><reportElement x="200" y="522" width="20" height="13" uuid="df3c5d0e-f446-4d0e-a34e-24e289a574e3"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[HR:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="225" y="522" width="40" height="13" uuid="0d2847fd-16a0-47d2-ab50-cddaa897834d"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{hr}]]></textFieldExpression></textField>
+			<staticText><reportElement x="270" y="522" width="25" height="13" uuid="d2740ba3-d725-451c-8032-5fa603913916"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[x/mnt]]></text></staticText>
+			<staticText><reportElement x="300" y="522" width="25" height="13" uuid="2e88b870-9e25-473c-9923-46e091ccda14"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[SpO2:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="330" y="522" width="35" height="13" uuid="4f40fb43-646e-4c9b-bf6a-68da12918e94"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{spo2}]]></textFieldExpression></textField>
+			<staticText><reportElement x="370" y="522" width="10" height="13" uuid="6b9d196f-cacc-4744-9e03-a0e2b3cb99c7"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[%]]></text></staticText>
+			<staticText><reportElement x="385" y="522" width="20" height="13" uuid="1012be13-8ff4-4972-81af-85dc7c761a8f"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[RR:]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="410" y="522" width="40" height="13" uuid="2f2a75ac-bb2c-4b2b-b375-d841b38bee44"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{rr}]]></textFieldExpression></textField>
+			<staticText><reportElement x="455" y="522" width="25" height="13" uuid="793084e1-bdb8-42ef-be83-97050f3ad3c8"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="6"/></textElement><text><![CDATA[x/mnt]]></text></staticText>
+			<staticText><reportElement x="5" y="537" width="70" height="13" uuid="9f760e23-2474-4d53-bffe-14cd205b69ac"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Jenis anestesi :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="80" y="537" width="200" height="13" uuid="8a8fb03b-3bcf-4219-9622-5d5656f1d206"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{jenis_anestesi_postop}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="537" width="65" height="13" uuid="13b9577e-3cb8-4984-b0e4-33117481344a"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Kondisi Kulit :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="360" y="537" width="190" height="13" uuid="c6257ce4-9237-4361-b4fc-e592cd8ac215"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kulit_postop}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="552" width="65" height="13" uuid="d12c89d6-a041-40e1-ba7a-64f701ace1cf"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Pernapasan :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="75" y="552" width="200" height="13" uuid="b9ce91d3-9e2d-462d-a932-16eea440164b"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{respirasi_postop}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="552" width="55" height="13" uuid="5b75f4ce-06bb-409d-8be0-f3aded6173a6"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Kesadaran :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="350" y="552" width="200" height="13" uuid="e1383302-419b-4b1c-bba9-f28c741cb81c"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{kesadaran}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="567" width="70" height="13" uuid="27652bd1-a0e1-4475-87f6-79dc945d7f63"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Posisi pasien :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="80" y="567" width="200" height="13" uuid="64fdf513-469a-4864-9b37-713c17b71dbe"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{posisi_pasien}]]></textFieldExpression></textField>
+			<staticText><reportElement x="290" y="567" width="70" height="13" uuid="13b70e08-8fce-487b-acee-75cb892eeef6"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Lama Anestesi :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="365" y="567" width="60" height="13" uuid="d25b97ca-964d-4261-b6d2-df484a1d20eb"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{lama_anestesi}]]></textFieldExpression></textField>
+			<staticText><reportElement x="430" y="567" width="75" height="13" uuid="d3fd87b2-0823-4575-8dee-8c12001b542c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Lama Pembedahan :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="510" y="567" width="40" height="13" uuid="e69066bb-5eeb-44e1-a647-ac8a383b18b2"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{lama_operasi}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="582" width="65" height="13" uuid="086391c0-8db0-48f2-aa12-5d8e2eecd91c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Dx Post-Op :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="75" y="582" width="475" height="13" uuid="95a77f10-e201-4964-986d-51a8db4d3950"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{diagnosa_postop}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="596" width="35" height="13" uuid="34f2cdbb-5426-4328-93f9-25ed5131ae62"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Drain :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="45" y="596" width="100" height="13" uuid="4e2c75fc-2287-4ee5-88b5-ff3db1f94e1e"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{drain}]]></textFieldExpression></textField>
+			<staticText><reportElement x="155" y="596" width="45" height="13" uuid="ccabf685-bcd8-4e89-a177-00d45fc6c330"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[Tampon :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="205" y="596" width="100" height="13" uuid="c416917a-2ee1-444e-aa43-f318b0eac1fb"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{tampon}]]></textFieldExpression></textField>
+			<staticText><reportElement x="315" y="596" width="20" height="13" uuid="89cd9fff-4b64-4011-985f-a074862161b1"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7"/></textElement><text><![CDATA[PA :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="340" y="596" width="210" height="13" uuid="7650c0b8-705a-4918-89da-4d36014f8e98"/><textElement verticalAlignment="Middle"><font size="7"/></textElement><textFieldExpression><![CDATA[$F{pa}]]></textFieldExpression></textField>
+			<rectangle><reportElement x="0" y="614" width="555" height="16" uuid="a26e54ca-434b-4ccb-9b95-24066d2bc3ad"/></rectangle>
+			<staticText><reportElement x="5" y="616" width="545" height="13" uuid="275cb8b7-cd33-40d0-a324-2bc6a5f7f480"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[DIAGNOSA, INTERVENSI DAN IMPLEMENTASI KEPERAWATAN]]></text></staticText>
+			<staticText><reportElement x="5" y="634" width="140" height="13" uuid="dddca3cf-b8de-4a4f-8170-3373c306441f"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Ketidakefektifan jalan nafas :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="150" y="634" width="400" height="30" uuid="c356a1ca-6961-40f9-ba74-2a86aec15d35"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA[$F{efektifitas_jalan_nafas}]]></textFieldExpression></textField>
+			<staticText><reportElement x="5" y="668" width="80" height="13" uuid="8a50b9e2-fc77-4e07-8407-03c8e44def7c"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="7" isBold="true"/></textElement><text><![CDATA[Resti Hipotermi :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="90" y="668" width="460" height="30" uuid="4f325087-2b66-4188-97f7-92c1192f4d68"/><textElement verticalAlignment="Middle"><font size="6"/></textElement><textFieldExpression><![CDATA[$F{hipotermi_postop}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="706" width="555" height="1" uuid="0fd6d9e7-7b43-45e2-b4d8-a81aa162fd47"/></line>
+			<staticText><reportElement x="5" y="716" width="555" height="13" uuid="5b253114-8742-402b-bac7-2a5271ed9a86"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="9" isBold="true"/></textElement><text><![CDATA[Serah Terima]]></text></staticText>
+			<staticText><reportElement x="60" y="736" width="150" height="13" uuid="5e2be538-9a28-4ef9-83d8-951f3d716538"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[Perawat Ruang Pulih]]></text></staticText>
+			<staticText><reportElement x="350" y="736" width="150" height="13" uuid="2705aa3f-7b21-4beb-9dcf-96e40e340f23"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[Perawat Ruangan]]></text></staticText>
+			<staticText><reportElement x="60" y="771" width="150" height="13" uuid="d49bdf19-32bf-44d5-8473-9ca67b83b530"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[(......................................)]]></text></staticText>
+			<staticText><reportElement x="350" y="771" width="150" height="13" uuid="fb2f6c81-ec7c-4a87-96ba-6778a88912b3"/><textElement textAlignment="Center" verticalAlignment="Middle"><font size="8"/></textElement><text><![CDATA[(......................................)]]></text></staticText>
+			<staticText><reportElement x="5" y="789" width="90" height="13" uuid="43d76b3a-107c-4e1c-a10f-c0a0e19412c9"/><textElement textAlignment="Left" verticalAlignment="Middle"><font size="8" isBold="true"/></textElement><text><![CDATA[Petugas :]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="100" y="789" width="200" height="13" uuid="c1d27b41-9d71-4da3-b093-9301aee6b0f7"/><textElement verticalAlignment="Middle"><font size="8"/></textElement><textFieldExpression><![CDATA[$F{nm_petugas}]]></textFieldExpression></textField>
+			<componentElement>
+				<reportElement x="100" y="807" width="65" height="65" uuid="c9431111-f994-4b9f-86d8-5378c1d4fe1c"/>
+				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" errorCorrectionLevel="H">
+					<jr:codeExpression><![CDATA[$F{nm_petugas}]]></jr:codeExpression>
+				</jr:QRCode>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>KhanzaHMS</comment> 
+    <!-- WA GATEWAY -->
+    <entry key="HOSTWA">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="HOSTWAWEB">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="PORTWEBWA">ZhB7fM96Hq28mN8/XoXjfA==</entry>
+    <entry key="DATABASEWA">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORTWA">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USERWA">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASWA">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="FOLDERFILEWA">dummy</entry>
+    <entry key="NOTIFWA">yes</entry>
+    <entry key="NOTIFWASURAT">yes</entry>
+    <entry key="NOTIFWAADMISI">yes</entry>
+    <entry key="NOTIFWALAB">yes</entry>
+    <entry key="NOTIFWARAD">yes</entry>
+    <entry key="NOTIFWAINV">yes</entry>
+    <entry key="NOTIFWAPASIEN">yes</entry>
+    <entry key="IDGROUPWA">dummy_user</entry>
+    <entry key="IDGROUPWAADMISI">dummy_user</entry>
+    <entry key="IDGROUPWALAB">dummy_user</entry>
+    <entry key="IDGROUPWARAD">dummy_user</entry>
+    <entry key="IDGROUPWAINV">dummy_user</entry>
+    <entry key="IDGROUPWASURAT">dummy_user</entry>
+
+    <entry key="TANGGALMUNDUR">yes</entry>
+
+
+    <entry key="GOWA_DEVICE_ID">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+
+
+    <!-- GOWA WA GATEWAY -->
+    <entry key="URLWAGATEWAY">Djv4i6f4WA/HtR8CfM4a2hyxOQ7omLx5WNBLoVv+lR/izdKrnXKKj3BsaP2/+d+q</entry>
+    <entry key="USERWAGATEWAY">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSWAGATEWAY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="GOWA_DEVICE_ID_RADIOLOGI">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+
+
+    <entry key="NOTIFWAIT">yes</entry>
+    <entry key="IDGROUPWAIT">dummy_user</entry>
+
+    <!-- Notifikasi WA untuk grup Gudang Farmasi (kirim otomatis saat permintaan baru disimpan di DlgPermintaan).
+    Untuk testing, pakai JID grup & device dari setingan umum yang sudah ada:
+    - JID: IDGROUPWAIT (grup UNIT SIRS RSUD CABANGBUNGIN, sudah verified aktif)
+    - Device: kosong → fallback ke GOWA_DEVICE_ID global (salim)
+    - URL/User/Pass: pakai URLWAGATEWAY/USERWAGATEWAY/PASSWAGATEWAY yang sudah ada -->
+    <entry key="NOTIFWAFARMASIGUDANG">yes</entry>
+    <entry key="IDGROUPWAFARMASIGUDANG">dummy_user</entry>
+    <entry key="GOWA_DEVICE_ID_FARMASIGUDANG">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+
+    <entry key="URLFINGERPRINTBPJS">https://fp.bpjs-kesehatan.go.id/finger-rest/</entry>
+    <entry key="USERFINGERPRINTBPJS">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSWORDFINGERPRINTBPJS">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLAPLIKASIFINGERPRINTBPJS">https://example.invalid/urlaplikasifingerprintbpjs</entry>
+    <entry key="URLAPLIKASIFRISTA">https://example.invalid/urlaplikasifrista</entry>
+
+    <!-- VERIFIKASI DOKUMEN-->
+    <entry key="URLVERIFIKASI">Djv4i6f4WA/HtR8CfM4a2i8DXVoVFlthWc7/L6lAKlGEGFHJKzw9dYCAC0G8co/O</entry>
+    <entry key="HOST">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="DATABASE">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USER">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PAS">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="CARICEPAT">dummy</entry>
+    <entry key="HOSTHYBRIDWEB">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="USERHYBRIDWEB">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASHYBRIDWEB">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="HYBRIDWEB">dummy_user</entry>
+    <entry key="PORTWEB">80</entry>
+    <entry key="AKTIFKANWARNARALAN">yes</entry>
+    <entry key="ANTRIAN">dummy</entry>
+    <entry key="LOKETANTRIAN">1</entry>
+    <entry key="ALARMAPOTEK">yes</entry>
+    <entry key="RESEPRAJALKEPLAN">no</entry>
+    <entry key="FORMALARMAPOTEK">dummy</entry>
+    <entry key="STOKKOSONGRESEP">no</entry>
+    <!-- Izinkan user uncheck ChkJln (jam manual) di DlgPeresepanDokter.
+    yes = checkbox boleh di-uncheck (jam input bisa diatur manual via cmbJam/cmbMnt/cmbDtk).
+    no / tidak ada = checkbox terkunci, jam selalu mengikuti waktu sistem. -->
+    <entry key="IZINKANJAMMANUALRESEP">no</entry>
+    <entry key="HPPFARMASI">dummy</entry>
+    <entry key="HPPTOKO">dummy</entry>
+    <entry key="ALARMLAB">yes</entry>
+    <entry key="FORMALARMLAB">dummy</entry>
+    <entry key="ALARMRADIOLOGI">yes</entry>
+    <entry key="FORMALARMRADIOLOGI">dummy</entry>
+    <entry key="ALARMRSISRUTE">yes</entry>
+    <entry key="ALARMBOOKINGPERIKSA">yes</entry>
+    <entry key="ALARMPENGADUANPASIEN">yes</entry>
+    <entry key="ALARMPERMINTAANRANAP">yes</entry>
+    <entry key="MENUTRANSPARAN">no</entry>
+
+    <entry key="URLAPIBPJS">https://apijkn.bpjs-kesehatan.go.id/vclaim-rest</entry>
+    <entry key="SECRETKEYAPIBPJS">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="DIAGNOSARUJUKANMASUKAPIBPJS">yes</entry>
+    <entry key="JADIKANBOOKINGSURATKONTROLAPIBPJS">yes</entry>
+    <entry key="CONSIDAPIBPJS">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="USERKEYAPIBPJS">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="DIAGNOSARUJUKANMASUKAPIBPJS">no</entry>
+
+    <entry key="URLAPIAPLICARE">https://new-api.bpjs-kesehatan.go.id/aplicaresws/</entry>
+    <entry key="SECRETKEYAPIAPLICARE">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="CONSIDAPIAPLICARE">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="USERKEYAPIAPLICARE">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+
+    <entry key="URLAPIMOBILEJKN">https://apijkn.bpjs-kesehatan.go.id/antreanrs</entry>
+    <entry key="SECRETKEYAPIMOBILEJKN">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="CONSIDAPIMOBILEJKN">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="USERKEYAPIMOBILEJKN"></entry>
+    <entry key="ADDANTRIANAPIMOBILEJKN">yes</entry>
+
+    <entry key="URLAPIAPOTEKBPJS">https://dev-soa.bpjs-kesehatan.go.id/apotek-rest</entry>
+    <entry key="SECRETKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="CONSIDAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="USERKEYAPIAPOTEKBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="URLAPIICARE">https://apijkn.bpjs-kesehatan.go.id/wsihs/api/rs</entry>
+    <entry key="SECRETKEYAPIICARE">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="CONSIDAPIICARE">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="USERKEYAPIICARE">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLAPIPCARE">https://apijkn-dev.bpjs-kesehatan.go.id/pcare-rest-dev</entry>
+    <entry key="SECRETKEYAPIPCARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="CONSIDAPIPCARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="USERKEYAPIPCARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="PASSPCARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="USERPCARE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="DIVREGPCARE">dummy</entry>
+    <entry key="KACABPCARE">dummy</entry>
+    <entry key="URLAPISISRUTE">https://api.sisrute.kemkes.go.id</entry>
+    <entry key="IDSISRUTE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="PASSSISRUTE">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="URLAPISIRS">http://sirs.yankes.kemkes.go.id/sirsservice</entry>
+    <entry key="IDSIRS">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSSIRS">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLAPISITT">http://sirs.yankes.kemkes.go.id/sirsservice/sitbtraining/sitb/senddata</entry>
+    <entry key="IDSITT">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSSITT">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="KABUPATENSITT">dummy</entry>
+    <entry key="URLAPICORONA">http://sirs.kemkes.go.id/fo/index.php</entry>
+    <entry key="IDCORONA">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="PASSCORONA">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="CLIENTIDSATUSEHAT">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="SECRETKEYSATUSEHAT">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLAUTHSATUSEHAT">https://api-satusehat.kemkes.go.id/oauth2/v1</entry>
+    <entry key="URLFHIRSATUSEHAT">https://api-satusehat.kemkes.go.id/fhir-r4/v1</entry>
+    <entry key="IDSATUSEHAT">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="KELURAHANSATUSEHAT">dummy</entry>
+    <entry key="KECAMATANSATUSEHAT">dummy</entry>
+    <entry key="KABUPATENSATUSEHAT">3216</entry>
+    <entry key="PROPINSISATUSEHAT">32</entry>
+    <entry key="KODEPOSSATUSEHAT">dummy</entry>
+    <entry key="KAMARAKTIFRANAP"/>
+    <entry key="DOKTERAKTIFKASIRRALAN"/>
+    <entry key="POLIAKTIFKASIRRALAN"/>
+    <entry key="RUANGANAKTIFINVENTARIS"/>
+    <entry key="BASENOREG">dummy</entry>
+    <entry key="URUTNOREG">dummy</entry>
+    <entry key="JADWALDOKTERDIREGISTRASI">dummy</entry>
+    <entry key="IPPRINTERTRACER"/>
+    <entry key="URLAPIINHEALTH">http://development.inhealth.co.id/pelkesws2</entry>
+    <entry key="TOKENINHEALTH">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="PEMBULATANHARGAOBAT">no</entry>
+    <entry key="AKTIFKANBATCHOBAT">no</entry>
+    <entry key="CETAKRINCIANOBAT">no</entry>
+    <entry key="DEPOAKTIFOBAT"/>
+    <entry key="VALIDASIULANGBERIOBAT">no</entry>
+    <entry key="AKTIFKANBILLINGPARSIAL">no</entry>
+    <entry key="URLDUKCAPILJAKARTA">https://example.invalid/urldukcapiljakarta</entry>
+    <entry key="USERDUKCAPILJAKARTA">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSDUKCAPILJAKARTA">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="VAR1DUKCAPILJAKARTA">dummy</entry>
+    <entry key="VAR2DUKCAPILJAKARTA">12</entry>
+    <entry key="URLDUKCAPIL">https://example.invalid/urldukcapil</entry>
+    <entry key="USERDUKCAPIL">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="PASSDUKCAPIL">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="IPUSERDUKCAPIL">dummy</entry>
+    <entry key="AKTIFKANTRACKSQL">88tE0ZUstuza/UrtfBYkFA==</entry>
+    <entry key="HOSTWSLICA">127.0.0.1</entry>
+    <entry key="KEYWSLICA">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="HOSTFUJI">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="DATABASEFUJI">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORTFUJI">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USERFUJI">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASFUJI">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="URLCARESTREAM">https://example.invalid/urlcarestream</entry>
+    <entry key="HOSTSYSMEX">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="DATABASESYSMEX">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORTSYSMEX">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USERSYSMEX">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSYSMEX">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="HOSTELIMS">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="DATABASEELIMS">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORTELIMS">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USERELIMS">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASELIMS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="URLAPIMEDQLAB">https://example.invalid/urlapimedqlab</entry>
+    <entry key="SECRETKEYAPIMEDQLAB">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="CONSIDAPIMEDQLAB">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="HOSTSMARTLAB">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="DATABASESMARTLAB">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORTSMARTLAB">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USERSMARTLAB">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSMARTLAB">l4nh5eVYrLAER/I2A4b3Tw==</entry>
+    <entry key="URLAPISOFTMEDIX">https://example.invalid/urlapisoftmedix</entry>
+    <entry key="PRODUCTSOFTMEDIX">3jkjpRdjdbFQUkTPp0wFeg==</entry>
+    <entry key="VERSIONSOFTMEDIX">3jkjpRdjdbFQUkTPp0wFeg==</entry>
+    <entry key="USERIDSOFTMEDIX">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="KEYSOFTMEDIX">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="HOSTVANSLAB">G5Bp9T4dI7dP/cS2p3DUlw==</entry>
+    <entry key="DATABASEVANSLAB">9rUVx6+yjXttR8FIJtNITw==</entry>
+    <entry key="PORTVANSLAB">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USERVANSLAB">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASVANSLAB">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+
+    <entry key="URLORTHANC">https://example.invalid/urlorthanc</entry>
+    <entry key="PORTORTHANC">gie5pRePkRsFe+dOh84P4A==</entry>
+    <entry key="USERORTHANC">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSORTHANC">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+
+    <entry key="OCRAPIURL">https://example.invalid/ocrapiurl</entry>
+    <entry key="OCRAPIKEY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="OCRENGINE">2</entry>
+    <entry key="OCRLANGUAGE">dummy</entry>
+
+    
+    <!-- OCR Provider Selection -->
+    <entry key="OCRPROVIDER">dummy_user</entry> <!-- atau "ocrspace" -->
+
+    <!-- Google Vision Settings -->
+    <entry key="GOOGLEVISIONAPIURL">https://example.invalid/googlevisionapiurl</entry>
+    <entry key="GOOGLEVISIONAPIKEY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+   
+    <!-- Google Speech-to-Text API Configuration -->
+    <entry key="SPEECHSERVICE">dummy</entry>
+    <entry key="GOOGLESPEECHAPIKEY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    
+    <!-- GEMINI API private static final String GEMINI_API_KEY = "AIzaSyAU57l5Cl-sUpiPSFihYiUmRdncBReUM4U"; // Ganti dengan API key Anda-->
+    <entry key="GEMINIAPIKEY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="GEMINIAPIURL">https://example.invalid/geminiapiurl</entry>
+
+    <!-- WHISPER API -->
+    <entry key="WHISPERSERVERURL">https://example.invalid/whisperserverurl</entry>
+
+
+
+    <entry key="URLNEXTCLOUD">https://example.invalid/urlnextcloud</entry>
+    <entry key="USERNEXTCLOUD">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASNEXTCLOUD">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+
+    <entry key="URLAPIESIGN">https://example.invalid/urlapiesign</entry>
+    <entry key="USERNAMEAPIESIGN">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSAPIESIGN">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLAKSESFILEESIGN">https://example.invalid/urlaksesfileesign</entry>
+
+    <entry key="URLAPIESIGNV2">https://example.invalid/urlapiesignv2</entry>
+    <entry key="USERNAMEAPIESIGNV2">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="PASSAPIESIGNV2">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLAKSESFILEESIGNV2">https://example.invalid/urlaksesfileesignv2</entry>
+
+    <entry key="URLAPISERTISIGN">https://example.invalid/urlapisertisign</entry>
+    <entry key="APIKEYSERTISIGN">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="URLDOKUMENSERTISIGN">https://example.invalid/urldokumensertisign</entry>
+
+    <!--<entry key="URLWAGATEWAY">Djv4i6f4WA/HtR8CfM4a2hyxOQ7omLx5WNBLoVv+lR/izdKrnXKKj3BsaP2/+d+q</entry> http://localhost:3000
+    <entry key="USERWAGATEWAY">Hs0heB0DOWTebpmCwtUBQQ==</entry> admin
+    <entry key="PASSWAGATEWAY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry> password123-->
+    <!--<entry key="GOWA_DEVICE_ID">Hs0heB0DOWTebpmCwtUBQQ==</entry> fe1c7ed6-79d1-4755-8fff-e8e38d9552e3 — TIDAK TERDAFTAR di GOWA gateway, jangan pakai-->
+    <!-- pendaftaran (Wa Gateway resmi RS, JID 6285110808703) — encrypt of plain "pendaftaran" -->
+    <entry key="GOWA_DEVICE_ID_RADIOLOGI">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="GOWA_DEVICE_ID_LAB">dummy_user</entry>
+    <entry key="GOWA_DEVICE_ID_SKM">dummy_user</entry>
+    <entry key="GOWA_DEVICE_ID_BATAL_PRAKTEK">dummy_user</entry>
+    <entry key="GOWA_DEVICE_ID_KONTROL">dummy_user</entry>
+    <entry key="GOWA_DEVICE_ID_RESUME">dummy_user</entry>
+
+
+    <entry key="URLSURVEIKEPUASAN">https://example.invalid/urlsurveikepuasan</entry>
+
+    <!-- SYNOLOGY NAS -->
+    <!-- SYNOLOGYURLLOCAL : URL lokal NAS Synology (contoh: https://192.168.8.156:5001) - di-encrypt -->
+    <!-- SYNOLOGYURLONLINE : URL online QuickConnect (contoh: https://nama-nas.quickconnect.to) - di-encrypt -->
+    <!-- SYNOLOGYUSER : Username login Synology DSM - di-encrypt -->
+    <!-- SYNOLOGYPASS : Password login Synology DSM - di-encrypt -->
+    <!-- SYNOLOGYFOLDER : Path folder tujuan upload (contoh: /team-folders/CASEMIX/BERKAS RAWAT JALAN) - di-encrypt -->
+    <entry key="SYNOLOGYURLLOCAL">Djv4i6f4WA/HtR8CfM4a2qQMRVc9DKbCjKKtsQVQZQQayGFKZIYMXriWdvTabh6q</entry>
+    <entry key="SYNOLOGYURLONLINE">Djv4i6f4WA/HtR8CfM4a2qQMRVc9DKbCjKKtsQVQZQQp8cdCXZKumyUj20fc1SqD</entry>
+    <entry key="SYNOLOGYUSER">3jkjpRdjdbFQUkTPp0wFeg==</entry>
+    <entry key="SYNOLOGYPASS">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    <entry key="SYNOLOGYFOLDER">3jkjpRdjdbFQUkTPp0wFeg==</entry>
+
+    <!-- ===== IP Phone (SIP) — config GLOBAL (aman disync Nextcloud) ===== -->
+    <!-- Config per-komputer (extension, user, pass, display_name) ada di
+    tabel `sip_komputer` keyed by MAC. Lihat docs/sip-per-machine.md -->
+    <!-- ====================================================================
+    IP Phone (SIP) — konfigurasi GLOBAL (aman disync Nextcloud)
+
+    Semua credential di-AES encrypt (EnkripsiAES: AES-128-CBC + PKCS5,
+    key hardcoded "Bar12345Bar12345"). SipConfig auto-deteksi ciphertext
+    vs plaintext. Config per-komputer (extension, user, pass, dll.)
+    dipindah ke tabel `sip_komputer` keyed by MAC. Lihat
+    docs/sip-per-machine.md dan docs/rocketchat-integration.md.
+    ==================================================================== -->
+    <entry key="SIP_SRV_HOST">G5Bp9T4dI7dP/cS2p3DUlw==</entry>                               <!-- [enc] host FreePBX, plain: 192.168.88.105 -->
+    <entry key="SIP_SRV_PORT">Adp4i8xNoK5V3/cFuroeow==</entry>                               <!-- [enc] port SIP (UDP), plain: 5060 -->
+    <entry key="SIP_REST_URL">Djv4i6f4WA/HtR8CfM4a2qO7yEr5IYokhJF5/n50AureSLrtLTjcPTO9NMoik/t7</entry>  <!-- [enc] base URL FreePBX REST API  http://192.168.88.105/admin/api/api-->
+    <entry key="SIP_REST_CLIENT_ID">Hs0heB0DOWTebpmCwtUBQQ==</entry>  <!-- [enc] OAuth2 M2M Client ID -->
+    <entry key="SIP_REST_CLIENT_SECRET">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>  <!-- [enc] OAuth2 M2M Client Secret -->
+    <entry key="SIP_KONTAK_SYNC_INTERVAL">30</entry>                                         <!-- interval auto-sync kontak FreePBX (menit) — plain, bukan credential -->
+
+    <!-- ====================================================================
+    Rocket.Chat — backend chat SIMRS (Level A integration)
+    Lihat docs/rocketchat-integration.md + docs/rocketchat-setup.md.
+    ==================================================================== -->
+    <entry key="RC_URL">Djv4i6f4WA/HtR8CfM4a2o0x1sMhB70Alil5Zd9OEp8=</entry>                 <!-- [enc] cfg-01 -->
+    <entry key="RC_ADMIN_TOKEN">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>  <!-- [enc] cfg-02 -->
+    <entry key="RC_ADMIN_USERID">Hs0heB0DOWTebpmCwtUBQQ==</entry>         <!-- [enc] cfg-03 -->
+    <entry key="RC_PASSWORD_SECRET">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>  <!-- [enc] cfg-04 -->
+    
+    <!-- DokterTeknoRIS MWL API Configuration -->
+    <entry key="MWLAPIURL">https://example.invalid/mwlapiurl</entry>
+    <entry key="MWLAPIUSERNAME">3jkjpRdjdbFQUkTPp0wFeg==</entry>
+    <entry key="MWLAPIPASSWORD">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+    
+    <entry key="URLWAGATEWAY">Djv4i6f4WA/HtR8CfM4a2hyxOQ7omLx5WNBLoVv+lR/izdKrnXKKj3BsaP2/+d+q</entry> <!--http://192.168.88.196:3000 (GOWA gateway real)-->
+    <entry key="USERWAGATEWAY">Hs0heB0DOWTebpmCwtUBQQ==</entry> <!--admin-->
+    <entry key="PASSWAGATEWAY">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry> <!--admin123-->
+    <entry key="GOWA_DEVICE_ID">Hs0heB0DOWTebpmCwtUBQQ==</entry> <!--pendaftaran (Wa Gateway resmi RS, JID 6285110808703)-->
+    <entry key="GOWA_DEVICE_ID_LAB">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="GOWA_DEVICE_ID_SKM">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="GOWA_DEVICE_ID_BATAL_PRAKTEK">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="GOWA_DEVICE_ID_KONTROL">Hs0heB0DOWTebpmCwtUBQQ==</entry>
+    <entry key="GOWA_DEVICE_ID_RESUME">dummy_user</entry>
+    <entry key="URLSURVEIKEPUASAN">https://example.invalid/urlsurveikepuasan</entry>
+
+    <!-- Display Antrian SIMRSCB — backend Rust menerima POST {nomor, loket} lalu broadcast SSE ke /display.
+    Value plaintext (tidak di-enkripsi). Ganti host:port sesuai jaringan. -->
+    <entry key="DISPLAYANTRIAN_API_URL">https://example.invalid/displayantrian_api_url</entry>
+    <entry key="DISPLAYANTRIAN_SKIP_TLS_VERIFY">yes</entry>
+    
+    <!-- BRIDGING EKLAIM (INACBG / iDRG) -->
+    <entry key="KEYEKLAIM">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry> <!-- [enc] key e-Klaim, 64 char hex -->
+    <entry key="WSEKLAIM">Djv4i6f4WA/HtR8CfM4a2kGcQmdlm5wAfCCFmN/bjccPozteAjSXIvS8x6h75AFd</entry> <!-- [enc] http://100.76.72.112/E-Klaim/ws.php -->
+    <entry key="KELASRSEKLAIM">dummy</entry> <!-- kelas D Pemerintah, plain -->
+
+
+    <!-- MedSync SIRS 6.3 Bot Engine (simrscb-backend) — plain, ganti host:port bila server terpisah -->
+    <entry key="URLSIRS6BOT">https://example.invalid/urlsirs6bot</entry>
+    <entry key="URLPPRABOT">https://example.invalid/urlpprabot</entry>
+
+    <!-- Auto-logout saat idle (menit). 0 = nonaktif. Default kode 10. -->
+    <entry key="IDLETIMEOUTMENIT">180</entry>
+
+
+    <entry key="TOKENUNGGAH">yCuPYVgwBG01yPz8CjG1kXtICL3XFXkBMU3/pSX7KyI=</entry>
+</properties>

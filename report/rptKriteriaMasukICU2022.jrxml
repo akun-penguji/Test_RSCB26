@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="rptKriteriaMasukICU2022" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a1b2c3d4-0001-0001-0001-000000000001">
+	<parameter name="namars" class="java.lang.String"/>
+	<parameter name="alamatrs" class="java.lang.String"/>
+	<parameter name="logo" class="java.io.InputStream"/>
+	<field name="no_rawat" class="java.lang.String"/>
+	<field name="no_rkm_medis" class="java.lang.String"/>
+	<field name="nm_pasien" class="java.lang.String"/>
+	<field name="tgl_lahir" class="java.lang.String"/>
+	<field name="jk" class="java.lang.String"/>
+	<field name="tanggal" class="java.lang.String"/>
+	<field name="asal_ruangan" class="java.lang.String"/>
+	<field name="diagnosa" class="java.lang.String"/>
+	<field name="dpjp" class="java.lang.String"/>
+	<field name="dokter_konsultan" class="java.lang.String"/>
+	<field name="dokter_jaga" class="java.lang.String"/>
+	<field name="p1_depresi_nafas" class="java.lang.String"/>
+	<field name="p1_butuh_ventilator" class="java.lang.String"/>
+	<field name="p1_pengobatan_titrasi" class="java.lang.String"/>
+	<field name="p1_sepsis_berat" class="java.lang.String"/>
+	<field name="p1_gangguan_asam_basa" class="java.lang.String"/>
+	<field name="p2_pemantauan_canggih" class="java.lang.String"/>
+	<field name="p2_jantung_paru" class="java.lang.String"/>
+	<field name="p2_gagal_ginjal" class="java.lang.String"/>
+	<field name="p2_pembedahan_major" class="java.lang.String"/>
+	<field name="p3_kanker_lanjut" class="java.lang.String"/>
+	<field name="p4_dnr" class="java.lang.String"/>
+	<field name="p4_mbo" class="java.lang.String"/>
+	<field name="p4_vegetatif" class="java.lang.String"/>
+	<field name="fv1" class="java.lang.String"/>
+	<field name="fv2" class="java.lang.String"/>
+	<field name="fv3" class="java.lang.String"/>
+	<field name="fv4" class="java.lang.String"/>
+	<field name="fv5" class="java.lang.String"/>
+	<field name="fl1" class="java.lang.String"/>
+	<field name="fl2" class="java.lang.String"/>
+	<field name="fl3" class="java.lang.String"/>
+	<field name="fl4" class="java.lang.String"/>
+	<field name="fl5" class="java.lang.String"/>
+	<field name="fl6" class="java.lang.String"/>
+	<field name="fr1" class="java.lang.String"/>
+	<field name="fr2" class="java.lang.String"/>
+	<field name="fk1" class="java.lang.String"/>
+	<field name="fk2" class="java.lang.String"/>
+	<field name="fk3" class="java.lang.String"/>
+	<field name="fk4" class="java.lang.String"/>
+	<field name="fk5" class="java.lang.String"/>
+	<field name="fk6" class="java.lang.String"/>
+	<field name="fk7" class="java.lang.String"/>
+	<field name="fk8" class="java.lang.String"/>
+	<pageHeader>
+		<band height="82">
+			<image scaleImage="RetainShape" isUsingCache="true" onErrorType="Blank">
+				<reportElement x="0" y="0" width="70" height="60" uuid="a1b2c3d4-0001-0001-0001-000000000010"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="2" width="480" height="20" uuid="a1b2c3d4-0001-0001-0001-000000000011"/>
+				<textElement textAlignment="Center"><font size="13" isBold="true"/></textElement>
+				<textFieldExpression><![CDATA[$P{namars}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="75" y="22" width="480" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000012"/>
+				<textElement textAlignment="Center"><font size="8"/></textElement>
+				<textFieldExpression><![CDATA[$P{alamatrs}]]></textFieldExpression>
+			</textField>
+			<line><reportElement x="0" y="40" width="555" height="1" uuid="a1b2c3d4-0001-0001-0001-000000000013"/></line>
+			<staticText>
+				<reportElement x="0" y="46" width="440" height="18" uuid="a1b2c3d4-0001-0001-0001-000000000014"/>
+				<textElement><font size="11" isBold="true"/></textElement>
+				<text><![CDATA[FORMULIR KRITERIA PASIEN MASUK INSTALASI RAWAT INTENSIF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="46" width="115" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000015"/>
+				<box><pen lineWidth="0.5"/></box>
+				<textElement textAlignment="Center"><font size="8"/></textElement>
+				<text><![CDATA[RM.KEP.08.052.2022]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="715">
+			<staticText><reportElement x="0" y="0" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000020"/><textElement><font size="9"/></textElement><text><![CDATA[Nama]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="72" y="0" width="220" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000021"/><textElement><font size="9" isBold="true"/></textElement><textFieldExpression><![CDATA[": "+$F{nm_pasien}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="0" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000022"/><textElement><font size="9"/></textElement><text><![CDATA[No. RM]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="372" y="0" width="183" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000023"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{no_rkm_medis}]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="15" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000024"/><textElement><font size="9"/></textElement><text><![CDATA[No. Rawat]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="72" y="15" width="220" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000025"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{no_rawat}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="15" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000026"/><textElement><font size="9"/></textElement><text><![CDATA[Tanggal]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="372" y="15" width="183" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000027"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{tanggal}]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="30" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000028"/><textElement><font size="9"/></textElement><text><![CDATA[Asal Ruangan]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="72" y="30" width="220" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000029"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{asal_ruangan}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="30" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000002a"/><textElement><font size="9"/></textElement><text><![CDATA[Tgl Lahir / JK]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="372" y="30" width="183" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000002b"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{tgl_lahir}+"  ("+$F{jk}+")"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="45" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000002c"/><textElement><font size="9"/></textElement><text><![CDATA[DPJP]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="72" y="45" width="220" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000002d"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{dpjp}]]></textFieldExpression></textField>
+			<staticText><reportElement x="300" y="45" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000002e"/><textElement><font size="9"/></textElement><text><![CDATA[Dokter Konsultan]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="372" y="45" width="183" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000002f"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{dokter_konsultan}]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="60" width="70" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000030"/><textElement><font size="9"/></textElement><text><![CDATA[Diagnosa]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="72" y="60" width="483" height="14" uuid="a1b2c3d4-0001-0001-0001-000000000031"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[": "+$F{diagnosa}]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="78" width="555" height="1" uuid="a1b2c3d4-0001-0001-0001-000000000032"/></line>
+			<staticText><reportElement x="0" y="84" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-000000000033"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[I. PASIEN PRIORITAS 1]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="98" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000034"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p1_depresi_nafas})?"[X]  ":"[  ]  ")+"Depresi Pernafasan"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="110" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000035"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p1_butuh_ventilator})?"[X]  ":"[  ]  ")+"Butuh Ventilator"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="122" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000036"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p1_pengobatan_titrasi})?"[X]  ":"[  ]  ")+"Pengobatan Continue Tertitrasi"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="134" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000037"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p1_sepsis_berat})?"[X]  ":"[  ]  ")+"Pasien Sepsis Berat"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="146" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000038"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p1_gangguan_asam_basa})?"[X]  ":"[  ]  ")+"Gangguan Keseimbangan Asam Basa dan Elektrolit Mengancam Nyawa"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="162" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-000000000039"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[II. PASIEN PRIORITAS 2]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="176" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000003a"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p2_pemantauan_canggih})?"[X]  ":"[  ]  ")+"Memerlukan pelayanan pemantauan canggih di ICU"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="188" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000003b"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p2_jantung_paru})?"[X]  ":"[  ]  ")+"Menderita penyakit dasar jantung-paru"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="200" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000003c"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p2_gagal_ginjal})?"[X]  ":"[  ]  ")+"Gagal ginjal akut dan berat"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="212" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000003d"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p2_pembedahan_major})?"[X]  ":"[  ]  ")+"Pembedahan Major"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="228" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-00000000003e"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[III. PASIEN PRIORITAS 3]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="242" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000003f"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p3_kanker_lanjut})?"[X]  ":"[  ]  ")+"Manifestasi kanker stadium lanjut"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="258" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-000000000040"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[IV. PASIEN PRIORITAS 4]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="272" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000041"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p4_dnr})?"[X]  ":"[  ]  ")+"Kategori DNR"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="284" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000042"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p4_mbo})?"[X]  ":"[  ]  ")+"Kategori MBO"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="296" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000043"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{p4_vegetatif})?"[X]  ":"[  ]  ")+"Vegetatif Permanen"]]></textFieldExpression></textField>
+			<line><reportElement x="0" y="312" width="555" height="1" uuid="a1b2c3d4-0001-0001-0001-000000000044"/></line>
+			<staticText><reportElement x="0" y="316" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-000000000045"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[V. KRITERIA FISIOLOGIS — TANDA VITAL]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="330" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000046"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fv1})?"[X]  ":"[  ]  ")+"Nadi < 40 atau > 150 (x/menit)"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="342" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000047"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fv2})?"[X]  ":"[  ]  ")+"SBP < 80 mmHg Atau 20 mmHg Di Bawah SBP Pasien"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="354" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000048"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fv3})?"[X]  ":"[  ]  ")+"MAP < 60 mmHg"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="366" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000049"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fv4})?"[X]  ":"[  ]  ")+"DBP > 120 mmHg"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="378" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000004a"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fv5})?"[X]  ":"[  ]  ")+"R > 35 x/menit"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="394" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-00000000004b"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[VI. KRITERIA FISIOLOGIS — LABORATORIUM]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="408" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000004c"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fl1})?"[X]  ":"[  ]  ")+"Na < 110 meq/L Atau > 170 meq/L"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="420" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000004d"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fl2})?"[X]  ":"[  ]  ")+"Ca > 15 mg/dl"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="432" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000004e"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fl3})?"[X]  ":"[  ]  ")+"GDS > 800 mg/dl"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="444" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000004f"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fl4})?"[X]  ":"[  ]  ")+"K < 2 meq/L Atau 7 meq/L"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="456" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000050"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fl5})?"[X]  ":"[  ]  ")+"PaO2 < 50 mmHg"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="468" width="540" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000051"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fl6})?"[X]  ":"[  ]  ")+"PH < 7,1 Atau 7,7"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="484" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-000000000052"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[VII. KRITERIA FISIOLOGIS — RADIOLOGI]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="498" width="540" height="24" uuid="a1b2c3d4-0001-0001-0001-000000000053"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fr1})?"[X]  ":"[  ]  ")+"Perdarahan Cerebrovaskuler, SAH, Atau Contusion Dengan Gangguan Kesadaran Atau Neurologi"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="524" width="540" height="24" uuid="a1b2c3d4-0001-0001-0001-000000000054"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fr2})?"[X]  ":"[  ]  ")+"Ruptur Organ Dalam, Kandung Kemih, Hati, Varices Esophagus Atau Uterus Dengan Gangguan Hemodinamik"]]></textFieldExpression></textField>
+			<staticText><reportElement x="0" y="552" width="555" height="13" uuid="a1b2c3d4-0001-0001-0001-000000000055"/><textElement><font size="9" isBold="true"/></textElement><text><![CDATA[VIII. KRITERIA FISIOLOGIS — KLINIS]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="566" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000056"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk1})?"[X]  ":"[  ]  ")+"Pupil Anisokor"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="285" y="566" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000057"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk2})?"[X]  ":"[  ]  ")+"Obstruksi Jalan Nafas"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="578" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000058"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk3})?"[X]  ":"[  ]  ")+"Anuria"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="285" y="578" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-000000000059"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk4})?"[X]  ":"[  ]  ")+"Kejang Berulang"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="590" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000005a"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk5})?"[X]  ":"[  ]  ")+"Tamponade Jantung"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="285" y="590" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000005b"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk6})?"[X]  ":"[  ]  ")+"Coma"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="15" y="602" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000005c"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk7})?"[X]  ":"[  ]  ")+"Sianosis"]]></textFieldExpression></textField>
+			<textField isBlankWhenNull="true"><reportElement x="285" y="602" width="270" height="12" uuid="a1b2c3d4-0001-0001-0001-00000000005d"/><textElement><font size="9"/></textElement><textFieldExpression><![CDATA[("Ya".equals($F{fk8})?"[X]  ":"[  ]  ")+"Luka Bakar > 10 % BSA"]]></textFieldExpression></textField>
+			<staticText><reportElement x="330" y="640" width="225" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000005e"/><textElement textAlignment="Center"><font size="9"/></textElement><text><![CDATA[Dokter Jaga IGD / Ruangan]]></text></staticText>
+			<textField isBlankWhenNull="true"><reportElement x="330" y="695" width="225" height="14" uuid="a1b2c3d4-0001-0001-0001-00000000005f"/><textElement textAlignment="Center"><font size="9" isBold="true" isUnderline="true"/></textElement><textFieldExpression><![CDATA["( "+($F{dokter_jaga}==null?"":$F{dokter_jaga})+" )"]]></textFieldExpression></textField>
+		</band>
+	</detail>
+</jasperReport>
